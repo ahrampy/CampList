@@ -2,7 +2,7 @@ import React from 'react';
 
 class FilterAttrs extends React.Component {
   contructor(props) {
-
+    
   }
 
   onCheck(attr, e) {

@@ -1,11 +1,10 @@
 import React from 'react';
-import FilterAttrs from '../search/filter_attrs';
+import FilterAttrsContainer from '../search/filter_attrs_container';
 // import MapContainer from '../map/map_container';
 
 class CampIndex extends React.Component {
   contructor(props) { 
 
-    //eslint-disable-next-line
     this.state = {
       itemChecked: [],
     };
@@ -14,6 +13,7 @@ class CampIndex extends React.Component {
   }
 
   handleCheck(attr) {
+    debugger
     let { itemChecked } = this.state;
     let newItemCheck = []
     for (let i = 0; i < itemChecked.length; i++) {
@@ -38,14 +38,16 @@ class CampIndex extends React.Component {
   }
 
   render() {
+    let { attrs } = this.props
+    debugger
     return(
       <div>
+  
         <div className="search-holder">
-          <FilterAttrs 
-            attrs={this.props.attrs}
+          <FilterAttrsContainer
+            attrs={attrs}
             onCheck={this.handleCheck}
             unCheck={this.handleUncheck}
-
           />
         </div>
         {/* <div className="map-holder">
