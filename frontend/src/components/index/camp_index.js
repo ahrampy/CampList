@@ -13,7 +13,6 @@ class CampIndex extends React.Component {
   }
 
   handleCheck(attr) {
-    debugger
     let { itemChecked } = this.state;
     let newItemCheck = []
     for (let i = 0; i < itemChecked.length; i++) {
@@ -39,7 +38,6 @@ class CampIndex extends React.Component {
 
   render() {
     let { attrs } = this.props
-    debugger
     return(
       <div>
   

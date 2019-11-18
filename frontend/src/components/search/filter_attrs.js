@@ -2,7 +2,7 @@ import React from 'react';
 
 class FilterAttrs extends React.Component {
   contructor(props) {
-    
+
   }
 
   onCheck(attr, e) {
@@ -38,7 +38,7 @@ class FilterAttrs extends React.Component {
   render() {
     
     return(
-      <div>
+      <div className="filter-sidebar">
         <span>Filter Campsites:</span>
         {this.listChecks()}
       </div>
