@@ -4,7 +4,14 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 
 const Site = require('../../models/Site');
-const validateSiteInput = require('../../validation/sites');
+const validateSiteInput = require('../../validation/sites.js');
+
+router.get('/', (req, res) => {
+  Site.find()
+    .sort({ date: -1 })
+    .then(sites => res.json(sites))
+    .catch(err => res.status(404).json({ nositesfound: 'No sites found' }));
+});
 
 router.get('user/:user_id', (req, res) => {
   Site.find({ user: req.params.user_id })
@@ -36,6 +43,9 @@ router.post('/new',
       name: req.body.name,
       description: req.body.description,
     });
+
+    newSite.save().then(site => res.json(site));
   }
 )
 
+module.exports = router;
