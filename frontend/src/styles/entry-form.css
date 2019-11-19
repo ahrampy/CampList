@@ -100,3 +100,18 @@
 #entry-form-switch-button:hover {
     text-decoration: underline;
 }
+
+#entry-form-demo-button {
+    text-decoration: none;
+    color: rgb(15, 94, 61);
+    border: 1px solid rgb(15, 94, 61);
+    padding: 18px 20px;
+    width: 100%;
+    margin-top: 8px;
+    transition-duration: 0.4s;
+}
+
+#entry-form-demo-button:hover {
+    color: #FFFFFF;
+    background: rgb(15, 94, 61);
+}
