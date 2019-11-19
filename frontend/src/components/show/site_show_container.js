@@ -4,7 +4,7 @@ import SiteShow from './site_show';
 
 const mapStateToProps = (state, ownProps) => {
   const siteId = parseInt(ownProps.match.params.siteId);
-  // const site = seleteSite(state.entites, siteId);
+  const site = seleteSite(state.entities, siteId);
 
   return ({
     siteId,
