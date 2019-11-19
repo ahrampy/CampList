@@ -3,3 +3,7 @@ export const selectSites = (sites, attrs) => {
     attrs.every(attr => site.siteFeatures[attr])
   ))
 }
+
+export const selectSiteReviews = (sites, userId) => {
+
+}

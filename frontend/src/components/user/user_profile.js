@@ -1,22 +1,20 @@
 import React from 'react';
 import UserReviews from './user_reviews';
 
-class User extends React.Component {
+class UserProfile extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = {
-      reviews: []
-    }
   }
 
   componentDidMount() {
-    let reviews = this.props.fetchReviews(this.props.id)
-    this.setState({ reviews })
+    this.props.getUser(this.props.id)
   }
 
   render() {
-    let { reviews } = this.state;
+    if (!this.props.user) return null
+
+    let { reviews } = this.props.siteReviews;
     return(
       <div>
         <div>
@@ -30,4 +28,4 @@ class User extends React.Component {
   }
 }
 
-export default User;
+export default UserProfile;
