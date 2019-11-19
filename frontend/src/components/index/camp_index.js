@@ -57,11 +57,11 @@ class CampIndex extends React.Component {
             unCheck={this.handleUncheck}
           />
         </div>
-        <div className="map-holder">
+        {/* <div className="map-holder">
           <MapContainer
             checkedAttrs={itemChecked}
           />
-        </div>
+        </div> */}
       </div>
     );
   }
