@@ -13,7 +13,6 @@ class FilterAttrs extends React.Component {
     }
   }
 
-
   listChecks() {
     let { attrs } = this.props
     return (
@@ -38,7 +37,7 @@ class FilterAttrs extends React.Component {
   render() {
     
     return(
-      <div>
+      <div className="filter-sidebar">
         <span>Filter Campsites:</span>
         {this.listChecks()}
       </div>
