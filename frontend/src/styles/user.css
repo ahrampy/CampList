@@ -49,7 +49,7 @@
 
 .tab-header > li:hover {
   cursor: pointer;
-  background-color: black;
+  background-color: rgb(15, 94, 61);
   color: white;
 }
 
