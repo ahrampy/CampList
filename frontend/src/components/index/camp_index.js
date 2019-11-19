@@ -42,9 +42,16 @@ class CampIndex extends React.Component {
     })
   }
 
+  componentDidMount() {
+    this.props.fetchSites()
+  }
+
   render() {
+    debugger
+    if (!this.props.sites) return null
     let { attrs } = this.props;
     let { itemChecked } = this.state;
+    debugger
     return(
       <div className="index-holder">
   

@@ -12,7 +12,7 @@ const SitesReducer = (state = {}, action) => {
       newState[action.site.data._id] = action.site.data;
       return newState;
     case RECEIVE_SITES:
-      return action.sites;
+      return Object.assign({}, state, action.sites.data);
     default:
       return state;
   }
