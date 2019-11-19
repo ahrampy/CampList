@@ -18,10 +18,63 @@ const SiteSchema = new Schema({
     type: String,
     required: true
   },
-  parking: {
+  lat: {
+    type: String,
+    required: true
+  },
+  lng: {
+    type: String,
+    required: true
+  },
+  plat: {
     type: String,
     required: false
+  },
+  plng: {
+    type: String,
+    required: false,
+  },
+  tlat: {
+    type: String,
+    required: false,
+  },
+  tlng: {
+    type: String,
+    required: false,
+  },
+  reviews: {
+    author: {
+      type: Schema.Types.ObjectId,
+      ref: 'users'
+    },
+    body: {
+      type: String,
+      required: true,
+    },
+    rating: {
+      type: String,
+      required: true,
+    },
+  },
+  siteFeatures: {
+    parking: {
+      type: Boolean,
+      default: false,
+    },
+    fishing: {
+      type: Boolean,
+      default: false,
+    },
+    hiking: {
+      type: Boolean,
+      default: false,
+    },
+    firePit: {
+      type: Boolean,
+      default: false,
+    }
   }
+  
 });
 
 module.exports = Site = mongoose.model('site', SiteSchema);
