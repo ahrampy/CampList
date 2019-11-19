@@ -77,10 +77,11 @@
 
 .entry-form-errors {
     color: rgb(255, 197, 50);
-    display: table;
+    display: flex;
+    flex-direction: row;
     margin: auto;
+    height: 50px;
     width: 100%;
-    transition: .5s;
 }
 
 .entry-form-switch-button-container {
