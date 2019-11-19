@@ -42,20 +42,22 @@ const SiteSchema = new Schema({
     type: String,
     required: false,
   },
-  reviews: {
-    author: {
-      type: Schema.Types.ObjectId,
-      ref: 'users'
-    },
-    body: {
-      type: String,
-      required: true,
-    },
-    rating: {
-      type: String,
-      required: true,
-    },
-  },
+  // reviews: {
+  //   author: {
+  //     type: Schema.Types.ObjectId,
+  //     ref: 'users'
+  //   },
+  //   body: {
+  //     type: String,
+  //     // required: true,
+  //     default: '',
+  //   },
+  //   rating: {
+  //     type: String,
+  //     // required: true,
+  //     default: '5',
+  //   },
+  // },
   siteFeatures: {
     parking: {
       type: Boolean,

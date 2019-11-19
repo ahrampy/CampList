@@ -42,6 +42,8 @@ router.post('/new',
       author: req.user.id,
       name: req.body.name,
       description: req.body.description,
+      lat: req.body.lat,
+      lng: req.body.lng,
     });
 
     newSite.save().then(site => res.json(site));
