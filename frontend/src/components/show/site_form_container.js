@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { createNewSite } from '../../actions/site_actions';
 import SiteForm from './site_form';
 
-const mapStateToProps = (state, { locatoin }) => ({
+const mapStateToProps = (state, { location }) => ({
   lat: new URLSearchParams(location.search).get('lat'),
   lng: new URLSearchParams(location.search).get('lng')
 });
