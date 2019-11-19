@@ -29,14 +29,10 @@
     font-size: 15px;
 }
 
-.entry-form-input-field {
-        width: 100%;
-}
-
 .entry-form input {
     box-sizing : border-box;
     font-size: medium;
-    border: 1px solid #F6C270;
+    border: 1px solid rgb(15, 94, 61);
     border-radius: 0px;
     padding: 18px 20px;
     width: 100%;
@@ -55,19 +51,19 @@
     width: 100%;
 }
 
-.entry-form-sign-button {
+.entry-form-button {
     text-decoration: none;
-    color: #F6C270;
-    border: 1px solid #F6C270;
+    color: rgb(15, 94, 61);
+    border: 1px solid rgb(15, 94, 61);
     padding: 18px 20px;
     width: 100%;
     margin-top: 15px;
     transition-duration: 0.4s;
 }
 
-.entry-form-sign-button:hover {
+.entry-form-button:hover {
     color: #FFFFFF;
-    background: #F6C270;
+    background: rgb(15, 94, 61);
 }
 
 .entry-form-demo-button-container {
@@ -80,7 +76,7 @@
 }
 
 .entry-form-errors {
-    color: rgb(138, 49, 49);
+    color: rgb(255, 197, 50);
     display: table;
     margin: auto;
     width: 100%;
@@ -93,10 +89,10 @@
 }
 
 #entry-form-switch-button {
-    color: #F6C270;
+    color: rgb(15, 94, 61);
     border: none;
     padding: 4px;
-    margin-top: 15px;
+    margin-bottom: 15px;
     transition: 0.2s;
     border-radius: 0px;
 }

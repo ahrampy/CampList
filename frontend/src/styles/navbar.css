@@ -1,9 +1,15 @@
-.NavBar {
+.nav-bar-container {
+    position: sticky;
+}
+
+.nav-bar{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    height: 50px;
 }
 
-.NavBar button {
+.nav-bar .btn{
+    margin: 10px;
     height: 20px;
 }

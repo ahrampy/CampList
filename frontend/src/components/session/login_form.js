@@ -36,7 +36,8 @@ class LoginForm extends React.Component {
       password: this.state.password
     };
 
-    this.props.login(user).then(this.props.closeModal); 
+    this.props.login(user)
+    .then(this.props.closeModal); 
   }
 
   renderErrors() {
@@ -53,9 +54,9 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <div>
+      <div className='entry-form-container'>
+        <form onSubmit={this.handleSubmit} className='entry-form'>
+          <div className='entry-form-input-container'>
             <br/>
               <input type="text"
                 value={this.state.email}
@@ -69,10 +70,15 @@ class LoginForm extends React.Component {
                 placeholder="Password"
               />
             <br/>
-            <input type="submit" value="Submit" />
-            {this.renderErrors()}
+            <input type="submit" value="Submit" className='entry-form-button'/>
+            <div className='entry-form-errors'>
+              {this.renderErrors()}
+            </div>
           </div>
         </form>
+        <div className='entry-form-switch-button-container'>
+          <h3>{this.props.otherForm} instead</h3>
+        </div>
       </div>
     );
   }

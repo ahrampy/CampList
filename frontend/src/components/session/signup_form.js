@@ -56,9 +56,9 @@ class SignupForm extends React.Component {
 
   render() {
     return (
-      <div className="login-form-container">
-        <form onSubmit={this.handleSubmit}>
-          <div className="login-form">
+      <div className="entry-form-container">
+        <form onSubmit={this.handleSubmit} className='entry-form'>
+          <div className='entry-form-input-container'>
             <br/>
               <input type="text"
                 value={this.state.username}
@@ -84,10 +84,13 @@ class SignupForm extends React.Component {
                 placeholder="Confirm Password"
               />
             <br/>
-            <input type="submit" value="Submit" />
+            <input type="submit" value="Submit" className='entry-form-button'/>
             {this.renderErrors()}
           </div>
         </form>
+        <div className='entry-form-switch-button-container'>
+          <h3>{this.props.otherForm} instead</h3>
+        </div>
       </div>
     );
   }
