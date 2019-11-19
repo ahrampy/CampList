@@ -8,7 +8,9 @@ const mSTP = state => {
     {id: 3, name: 'fishing'},
     {id: 4, name: 'firepit'}
   ]
+  
   return {
+    state,
     attrs
   }
 }

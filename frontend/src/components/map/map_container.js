@@ -3,10 +3,13 @@ import Map from './map';
 
 import { selectSites } from '../../reducers/selectors';
 
-const mSTP = (state, { attrs }) => {
-
-  let filterSites = selectSites(Object.values(state.sites), attrs)
-
+const mSTP = (state, { checkedAttrs }) => {
+  debugger
+  let filterSites = selectSites(Object.values(state.sites), checkedAttrs)
+  
   return {
+    filterSites
   }
 }
+
+export default connect(mSTP)(Map);
