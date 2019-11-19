@@ -1,5 +1,5 @@
 import React from 'react';
-import UserReviews from './user_reviews';
+import TabsContainer from './tabs_container';
 
 class UserProfile extends React.Component {
   constructor(props) {
@@ -21,7 +21,7 @@ class UserProfile extends React.Component {
           {this.props.username}
         </div>
         <div>
-          <UserReviews reviews={reviews}/>
+          <TabsContainer reviews={reviews}/>
         </div>
       </div>
     );
