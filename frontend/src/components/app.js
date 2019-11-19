@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/stylesheets';
 import { 
   AuthRoute,
   //  ProtectedRoute

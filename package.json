@@ -1,7 +1,7 @@
 {
-  "name": "blm_friends",
+  "name": "camp_list",
   "version": "1.0.0",
-  "description": "Find and share spots on blm land",
+  "description": "Find and share camp spots on blm land",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
@@ -22,9 +22,9 @@
   "author": "max li, adrian rampy, will smith",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ahrampy/blmFriends/issues"
+    "url": "https://github.com/ahrampy/CampList/issues"
   },
-  "homepage": "https://github.com/ahrampy/blmFriends#readme",
+  "homepage": "https://github.com/ahrampy/CampList#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
