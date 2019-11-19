@@ -1,28 +1,17 @@
 import {
-  RECEIVE_NEW_SITE,
   RECEIVE_SITES,
-  RECEIVE_USER_SITES,
   RECEIVE_SITE
 } from '../actions/site_actions';
 
-const SitesReducer = (state = {
-  all: {}, user: {}, new: undefined, current: {}
-}, action) => {
+const SitesReducer = (state = {}, action) => {
   Object.freeze(state);
   let newState = Object.assign({}, state);
-  switch (actoin.type) {
+  switch (action.type) {
     case RECEIVE_SITE:
-      newState.current = action.site.data;
-      return newState;
-    case RECEIVE_NEW_SITE:
-      newState.new = action.site.data;
+      newState.site.id = action.site;
       return newState;
     case RECEIVE_SITES:
-      newState.all = action.sites.data;
-      return newState;
-    case RECEIVE_USER_SITES:
-      newState.user = action.sites.data;
-      return newState;
+      return action.sites;
     default:
       return state;
   }
