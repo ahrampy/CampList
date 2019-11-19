@@ -16,12 +16,15 @@ const mapDispatchToProps = (dispatch) => {
     signup: user => dispatch(signup(user)),
     closeModal: () => dispatch(closeModal()),
     otherForm: (
-      <button
-        id="entry-form-switch-button"
-        onClick={() => dispatch(openModal("login"))}
-      >
-        Sign Up
-      </button>
+      <div>
+        Have an account? 
+        <button
+          id="entry-form-switch-button"
+          onClick={() => dispatch(openModal("login"))}
+        >
+          Log In
+        </button>
+      </div>
     )
   };
 }

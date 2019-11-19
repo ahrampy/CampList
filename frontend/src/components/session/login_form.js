@@ -16,7 +16,7 @@ class LoginForm extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.currentUser === true) {
-      this.props.history.push('/');
+      this.props.closeModal();
     }
 
     this.setState({errors: nextProps.errors})
@@ -36,8 +36,7 @@ class LoginForm extends React.Component {
       password: this.state.password
     };
 
-    this.props.login(user)
-    .then(this.props.closeModal); 
+    this.props.login(user); 
   }
 
   renderErrors() {
@@ -77,7 +76,7 @@ class LoginForm extends React.Component {
           </div>
         </form>
         <div className='entry-form-switch-button-container'>
-          <h3>{this.props.otherForm} instead</h3>
+          <h3>{this.props.otherForm}</h3>
         </div>
       </div>
     );

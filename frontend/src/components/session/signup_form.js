@@ -18,7 +18,7 @@ class SignupForm extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.signedIn === true) {
-      this.props.history.push('/login');
+      this.props.closeModal();
     }
 
     this.setState({errors: nextProps.errors})
@@ -39,7 +39,7 @@ class SignupForm extends React.Component {
       password2: this.state.password2
     };
 
-    this.props.signup(user, this.props.history).then(this.props.closeModal); 
+    this.props.signup(user, this.props.history); 
   }
 
   renderErrors() {
@@ -89,7 +89,7 @@ class SignupForm extends React.Component {
           </div>
         </form>
         <div className='entry-form-switch-button-container'>
-          <h3>{this.props.otherForm} instead</h3>
+          <h3>{this.props.otherForm}</h3>
         </div>
       </div>
     );

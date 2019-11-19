@@ -9,7 +9,22 @@
     height: 50px;
 }
 
-.nav-bar .btn{
+.nav-buttons{
     margin: 10px;
+    padding: 15px;
     height: 20px;
+}
+
+.nav-buttons .btn {
+    margin-right: 10px;
+    padding: 10px;
+    text-decoration: none;
+    background: white;
+    color: rgb(15, 94, 61);
+    transition-duration: 0.4s;
+}
+
+.nav-buttons .btn:hover {
+    background: rgb(15, 94, 61);
+    color: white;
 }

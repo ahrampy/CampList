@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 
 const Nav = (props) => {
 
-    const { logout, currentUser, openModal } = props;
+    const { logout, loggedIn, openModal } = props;
 
-    let buttons = currentUser ? (
+    let buttons = loggedIn ? (
         <>
             <button className='btn' onClick={logout}>Log Out</button>
         </>

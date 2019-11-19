@@ -32,7 +32,7 @@ router.post("/register", (req, res) => {
             .json({ email: "A user has already registered with this address" });
         } else {
             const newUser = new User({
-                handle: req.body.handle,
+                username: req.body.username,
                 email: req.body.email,
                 password: req.body.password
             });
@@ -69,7 +69,7 @@ router.post("/login", (req, res) => {
 
     bcrypt.compare(password, user.password).then(isMatch => {
       if (isMatch) {
-        const payload = { id: user.id, handle: user.handle };
+        const payload = { id: user.id, email: user.email };
 
         jwt.sign(
           payload,

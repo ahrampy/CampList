@@ -4,7 +4,7 @@ import { logout } from '../../actions/session_actions';
 import { openModal } from '../../actions/modal';
 
 const mapStateToProps = (state) => ({
-    currentUser: state.session.currentUser
+    loggedIn: state.session.isAuthenticated
 });
 
 const mapDispatchToProps = (dispatch) => ({
