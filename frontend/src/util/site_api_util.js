@@ -1,5 +1,9 @@
 import axios from 'axios';
 
+export const getSite = id => {
+  return axios.get(`/api/sites/${id}`);
+};
+
 export const getSites = () => {
   return axios.get('/api/sites');
 };
