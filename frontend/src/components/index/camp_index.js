@@ -31,7 +31,6 @@ class CampIndex extends React.Component {
   }
 
   handleUncheck(attr) {
-    debugger
     let { itemChecked } = this.state;
     let newItemCheck = []
     for (let i = 0; i < itemChecked.length; i++) {
@@ -47,7 +46,7 @@ class CampIndex extends React.Component {
     let { attrs } = this.props;
     let { itemChecked } = this.state;
     return(
-      <div>
+      <div className="index-holder">
   
         <div className="search-holder">
           <FilterAttrsContainer
@@ -55,6 +54,9 @@ class CampIndex extends React.Component {
             onCheck={this.handleCheck}
             unCheck={this.handleUncheck}
           />
+        </div>
+        <div className="map-holder">
+          Map goes here
         </div>
         {/* <div className="map-holder">
           <MapContainer
