@@ -8,6 +8,7 @@ import Splash from './splash/splash';
 import Nav from './nav/nav_container';
 import Modal from "./modal/modal";
 import CampIndexContainer from './index/camp_index_container';
+import UserProfile from './user/user_profile';
 
 const App = () => (
   <div>
