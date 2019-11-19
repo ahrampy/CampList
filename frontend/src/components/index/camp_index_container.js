@@ -9,7 +9,6 @@ const mSTP = state => {
     {id: 3, name: 'fishing'},
     {id: 4, name: 'firepit'}
   ]
-  debugger
   return {
     sites: state.entities.sites,
     attrs

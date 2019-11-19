@@ -47,11 +47,9 @@ class CampIndex extends React.Component {
   }
 
   render() {
-    debugger
-    if (!this.props.sites) return null
-    let { attrs } = this.props;
+    if (!this.props.sites) return null;
+    let { attrs, sites } = this.props;
     let { itemChecked } = this.state;
-    debugger
     return(
       <div className="index-holder">
   
@@ -63,13 +61,11 @@ class CampIndex extends React.Component {
           />
         </div>
         <div className="map-holder">
-          Map goes here
-        </div>
-        {/* <div className="map-holder">
           <MapContainer
+            sites={sites}
             checkedAttrs={itemChecked}
           />
-        </div> */}
+        </div>
       </div>
     );
   }

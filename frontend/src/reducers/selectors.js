@@ -1,7 +1,22 @@
+// export const selectSites = (sites, attrs) => {
+//   debugger
+//   sites.filter(site => {
+    
+//     attrs.every(attr => site.siteFeatures[attr])
+//     debugger
+//   })
+// }
 export const selectSites = (sites, attrs) => {
-  return sites.filter(site => (
-    attrs.every(attr => site.siteFeatures[attr])
-  ))
+  let siteFeatures = [];
+
+  sites.map(site => {
+    siteFeatures.push(site.siteFeatures)
+  })
+
+
+  debugger
+
+  return siteFeatures;
 }
 
 export const selectSiteReviews = (sites, userId) => {
