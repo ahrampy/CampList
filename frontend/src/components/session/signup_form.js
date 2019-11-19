@@ -13,14 +13,10 @@ class SignupForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.clearedErrors = false;
+    this.renderErrors = this.renderErrors.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.signedIn === true) {
-      this.props.closeModal();
-    }
-
     this.setState({errors: nextProps.errors})
   }
 
@@ -39,7 +35,9 @@ class SignupForm extends React.Component {
       password2: this.state.password2
     };
 
-    this.props.signup(user, this.props.history); 
+    this.props.signup(user)
+      .then(() => this.props.login(user))
+      .then(() => this.props.closeModal); 
   }
 
   renderErrors() {
@@ -85,7 +83,9 @@ class SignupForm extends React.Component {
               />
             <br/>
             <input type="submit" value="Submit" className='entry-form-button'/>
-            {this.renderErrors()}
+            <div className='entry-form-errors'>
+              {this.renderErrors()}
+            </div>
           </div>
         </form>
         <div className='entry-form-switch-button-container'>
