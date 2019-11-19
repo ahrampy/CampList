@@ -1,0 +1,26 @@
+.splash-main-container {
+    padding-left: 8%;
+    padding-right: 1%;
+    padding-bottom: 50px;
+    color: #333333;
+
+}
+
+.splash-main {
+    font-family: "Calibre", Helvetica, Arial, sans-serif;
+    width: 100%;
+}
+
+.splash-header h1 {
+    font-size: 40px;
+    font-weight: 550;
+    color: #333333;
+    padding-top: 130px;
+    padding-bottom: 30px;
+}
+
+.splash-header p {
+    font-size: 20px;
+    width: 500px;
+    padding-bottom: 45px;
+}

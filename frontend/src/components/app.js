@@ -4,14 +4,14 @@ import {
   //  ProtectedRoute
 } from '../util/route_util';
 import { Switch } from 'react-router-dom';
-import MainPage from './main/main_page';
+import Splash from './splash/splash';
 import Nav from './nav/nav_container';
 
 const App = () => (
   <div>
     <Nav />
     <Switch>
-      <AuthRoute exact path="/" component={MainPage} />
+      <AuthRoute exact path="/" component={Splash} />
     </Switch>
   </div>
 );
