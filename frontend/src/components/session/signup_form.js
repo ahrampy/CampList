@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import "./entry-form.css";
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -33,13 +34,13 @@ class SignupForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     let user = {
-      email: this.state.email,
       username: this.state.username,
+      email: this.state.email,
       password: this.state.password,
       password2: this.state.password2
     };
 
-    this.props.signup(user, this.props.history); 
+    this.props.signup(user, this.props.history).then(this.props.closeModal); 
   }
 
   renderErrors() {
@@ -61,15 +62,15 @@ class SignupForm extends React.Component {
           <div className="login-form">
             <br/>
               <input type="text"
-                value={this.state.email}
-                onChange={this.update('email')}
-                placeholder="Email"
-              />
-            <br/>
-              <input type="text"
                 value={this.state.username}
                 onChange={this.update('username')}
                 placeholder="Username"
+              />
+            <br/>
+              <input type="text"
+                value={this.state.email}
+                onChange={this.update('email')}
+                placeholder="Email"
               />
             <br/>
               <input type="password"
