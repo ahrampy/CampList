@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import CampIndex from './camp_index';
+import { fetchSites } from '../../actions/site_actions'
 
 const mSTP = state => {
   let attrs = [ 
@@ -15,4 +16,10 @@ const mSTP = state => {
   }
 }
 
-export default connect(mSTP)(CampIndex);
+const mDTP = dispatch => ({
+  fetchSites: () => dispatch(fetchSites()),
+});
+   
+
+
+export default connect(mSTP, mDTP)(CampIndex);

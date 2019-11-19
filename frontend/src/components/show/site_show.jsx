@@ -8,13 +8,15 @@ export default class SiteShow extends Component {
   }
 
   render() {
+    if (!this.props.site) return null
     const { site } = this.props
 
-    if (!site) return null
-
+    debugger
     return (
       <div>
-        <SiteDetail />
+        <SiteDetail 
+        site={this.props.site}
+        />
       </div>
     )
   }
