@@ -2,3 +2,4 @@
 /node_modules
 /frontend/modules
 .DS_Store
+.env

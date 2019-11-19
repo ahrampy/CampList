@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import CampIndex from './camp_index';
-import { fetchSites } from '../../actions/site_actions'
+import { fetchSites } from '../../actions/site_actions';
 
 const mSTP = state => {
   let attrs = [ 
