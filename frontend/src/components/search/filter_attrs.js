@@ -13,7 +13,6 @@ class FilterAttrs extends React.Component {
     }
   }
 
-
   listChecks() {
     let { attrs } = this.props
     return (

@@ -49,7 +49,9 @@ class CampIndex extends React.Component {
           />
         </div>
         {/* <div className="map-holder">
-          <MapContainer />
+          <MapContainer
+            attrs={attrs}
+          />
         </div> */}
       </div>
     );
