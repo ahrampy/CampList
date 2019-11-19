@@ -18,11 +18,11 @@ class FilterAttrs extends React.Component {
     return (
       <div className="attr-list">
         {attrs.map(attr => 
-          <div>
+          <div className="attr-item">
             <label>
               <input 
                 type="checkbox" 
-                className="attr-item" 
+                className="attr-check" 
                 value={attr}
                 onChange={e => this.onCheck(attr, e)}
               />
