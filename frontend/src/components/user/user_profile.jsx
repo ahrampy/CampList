@@ -16,12 +16,12 @@ class UserProfile extends React.Component {
 
     // let { reviews } = this.props.siteReviews;
     return(
-      <div>
-        <div>
+      <div className="user-main">
+        <div className="user-details">
           Username goes here!
           {/* {this.props.username} */}
         </div>
-        <div>
+        <div className="user-tabs">
           <TabsContainer />
         </div>
       </div>
