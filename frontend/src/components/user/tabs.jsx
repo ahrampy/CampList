@@ -1,4 +1,5 @@
 import React from 'react';
+import Headers from './headers';
 
 class Tabs extends React.Component {
   constructor(props) {
@@ -16,16 +17,19 @@ class Tabs extends React.Component {
 
   render() {
     const displayTab = this.props.tabSections[this.state.activeTab];
-
     return(
-      <div>
+      <div className="tabs">
         <Headers 
           activeTab={this.state.activeTab}
           onTabChosen={this.handleClick}
           tabs={this.props.tabSections}
         />
         <div className="tab-content">
-          {displayTab.content}
+          <ul>
+            {displayTab.content.map(item => (
+              <li>{item}</li>
+            ))}
+          </ul>
         </div>
       </div>
     );

@@ -7,21 +7,22 @@ class UserProfile extends React.Component {
 
   }
 
-  componentDidMount() {
-    this.props.getUser(this.props.id)
-  }
+  // componentDidMount() {
+  //   this.props.getUser(this.props.id)
+  // }
 
   render() {
-    if (!this.props.user) return null
+    // if (!this.props.user) return null
 
-    let { reviews } = this.props.siteReviews;
+    // let { reviews } = this.props.siteReviews;
     return(
       <div>
         <div>
-          {this.props.username}
+          Username goes here!
+          {/* {this.props.username} */}
         </div>
         <div>
-          <TabsContainer reviews={reviews}/>
+          <TabsContainer />
         </div>
       </div>
     );
