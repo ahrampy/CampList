@@ -17,6 +17,7 @@ const App = () => (
     <Switch>
       <AuthRoute exact path="/" component={Splash} />
       <AuthRoute exact path="/campsites" component={CampIndexContainer} />
+      <AuthRoute exact path="/users" component={UserProfile} />
     </Switch>
   </div>
 );

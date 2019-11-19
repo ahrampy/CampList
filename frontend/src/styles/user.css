@@ -1,0 +1,69 @@
+.user-main {
+  width: 80%;
+  margin: 3% auto;
+  display: flex;
+  justify-content: center;
+  border: black solid 1px;
+  padding: 5%
+}
+
+.user-details {
+  width: 50%;
+}
+
+.user-tabs {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.tabs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tab-header {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.tab-header > li {
+  width: 100%;
+  text-align: center;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.tab-header > li:first-child {
+  border-left: 2px solid black;
+}
+
+.tab-header > li:last-child {
+  border-right: 2px solid black;
+}
+
+.tab-header > li:hover {
+  cursor: pointer;
+  background-color: black;
+  color: white;
+}
+
+.active {
+  font-weight: bold;
+}
+
+.tab-content {
+  width: 100%;
+  border: 1px solid gray;
+  border-radius: 3px;
+  text-align: center;
+}
+
+.tab-content li {
+  padding: 10px;
+}
