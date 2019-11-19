@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import './entry-form.css';
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -37,7 +38,7 @@ class LoginForm extends React.Component {
       password: this.state.password
     };
 
-    this.props.login(user); 
+    this.props.login(user).then(this.props.closeModal); 
   }
 
   renderErrors() {
