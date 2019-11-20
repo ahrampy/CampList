@@ -16,7 +16,8 @@ router.post('/new',
       }
 
       const newReview = new Review({
-        author: req.user.id,
+        author: req.body.author,
+        site: req.body.site,
         body: req.body.body,
         rating: req.body.rating,
       });

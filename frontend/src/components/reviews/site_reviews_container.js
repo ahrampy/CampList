@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import SiteReview from './site_reviews';
+import { createReview } from '../../actions/review_actions';
 
 const mSTP = (state, ownProps) => {
 
@@ -10,4 +11,8 @@ const mSTP = (state, ownProps) => {
   }
 }
 
-export default connect(mSTP)(SiteReview);
+const mDTP = dispatch => ({
+  createReview: review => dispatch(createReview(review))
+})
+
+export default connect(mSTP, mDTP)(SiteReview);
