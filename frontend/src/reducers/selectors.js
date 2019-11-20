@@ -6,17 +6,16 @@
 //     debugger
 //   })
 // }
+
 export const selectSites = (sites, attrs) => {
-  let siteFeatures = [];
-
+  let selectSites = [];
   sites.map(site => {
-    siteFeatures.push(site.siteFeatures)
+    if (attrs.every(val => site.siteFeatures[val])) {
+        selectSites.push(site)
+    }
   })
-
-
   debugger
-
-  return siteFeatures;
+  return selectSites;
 }
 
 export const selectSiteReviews = (sites, userId) => {
