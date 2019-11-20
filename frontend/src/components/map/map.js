@@ -1,10 +1,6 @@
 import React, { Component } from "react";
 import { Map, GoogleApiWrapper, InfoWindow, Marker } from "google-maps-react";
-
-const mapStyles = {
-  width: "100%",
-  height: "100%"
-};
+const mapKey = process.env.REACT_APP_MAP_API;
 
 class MapComponent extends React.Component {
   constructor(props){
@@ -35,11 +31,15 @@ class MapComponent extends React.Component {
   };
 
   render() {
+    
+    if (!this.props.sites) return null;
+    // const site = { lat: parseFloat(this.props.sites[0].lat), lng: parseFloat(this.props.sites[0].lng) };
     return (
+
       <Map
         google={this.props.google}
         zoom={6}
-        style={mapStyles}
+        style={{ width: "100%", height: "100%" }}
         initialCenter={{
           lat: 36.7783,
           lng: -119.4179
@@ -48,7 +48,7 @@ class MapComponent extends React.Component {
         <Marker
           onClick={this.onMarkerClick}
           name={"Marker"}
-          // position={{ lat: this.props.sites[0].lat, lng: this.props.sites[0].lng }}
+          // position={site}
         />
         {/* {this.props.sites.map(site => (
           <div key={site.id} className='map-site-marker'>
@@ -74,5 +74,6 @@ class MapComponent extends React.Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: "AIzaSyBk7CBd8ZQcP0bHBHwiPgQcpcOU1oGVVbo"
+
+  apiKey: mapKey
 })(MapComponent);

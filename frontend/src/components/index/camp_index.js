@@ -1,12 +1,7 @@
 import React from 'react';
 import FilterAttrsContainer from '../search/filter_attrs_container';
 import MapContainer from '../map/map_container';
-import {
-  withScriptjs,
-  withGoogleMap,
-  GoogleMap,
-  Marker
-} from "react-google-maps";
+
 
 class CampIndex extends React.Component {
   constructor(props) { 
