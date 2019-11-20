@@ -1,12 +1,3 @@
-// export const selectSites = (sites, attrs) => {
-//   debugger
-//   sites.filter(site => {
-    
-//     attrs.every(attr => site.siteFeatures[attr])
-//     debugger
-//   })
-// }
-
 export const selectSites = (sites, attrs) => {
   let selectSites = [];
   sites.map(site => {
@@ -14,7 +5,6 @@ export const selectSites = (sites, attrs) => {
         selectSites.push(site)
     }
   })
-  debugger
   return selectSites;
 }
 
