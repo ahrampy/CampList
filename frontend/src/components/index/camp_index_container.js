@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import CampIndex from './camp_index';
-import { fetchSites } from '../../actions/site_actions'
+import { fetchSites } from '../../actions/site_actions';
 
 const mSTP = state => {
   let attrs = [ 
@@ -10,7 +10,7 @@ const mSTP = state => {
     {id: 4, name: 'firepit'}
   ]
   return {
-    sites: state.entities.sites,
+    sites: Object.values(state.entities.sites),
     attrs
   }
 }

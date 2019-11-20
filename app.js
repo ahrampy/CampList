@@ -6,6 +6,7 @@ const bodyParser = require("body-parser");
 const passport = require('passport');
 const users = require("./routes/api/users");
 const sites = require("./routes/api/sites");
+require("dotenv").config();
 
 mongoose
     .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
