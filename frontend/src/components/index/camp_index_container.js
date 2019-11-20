@@ -10,7 +10,7 @@ const mSTP = state => {
     {id: 4, name: 'firepit'}
   ]
   return {
-    sites: state.entities.sites,
+    sites: Object.values(state.entities.sites),
     attrs
   }
 }

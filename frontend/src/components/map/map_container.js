@@ -6,7 +6,7 @@ const mSTP = (state, { checkedAttrs, sites }) => {
   // let filterSites = selectSites(Object.values(sites), checkedAttrs)
   return {
     // filterSites
-    sites
+    sites: Object.values(sites)
   }
 }
 

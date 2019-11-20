@@ -6,7 +6,7 @@ const mapStyles = {
   height: "100%"
 };
 
-export class MapContainer extends React.Component {
+class MapComponent extends React.Component {
   constructor(props){
     super(props)
     this.state = {
@@ -47,18 +47,27 @@ export class MapContainer extends React.Component {
       >
         <Marker
           onClick={this.onMarkerClick}
-          name={"title here"}
-          position={{lat: 30, lng:-119}}
+          name={"Marker"}
+          // position={{ lat: this.props.sites[0].lat, lng: this.props.sites[0].lng }}
         />
-        <InfoWindow
-          marker={this.state.activeMarker}
-          visible={this.state.showingInfoWindow}
-          onClose={this.onClose}
-        >
-          <div>
-            <h4>{this.state.selectedPlace.name}</h4>
+        {/* {this.props.sites.map(site => (
+          <div key={site.id} className='map-site-marker'>
+            <Marker
+              onClick={this.onMarkerClick}
+              name={site.title}
+              position={{lat: site.lat, lng: site.lng}}
+            />
+            <InfoWindow
+              marker={this.state.activeMarker}
+              visible={this.state.showingInfoWindow}
+              onClose={this.onClose}
+            >
+              <div>
+                <h4>{this.state.selectedPlace.name}</h4>
+              </div>
+            </InfoWindow>
           </div>
-        </InfoWindow>
+        ))} */}
       </Map>
     );
   }
@@ -66,4 +75,4 @@ export class MapContainer extends React.Component {
 
 export default GoogleApiWrapper({
   apiKey: "AIzaSyBk7CBd8ZQcP0bHBHwiPgQcpcOU1oGVVbo"
-})(MapContainer);
+})(MapComponent);
