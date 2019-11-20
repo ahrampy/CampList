@@ -53,6 +53,7 @@ class CampIndex extends React.Component {
     debugger
     let { attrs, sites } = this.props;
     let { itemChecked } = this.state;
+    
     return(
       <div className="index-holder">
   

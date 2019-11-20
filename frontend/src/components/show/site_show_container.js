@@ -8,7 +8,7 @@ const mapStateToProps = (state, ownProps) => {
   
   return ({
     siteId,
-    // site: state.entities.sites[ownProps.match.params.siteId]
+    site: state.entities.sites[ownProps.match.params.siteId]
   });
 };
 
