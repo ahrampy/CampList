@@ -5,10 +5,10 @@ import SiteShow from './site_show';
 const mapStateToProps = (state, ownProps) => {
   const siteId = parseInt(ownProps.match.params.siteId);
   // const site = seleteSite(state.entites, siteId);
-  debugger
+  
   return ({
     siteId,
-    // site: state.entities.sites[ownProps.match.params.siteId]
+    site: state.entities.sites[ownProps.match.params.siteId]
   });
 };
 

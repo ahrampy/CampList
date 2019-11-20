@@ -6,6 +6,7 @@ const bodyParser = require("body-parser");
 const passport = require('passport');
 const users = require("./routes/api/users");
 const sites = require("./routes/api/sites");
+const reviews = require("./routes/api/reviews");
 
 mongoose
     .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -24,6 +25,7 @@ app.get("/", (req, res) => res.send("Is this thing on?"));
 
 app.use("/api/users", users);
 app.use("/api/sites", sites);
+app.use("/api/sites/:siteId/reviews", reviews)
 
 const port = process.env.PORT || 5000;
 

@@ -31,7 +31,7 @@ class CampIndex extends React.Component {
   }
 
   handleUncheck(attr) {
-    debugger
+    
     let { itemChecked } = this.state;
     let newItemCheck = []
     for (let i = 0; i < itemChecked.length; i++) {
@@ -46,6 +46,7 @@ class CampIndex extends React.Component {
   render() {
     let { attrs } = this.props;
     let { itemChecked } = this.state;
+    
     return(
       <div>
   

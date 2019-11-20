@@ -13,9 +13,14 @@ class SiteForm extends Component {
       photoUrl: null,
       lat: '', // for test
       lng: '', // for test
+      siteFeatures: {
+        parking: false,
+        fishing: false,
+      }
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    // this.handleCheck = this.handleCheck.bind(this);
   }
 
   handleInput(type) {
@@ -33,6 +38,16 @@ class SiteForm extends Component {
     if (file) {
       fileReader.readAsDataURL(file);
     }
+  }
+
+  handleCheck(type, e) {
+    e.preventDefault();
+    if (this.state.type === false) {
+      this.setState({ [type]: true });
+    } else {
+      this.setState({ [type]: false });
+    }
+  
   }
 
   // handleSubmit(e) {
@@ -61,7 +76,7 @@ class SiteForm extends Component {
   }
 
   render() {
-
+    
     return (
       <div>
         <h3>Create a New Campsite</h3>
@@ -101,8 +116,15 @@ class SiteForm extends Component {
             rows="10"
             value={this.state.description}
             onChange={this.handleInput('description')}
-            placeholder="Your review helps others learn about great local businesses. Please don’t review this business if you received a freebie for writing this review, or if you’re connected in any way to the owner or employees."
           />
+          <input 
+            type="checkbox"
+            name="fishing"
+            onChange={this.handleInput('fishing')}
+            value={!this.state.siteFeatures.fishing}
+          />Fishing
+          {/* <label>parking:</label>
+          <input type="text"/> */}
           <input type="submit" value="Submit"/>
         </form>
       </div>
