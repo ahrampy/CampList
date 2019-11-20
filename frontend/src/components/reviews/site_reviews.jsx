@@ -8,11 +8,16 @@ class SiteReviews extends React.Component {
     this.state = {
       author: this.props.authorId,
       site: this.props.siteId,
-      body: 'Test Review',
+      body: '',
       rating: '5'
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.update = this.update.bind(this);
+  }
+
+  update(field) {
+    return e => this.setState({ [field]: e.target.value })
   }
 
 
@@ -26,7 +31,29 @@ class SiteReviews extends React.Component {
     debugger
     return(
       <div>
-        <button type="submit" onClick={this.handleSubmit}>Submit Test Review</button>
+        <form onSubmit={this.handleSubmit}>
+          <label>Rating (1-5)
+            <input 
+              type="number"
+              min="0"
+              max="5"
+              
+              onChange={this.update("rating")}
+              id="rating"
+            />
+          </label>
+            <br/>
+          <label>Review </label>
+            <br/>
+          <textarea
+            required
+            cols="31"
+            
+            onChange={this.update("body")}
+          />
+
+          <button type="submit" >Submit Test Review</button>
+        </form>
       </div>
     );
   }

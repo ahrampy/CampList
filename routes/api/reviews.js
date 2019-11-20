@@ -9,6 +9,7 @@ const validateReviewInput = require('../../validation/review.js');
 router.post('/new', 
   passport.authenticate('jwt', { session: false }),
     (req, res) => {
+      debugger
       const { errors, isValid } = validateReviewInput(req.body);
 
       if (!isValid) {
