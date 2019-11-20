@@ -1,17 +1,18 @@
 import { connect } from 'react-redux';
 import UserProfile from './user_profile';
-// import getUser from '../../actions/user';
-import { selectSiteReviews } from '../../reducers/selectors';
+import { selectSiteAuthor } from '../../reducers/selectors';
+
 
 const mSTP = (state, ownProps) => {
-  let { id } = state.session
-  let { sites } = state
-  const siteReviews = selectSiteReviews(sites, id)
-
+  let { id, username, email } = state.session.user
+  let { sites } = state.entities
+  let createdCampsites = selectSiteAuthor(sites, id)
+  
   return {
     id,
-    siteReviews,
-    user: state.user
+    username,
+    email,
+    createdCampsites
   }
 }
 

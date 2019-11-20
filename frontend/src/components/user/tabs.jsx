@@ -1,5 +1,6 @@
 import React from 'react';
 import Headers from './headers';
+import { Link } from 'react-router-dom';
 
 class Tabs extends React.Component {
   constructor(props) {
@@ -15,6 +16,19 @@ class Tabs extends React.Component {
     this.setState({ activeTab: num})
   }
 
+  handleEmptyTab() {
+    const displayTab = this.props.tabSections[this.state.activeTab];
+    if (displayTab.content.length < 1) {
+      return(
+        <ul>
+          <li>Get started today!</li>
+          <li><Link to="/campsites">Explore campsites...</Link></li>
+          <li><Link to="/campsites/new">Or establish your own!</Link></li>
+        </ul>
+      )
+    }
+  }
+
   render() {
     const displayTab = this.props.tabSections[this.state.activeTab];
     return(
@@ -25,6 +39,7 @@ class Tabs extends React.Component {
           tabs={this.props.tabSections}
         />
         <div className="tab-content">
+            {this.handleEmptyTab()}
           <ul>
             {displayTab.content.map(item => (
               <li>{item}</li>

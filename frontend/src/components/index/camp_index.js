@@ -50,7 +50,7 @@ class CampIndex extends React.Component {
 
   render() {
     if (!this.props.sites) return null;
-    debugger
+    
     let { attrs, sites } = this.props;
     let { itemChecked } = this.state;
     
