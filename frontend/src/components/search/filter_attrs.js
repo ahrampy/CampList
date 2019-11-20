@@ -17,8 +17,8 @@ class FilterAttrs extends React.Component {
     let { attrs } = this.props
     return (
       <div className="attr-list">
-        {attrs.map(attr => 
-          <div className="attr-item">
+        {attrs.map((attr, i) => 
+          <div key={i} className="attr-item">
             <label>
               <input 
                 type="checkbox" 

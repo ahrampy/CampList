@@ -6,9 +6,9 @@ import { fetchUsers } from '../../actions/user_actions';
 const mSTP = state => {
   let attrs = [ 
     {id: 1, name: 'hiking'}, 
-    {id: 2, name: 'water present'}, 
+    {id: 2, name: 'parking'}, 
     {id: 3, name: 'fishing'},
-    {id: 4, name: 'firepit'}
+    {id: 4, name: 'firePit'}
   ]
   return {
     sites: Object.values(state.entities.sites),

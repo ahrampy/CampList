@@ -32,10 +32,9 @@ class MapComponent extends React.Component {
 
   render() {
     
-    if (!this.props.sites) return null;
+    if (!this.props.sites.length) return null;
     const { sites } = this.props
     return (
-
       <Map
         google={this.props.google}
         zoom={6}
@@ -44,22 +43,15 @@ class MapComponent extends React.Component {
           lat: 36.7783,
           lng: -119.4179
         }}
-        
-        >
-        {console.log(sites)}
-        <Marker
-          onClick={this.onMarkerClick}
-          name={"Marker"}
-          // position={site}
-        />
-        {/* {this.props.sites.map(site => (
-          <div key={site.id} className='map-site-marker'>
-            <Marker
-              onClick={this.onMarkerClick}
-              name={site.title}
-              position={{lat: site.lat, lng: site.lng}}
-            />
-            <InfoWindow
+      >
+        {sites.map(site => (
+          <Marker
+            key={site.id}
+            onClick={this.onMarkerClick}
+            name={site.name}
+            position={{ lat: site.lat, lng: site.lng }}
+          >
+            {/* <InfoWindow
               marker={this.state.activeMarker}
               visible={this.state.showingInfoWindow}
               onClose={this.onClose}
@@ -67,15 +59,28 @@ class MapComponent extends React.Component {
               <div>
                 <h4>{this.state.selectedPlace.name}</h4>
               </div>
-            </InfoWindow>
+            </InfoWindow> */}
+          </Marker>
+        ))}
+        {/* <Marker
+          onClick={this.onMarkerClick}
+          name={"Marker"}
+          position={{ lat: sites[20].lat, lng: sites[20].lng }}
+        /> */}
+        <InfoWindow
+          marker={this.state.activeMarker}
+          visible={this.state.showingInfoWindow}
+          onClose={this.onClose}
+        >
+          <div>
+            <h4>{this.state.selectedPlace.name}</h4>
           </div>
-        ))} */}
+        </InfoWindow>
       </Map>
     );
   }
 }
 
 export default GoogleApiWrapper({
-
   apiKey: mapKey
 })(MapComponent);
