@@ -19,15 +19,18 @@ class FilterAttrs extends React.Component {
       <div className="attr-list">
         {attrs.map((attr, i) => 
           <div key={i} className="attr-item">
-            <label>
+            <label className="checkbox-label">
               <input 
                 type="checkbox" 
-                className="attr-check" 
+                className="checkbox" 
                 value={attr}
                 onChange={e => this.onCheck(attr, e)}
               />
+              <span className="checkbox-custom"></span>
+            </label>
+            <div className="checkbox-name">
               {attr.name}
-            </label>  
+            </div>
           </div>
         )}    
       </div>       
@@ -38,7 +41,7 @@ class FilterAttrs extends React.Component {
     
     return(
       <div className="filter-sidebar">
-        <span>Filter Campsites:</span>
+        <div className="filter-category">Attributes:</div>
         {this.listChecks()}
       </div>
     );
