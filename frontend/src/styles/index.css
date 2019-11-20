@@ -1,8 +1,8 @@
 .index-holder {
   display: flex;
-  widows: 100%;
+  /* widows: 100%; */
   margin: 5%;
-  justify-content: space-around;
+  /* justify-content: space-around; */
   border: black 1px solid;
 }
 
@@ -12,9 +12,8 @@
 }
 
 .map-holder {
-  width: 90%;
-  margin: 0 auto;
-  text-align: center;
-  padding: 3% 1%;
-  border: green 1px solid
+  width: 200px;
+  /* width: 70%; */
+  margin-right: 100px;
+  /* border: 1px solid  */
 }

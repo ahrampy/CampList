@@ -33,18 +33,20 @@ class MapComponent extends React.Component {
   render() {
     
     if (!this.props.sites) return null;
-    // const site = { lat: parseFloat(this.props.sites[0].lat), lng: parseFloat(this.props.sites[0].lng) };
+    const { sites } = this.props
     return (
 
       <Map
         google={this.props.google}
         zoom={6}
-        style={{ width: "100%", height: "100%" }}
+        style={{ width: "800px", height: "600px" }}
         initialCenter={{
           lat: 36.7783,
           lng: -119.4179
         }}
-      >
+        
+        >
+        {console.log(sites)}
         <Marker
           onClick={this.onMarkerClick}
           name={"Marker"}
