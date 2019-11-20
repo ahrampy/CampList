@@ -3,8 +3,7 @@ import Nav from './nav';
 import { logout } from '../../actions/session_actions';
 import { openModal } from '../../actions/modal';
 
-const mapStateToProps = (state, ownProps) => {
-    debugger
+const mapStateToProps = (state) => {
     let userId
     if (state.session.isAuthenticated) {
         userId = state.session.user.id
