@@ -16,3 +16,11 @@ export const selectSiteReviews = (sites, userId) => {
   //   ))
   // ))
 }
+
+export const selectSiteAuthor = (sites, userId) => {
+  
+  return Object.values(sites).filter(site => (
+    site.author === userId
+  ))
+  
+}

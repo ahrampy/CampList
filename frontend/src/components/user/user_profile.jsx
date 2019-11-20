@@ -18,11 +18,12 @@ class UserProfile extends React.Component {
     return(
       <div className="user-main">
         <div className="user-details">
-          Username goes here!
-          {/* {this.props.username} */}
+          Hi {this.props.username}!
         </div>
         <div className="user-tabs">
-          <TabsContainer />
+          <TabsContainer 
+            createdCampsites={this.props.createdCampsites}
+          />
         </div>
       </div>
     );
