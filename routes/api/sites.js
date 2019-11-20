@@ -44,6 +44,7 @@ router.post('/new',
       description: req.body.description,
       lat: req.body.lat,
       lng: req.body.lng,
+      siteFeatures: req.body.siteFeatures
     });
 
     newSite.save().then(site => res.json(site));
