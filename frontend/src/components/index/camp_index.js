@@ -60,11 +60,11 @@ class CampIndex extends React.Component {
       <div className="index-holder">
   
         <div className="search-holder">
-          {/* <FilterAttrsContainer
+          <FilterAttrsContainer
             attrs={attrs}
             onCheck={this.handleCheck}
             unCheck={this.handleUncheck}
-          /> */}
+          />
         </div>
         <div className="map-holder">
           <MapContainer
