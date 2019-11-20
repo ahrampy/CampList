@@ -8,6 +8,11 @@ const Nav = (props) => {
     let buttons = loggedIn ? (
         <>
             <button className='btn' onClick={logout}>Log Out</button>
+        
+            <Link className="btn" to={`/users/${props.userId}`}>
+                Account
+            </Link>
+            
         </>
     ) : (
         <>

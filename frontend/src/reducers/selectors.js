@@ -1,7 +1,11 @@
 export const selectSites = (sites, attrs) => {
-  return sites.filter(site => (
-    attrs.every(attr => site.siteFeatures[attr])
-  ))
+  let selectSites = [];
+  sites.map(site => {
+    if (attrs.every(val => site.siteFeatures[val])) {
+        selectSites.push(site)
+    }
+  })
+  return selectSites;
 }
 
 export const selectSiteReviews = (sites, userId) => {

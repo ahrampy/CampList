@@ -2,6 +2,7 @@ import React from 'react';
 import FilterAttrsContainer from '../search/filter_attrs_container';
 import MapContainer from '../map/map_container';
 
+
 class CampIndex extends React.Component {
   constructor(props) { 
     super(props);
@@ -31,7 +32,6 @@ class CampIndex extends React.Component {
   }
 
   handleUncheck(attr) {
-    debugger
     let { itemChecked } = this.state;
     let newItemCheck = []
     for (let i = 0; i < itemChecked.length; i++) {
@@ -43,11 +43,18 @@ class CampIndex extends React.Component {
     })
   }
 
+  componentDidMount() {
+    this.props.fetchSites()
+    this.props.fetchUsers()
+  }
+
   render() {
-    let { attrs } = this.props;
+    if (!this.props.sites) return null;
+    debugger
+    let { attrs, sites } = this.props;
     let { itemChecked } = this.state;
     return(
-      <div>
+      <div className="index-holder">
   
         <div className="search-holder">
           <FilterAttrsContainer
@@ -56,11 +63,16 @@ class CampIndex extends React.Component {
             unCheck={this.handleUncheck}
           />
         </div>
-        {/* <div className="map-holder">
+        <div className="map-holder">
           <MapContainer
+            sites={sites}
+            googleMapURL={`googleMapURL:"https://maps.googleapis.com/maps/api/js?key=AIzaSyBk7CBd8ZQcP0bHBHwiPgQcpcOU1oGVVbo&v=3.exp&libraries=geometry,drawing,places",`}
             checkedAttrs={itemChecked}
+            loadingElement={<div style={{ height: `100%` }} />}
+            containerElement={<div style={{ height: `200px` }} />}
+            mapElement={<div style={{ height: `100%` }} />}
           />
-        </div> */}
+        </div>
       </div>
     );
   }

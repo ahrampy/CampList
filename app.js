@@ -6,21 +6,18 @@ const bodyParser = require("body-parser");
 const passport = require('passport');
 const users = require("./routes/api/users");
 const sites = require("./routes/api/sites");
+// require("dotenv").config();
 
 mongoose
     .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log("Connected to MongoDB"))
     .catch(err => console.log(err));
 
-// app.get("/", (req, res) => res.send("Is this thing on?"));
-
 app.use(passport.initialize());
 require('./config/passport')(passport);
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
-app.get("/", (req, res) => res.send("Is this thing on?"));
 
 app.use("/api/users", users);
 app.use("/api/sites", sites);

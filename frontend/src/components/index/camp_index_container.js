@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import CampIndex from './camp_index';
-import { fetchSites } from '../../actions/site_actions'
+import { fetchSites } from '../../actions/site_actions';
+import { fetchUsers } from '../../actions/user_actions';
 
 const mSTP = state => {
   let attrs = [ 
@@ -9,15 +10,16 @@ const mSTP = state => {
     {id: 3, name: 'fishing'},
     {id: 4, name: 'firepit'}
   ]
-  
   return {
-    state,
-    attrs
+    sites: Object.values(state.entities.sites),
+    attrs,
+    users: Object.values(state.entities.users)
   }
 }
 
 const mDTP = dispatch => ({
   fetchSites: () => dispatch(fetchSites()),
+  fetchUsers: () => dispatch(fetchUsers())  
 });
    
 

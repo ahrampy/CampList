@@ -1,14 +1,12 @@
 import { connect } from 'react-redux';
 import Map from './map';
-
 import { selectSites } from '../../reducers/selectors';
 
-const mSTP = (state, { checkedAttrs }) => {
-  debugger
-  let filterSites = selectSites(Object.values(state.sites), checkedAttrs)
-  
+const mSTP = (state, { checkedAttrs, sites }) => {
+  let filterSites = selectSites(Object.values(sites), checkedAttrs)
   return {
-    filterSites
+    // filterSites
+    sites: Object.values(sites)
   }
 }
 

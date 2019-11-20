@@ -29,3 +29,15 @@
     background: rgb(15, 94, 61);
     color: white;
 }
+
+.nav-buttons a {
+    text-decoration: none;
+    color: rgb(15, 94, 61);
+    font: 16px system-ui
+}
+
+.nav-buttons a:visited{
+    text-decoration: none;
+    border: none;
+    color: rgb(15, 94, 61);
+}

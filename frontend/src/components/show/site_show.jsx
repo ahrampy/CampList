@@ -11,7 +11,7 @@ export default class SiteShow extends Component {
     if (!this.props.site) return null
     const { site } = this.props
 
-    debugger
+    
     return (
       <div>
         <SiteDetail 
