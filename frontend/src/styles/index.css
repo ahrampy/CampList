@@ -3,10 +3,12 @@
   /* widows: 100%; */
   margin: 5%;
   /* justify-content: space-around; */
-  border: black 1px solid;
+  border-left: black 1px solid;
+  border-top: black 1px solid;
 }
 
 .search-holder {
+
   width: 12%;
   padding: 5% 3%;
 }

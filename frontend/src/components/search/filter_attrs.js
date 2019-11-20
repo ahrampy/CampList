@@ -27,10 +27,10 @@ class FilterAttrs extends React.Component {
                 onChange={e => this.onCheck(attr, e)}
               />
               <span className="checkbox-custom"></span>
+              <div className="checkbox-name">
+                {attr.name}
+              </div>
             </label>
-            <div className="checkbox-name">
-              {attr.name}
-            </div>
           </div>
         )}    
       </div>       

@@ -1,6 +1,7 @@
 .filter-sidebar {
   font-size: 20px;
   letter-spacing: 1px;
+  background-color: rgb(235, 235, 235);
 }
 
 .filter-category {
@@ -15,6 +16,7 @@
   font-size: 18px;
   flex-direction: column;
   align-items: flex-start;
+  
 }
 
 .attr-item {
@@ -23,7 +25,8 @@
 }
 
 .checkbox-name {
-  padding-left: 7px;
+  display: inline;
+  padding-left: 30px;
 }
 
 .checkbox-label {
@@ -79,11 +82,11 @@
   -ms-transform: rotate(0deg) scale(0);
   transform: rotate(0deg) scale(0);
   opacity:1;
-  transition: all 0.3s ease-out;
-  -webkit-transition: all 0.3s ease-out;
-  -moz-transition: all 0.3s ease-out;
-  -ms-transition: all 0.3s ease-out;
-  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  -webkit-transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  -moz-transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  -ms-transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  -o-transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .checkbox-label input:checked ~ .checkbox-custom::after {
