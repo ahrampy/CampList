@@ -23,6 +23,7 @@ const App = () => (
       <Route exact path="/campsites" component={CampIndexContainer} />
       <Route exact path="/campsites/new" component={CampFormContainer} />
       <Route exact path="/campsites/:siteId" component={CampShowContainer} />
+      <Route exact path="/users/:userId" component={UserProfile}/>
     </Switch>
   </div>
 );
