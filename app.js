@@ -13,8 +13,6 @@ mongoose
     .then(() => console.log("Connected to MongoDB"))
     .catch(err => console.log(err));
 
-// app.get("/", (req, res) => res.send("Is this thing on?"));
-
 app.use(passport.initialize());
 require('./config/passport')(passport);
 
