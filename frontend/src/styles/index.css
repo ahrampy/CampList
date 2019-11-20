@@ -3,12 +3,14 @@
   /* widows: 100%; */
   margin: 5%;
   /* justify-content: space-around; */
-  border: black 1px solid;
+  border-left: black 1px solid;
+  border-top: black 1px solid;
 }
 
 .search-holder {
-  width: 8%;
-  padding: 3% 1%;
+
+  width: 12%;
+  padding: 5% 3%;
 }
 
 .map-holder {
