@@ -22,7 +22,8 @@ app.use(bodyParser.json());
 
 app.use("/api/users", users);
 app.use("/api/sites", sites);
-app.use("/api/sites/:siteId/reviews", reviews)
+app.use("/api/reviews", reviews);
+// app.use("/api/sites/:siteId/reviews", reviews)
 
 const port = process.env.PORT || 5000;
 
