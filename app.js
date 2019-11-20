@@ -19,8 +19,6 @@ require('./config/passport')(passport);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.get("/", (req, res) => res.send("Is this thing on?"));
-
 app.use("/api/users", users);
 app.use("/api/sites", sites);
 

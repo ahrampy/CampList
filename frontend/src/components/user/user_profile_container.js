@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import UserProfile from './user_profile';
-import getUser from '../../actions/user';
+// import getUser from '../../actions/user';
 import { selectSiteReviews } from '../../reducers/selectors';
 
 const mSTP = (state, ownProps) => {
@@ -15,11 +15,11 @@ const mSTP = (state, ownProps) => {
   }
 }
 
-const mDTP = dispatch => {
+// const mDTP = dispatch => {
 
-  return {
-    getUser: id => dispatch(getUser(id))
-  }
-}
+//   return {
+//     getUser: id => dispatch(getUser(id))
+//   }
+// }
 
-// export default connect(mSTP, mDTP)(UserProfile);
+export default connect(mSTP)(UserProfile);

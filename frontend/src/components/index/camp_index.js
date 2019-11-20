@@ -45,21 +45,23 @@ class CampIndex extends React.Component {
 
   componentDidMount() {
     this.props.fetchSites()
+    this.props.fetchUsers()
   }
 
   render() {
     if (!this.props.sites) return null;
+    debugger
     let { attrs, sites } = this.props;
     let { itemChecked } = this.state;
     return(
       <div className="index-holder">
   
         <div className="search-holder">
-          {/* <FilterAttrsContainer
+          <FilterAttrsContainer
             attrs={attrs}
             onCheck={this.handleCheck}
             unCheck={this.handleUncheck}
-          /> */}
+          />
         </div>
         <div className="map-holder">
           <MapContainer
