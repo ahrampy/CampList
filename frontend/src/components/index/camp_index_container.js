@@ -2,13 +2,14 @@ import { connect } from 'react-redux';
 import CampIndex from './camp_index';
 import { fetchSites } from '../../actions/site_actions';
 import { fetchUsers } from '../../actions/user_actions';
+import { fetchReviews } from '../../actions/review_actions';
 
 const mSTP = state => {
   let attrs = [ 
     {id: 1, name: 'hiking'}, 
-    {id: 2, name: 'water present'}, 
+    {id: 2, name: 'parking'}, 
     {id: 3, name: 'fishing'},
-    {id: 4, name: 'firepit'}
+    {id: 4, name: 'firePit'}
   ]
   return {
     sites: Object.values(state.entities.sites),
@@ -19,7 +20,8 @@ const mSTP = state => {
 
 const mDTP = dispatch => ({
   fetchSites: () => dispatch(fetchSites()),
-  fetchUsers: () => dispatch(fetchUsers())  
+  fetchUsers: () => dispatch(fetchUsers()),
+  fetchReviews: () => dispatch(fetchReviews())
 });
    
 

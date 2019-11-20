@@ -8,7 +8,7 @@ const ReviewSchema = new Schema({
   },
   site: {
     type: Schema.Types.ObjectId,
-    ref: 'users'
+    ref: 'sites'
   },
   body: {
     type: String,
