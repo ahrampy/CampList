@@ -11,8 +11,8 @@ const SiteSchema = new Schema({
     required: true
   },
   date: {
-    type: Date,
-    default: Date.now
+    type: String,
+    // default: Date.now
   },
   description: {
     type: String,
@@ -42,22 +42,10 @@ const SiteSchema = new Schema({
     type: String,
     required: false,
   },
-  // reviews: {
-  //   author: {
-  //     type: Schema.Types.ObjectId,
-  //     ref: 'users'
-  //   },
-  //   body: {
-  //     type: String,
-  //     // required: true,
-  //     default: '',
-  //   },
-  //   rating: {
-  //     type: String,
-  //     // required: true,
-  //     default: '5',
-  //   },
-  // },
+  review: {
+    type: Schema.Types.ObjectId,
+    ref: 'reviews'
+  },
   siteFeatures: {
     parking: {
       type: Boolean,

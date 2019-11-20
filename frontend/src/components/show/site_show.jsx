@@ -10,12 +10,11 @@ export default class SiteShow extends Component {
   render() {
     if (!this.props.site) return null
     const { site } = this.props
-
     
     return (
       <div>
         <SiteDetail 
-        site={this.props.site}
+        site={site}
         />
       </div>
     )
