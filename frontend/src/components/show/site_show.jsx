@@ -20,17 +20,15 @@ export default class SiteShow extends Component {
   }
 
   render() {
-    if (!this.state.siteId) return null
+    if (!this.props.site) return null
     const { site } = this.props
     
-    // make sure userId and siteId are correct
     return (
       <div>
         <div>
-          {/* uncomment for merge, authorId doesn't work */}
-          {/* <SiteDetail 
+          <SiteDetail 
           site={site}
-          /> */}
+          />
         </div>
         <div>
           <SiteReviewsContainer 

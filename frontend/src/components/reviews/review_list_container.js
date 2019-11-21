@@ -9,9 +9,7 @@ const mSTP = (state, ownProps) => {
   let reviews = selectReviewNames(ownProps.users, ownProps.reviews)
   
   return {
-    reviews,
-    username: state.session.user.username || "",
-    newReview: ownProps.newReview || {}
+    reviews
   }
 }
 

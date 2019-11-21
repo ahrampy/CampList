@@ -7,6 +7,7 @@ class SiteDetail extends Component {
     const {
       author, name, date, description, siteFeatures
     } = this.props.site
+    // author commented out?
     
     return (
       <div className="show-outer-container">
@@ -16,7 +17,7 @@ class SiteDetail extends Component {
           </div>
           <div className="show-info-wrapper">
             <div className="author-name">
-              {/* {author} */}
+              {author}
             </div>
             <div className="show-title-bar">
               <div className="show-name">

@@ -6,8 +6,8 @@ const ReviewList = ({ reviews, username, newReview }) => {
   return (
     <div>
       <p className="review-label">Recent Reviews</p>
-      {reviews.map(review => (
-        <div>
+      {reviews.map((review, i) => (
+        <div key={`key-${i}`}>
           {review.username}
           <br/>
           {review.rating}
@@ -16,7 +16,7 @@ const ReviewList = ({ reviews, username, newReview }) => {
         </div>
       ))}
     </div>
-  )
+  );
 }
 
 export default ReviewList;

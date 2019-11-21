@@ -29,7 +29,6 @@ export const selectSiteAuthor = (sites, userId) => {
     .map(_id => {
       return userSites.find(a => a._id === _id)
     })
-  debugger
   return bugFix
 }
 
