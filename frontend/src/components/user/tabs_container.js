@@ -3,12 +3,8 @@ import Tabs from './tabs';
 import { selectSiteNames } from '../../reducers/selectors';
 
 const mSTP = (state, ownProps) => {
-
-  
-  
   let newReviews = selectSiteNames(ownProps.sites, ownProps.userReviews)
   
-  debugger
   return {
     tabSections: [
       {title: "Reviews", content: newReviews},

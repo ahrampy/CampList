@@ -1,10 +1,15 @@
 import React from 'react';
+import { Redirect } from "react-router-dom";
 import TabsContainer from './tabs_container';
+
 
 class UserProfile extends React.Component {
   constructor(props) {
     super(props)
 
+    this.state = {
+      session: this.props.session
+    }
   }
 
   componentDidMount() {
@@ -12,7 +17,10 @@ class UserProfile extends React.Component {
     this.props.fetchSites()
   }
 
+
+
   render() {
+    if (!this.state.session) return <Redirect to="/"/>
     if (!this.props.sites) return null
 
     

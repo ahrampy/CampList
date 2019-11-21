@@ -6,6 +6,8 @@ import { fetchSites } from '../../actions/site_actions';
 
 
 const mSTP = (state, ownProps) => {
+  debugger
+  
   let { id, username, email } = state.session.user
   let { sites, reviews } = state.entities
 
@@ -18,7 +20,8 @@ const mSTP = (state, ownProps) => {
     email,
     userCampsites,
     userReviews,
-    sites: Object.values(sites)
+    sites: Object.values(sites),
+    session: state.session
   }
 }
 
