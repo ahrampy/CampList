@@ -45,6 +45,7 @@ class SiteForm extends Component {
   handleCheck(type) {
     return e => {
       let newSiteFeatures = Object.assign({}, this.state.siteFeatures)
+      
     
       newSiteFeatures[type] = !this.state.siteFeatures[type]
       this.setState({siteFeatures: newSiteFeatures})
@@ -62,66 +63,97 @@ class SiteForm extends Component {
   render() {
     
     return (
-      <div>
+      <div className="site-form-container">
         <h3>Create a New Campsite</h3>
+        <div className="site-form-splitline"></div>
         <div className="site-form-wrapper">
           <form onSubmit={this.handleSubmit}>
-            <label>Camp Name:</label>
+            <div className="site-form-section-wrapper">
+              <h2>What is the name of your campsite?</h2>
               <input 
                 type="text"
                 id="campname"
                 onChange={this.handleInput('name')}
                 value={this.state.name}
-                placeholder="Camp Name"
+                placeholder="Type your camp name here..."
               />
-            
-            <label>Latitude:</label>
+            </div>
+            <div className="site-form-section-wrapper">
+              <h2>When did you camp there?</h2>
+                <input 
+                  type="date"
+                  id="date"
+                  onChange={this.handleInput('date')}
+                  value={this.state.date}
+                />
+            </div>
+            <div className="site-form-section-wrapper">
+              <h2>What's your campsite's location?</h2>
               <input 
                 type="text"
                 onChange={this.handleInput('lat')}
                 value={this.state.lat}
+                placeholder="Latitude"
               />
-            <label>Longitude:</label>
               <input 
                 type="text"
                 onChange={this.handleInput('lng')}
                 value={this.state.lng}
+                placeholder="Longitude"
               />
-            <label>Date:</label>
-              <input 
-                type="date"
-                onChange={this.handleInput('date')}
-                value={this.state.date}
+            </div>
+            <div className="site-form-section-wrapper">
+              <h2>What was your experience?</h2>
+              <textarea
+                id="description"
+                value={this.state.description}
+                onChange={this.handleInput('description')}
+                placeholder="Type your camping experience here..."
               />
-            <label>Description:</label>
-            <textarea
-              className=""
-              cols="30"
-              rows="10"
-              value={this.state.description}
-              onChange={this.handleInput('description')}
-            />
-            <input 
-              type="checkbox"
-              name="fishing"
-              onChange={this.handleCheck('fishing')}
-            /> Fishing
-            <input 
-              type="checkbox"
-              name="parking"
-              onChange={this.handleCheck('parking')}
-            /> Parking
-            <input 
-              type="checkbox"
-              name="firePit"
-              onChange={this.handleCheck('firePit')}
-            /> Fire Pit
-            <input 
-              type="checkbox"
-              name="hiking"
-              onChange={this.handleCheck('hiking')}
-            /> Hiking
-            <input type="submit" value="Submit"/>
+            </div>
+            <div className="site-form-section-wrapper">
+              <h2>What activities are accessible on or near your property?</h2>
+              <div className="site-form-feature">
+                <label>
+                  <input 
+                    type="checkbox"
+                    name="fishing"
+                    onChange={this.handleCheck('fishing')}
+                  />
+                  <span className="site-form-seatButton">Fishing</span>
+                </label>
+
+                <label>
+                  <input 
+                    type="checkbox"
+                    name="parking"
+                    onChange={this.handleCheck('parking')}
+                  />
+                  <span className="site-form-seatButton">Parking</span>
+                </label>
+
+                <label>
+                  <input 
+                    type="checkbox"
+                    name="firePit"
+                    onChange={this.handleCheck('firePit')}
+                  />
+                  <span className="site-form-seatButton">Fire Pit</span>
+                </label>
+                
+                <label>
+                  <input 
+                    type="checkbox"
+                    name="hiking"
+                    onChange={this.handleCheck('hiking')}
+                  />
+                  <span className="site-form-seatButton">Hiking</span>
+                </label>
+                </div>
+              </div>
+            <div className="site-form-submit">
+              <input type="submit" value="Submit"/>
+            </div>
           </form>
         </div>
       </div>
