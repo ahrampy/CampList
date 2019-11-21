@@ -32,7 +32,7 @@ class MapComponent extends React.Component {
 
   render() {
     
-    if (!this.props.sites.length) return null;
+    // if (!this.props.sites.length) return null;
     const { sites } = this.props
     return (
       <Map
