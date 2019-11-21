@@ -1,0 +1,44 @@
+textarea {
+  outline: none;
+  resize: none;
+  overflow: auto;
+}
+
+.review-holder {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.review-label {
+  border-top: 1px solid black;
+  font-size: 20px;
+}
+
+.review-form {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.review-form div{
+  padding: 20px;
+}
+
+.btn {
+  text-decoration: none;
+  padding: 10px;
+  border: 1px solid rgb(15, 94, 61);
+  transition-duration: 0.4s;
+
+  background: rgb(15, 94, 61);
+  color: white;
+  text-decoration: none;
+  font: 16px system-ui;
+}
+
+.btn:hover {
+  color: rgb(15, 94, 61);
+  background: white;
+}
