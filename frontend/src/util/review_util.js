@@ -7,3 +7,7 @@ export const fetchReviews = () => {
 export const createReview = review => {
   return axios.post(`api/reviews/new`, review)
 }
+
+export const fetchSiteReviews = siteId => {
+  return axios.get(`/api/reviews/site/${siteId}`)
+};

@@ -7,8 +7,8 @@ const SitesTab = (props) => {
   
   return (
     <div>
-      {campsites.map(site => (
-        <div>
+      {campsites.map((site, i) => (
+        <div key={`site-${i}`}>
           <Link to={`/campsites/${site._id}`}>{site.name}</Link>
         </div>
       ))}
