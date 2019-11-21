@@ -6,12 +6,11 @@ const mapStateToProps = (state, ownProps) => {
   // const siteId = parseInt(ownProps.match.params.siteId);
   // const site = seleteSite(state.entites, siteId);
   let siteId = ownProps.match.params.siteId
-  let authorId = state.session.user.id
-  
+
   return ({
     siteId,
     site: state.entities.sites[ownProps.match.params.siteId],
-    authorId
+    
   });
 };
 

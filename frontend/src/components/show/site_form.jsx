@@ -61,7 +61,7 @@ class SiteForm extends Component {
   }
 
   render() {
-    
+    debugger
     return (
       <div className="site-form-container">
         <h3>Create a New Campsite</h3>
