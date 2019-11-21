@@ -1,7 +1,8 @@
 import React from 'react';
 
-const ReviewList = ({ reviews }) => {
+const ReviewList = ({ reviews, username, newReview }) => {
   if (!reviews) return null;
+  
   return (
     <div>
       <p className="review-label">Recent Reviews</p>

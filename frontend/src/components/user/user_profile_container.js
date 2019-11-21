@@ -11,7 +11,7 @@ const mSTP = (state, ownProps) => {
   let { sites, reviews } = state.entities
 
   let userCampsites = selectSiteAuthor(Object.values(sites), id)
-  let userReviews = selectUserReviews(Object.values(reviews), id)
+  let userReviews = selectUserReviews(Object.values(reviews.all), id)
 
   return {
     id,

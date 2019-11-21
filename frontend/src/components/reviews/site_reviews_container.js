@@ -7,14 +7,20 @@ import { openModal } from '../../actions/modal';
 const mSTP = (state, ownProps) => {
   let { users, reviews } = state.entities;
   let authorId
+  let newReview
   if (state.session.isAuthenticated) {
     authorId = state.session.user.id
   }
-
+  if (reviews.new) {
+    newReview = reviews.new
+  }
+  
   return {
     siteId: ownProps.siteId,
     authorId,
-    users: Object.values(users)
+    users: Object.values(users),
+    reviews: Object.values(reviews.site),
+    newReview
   }
 }
 

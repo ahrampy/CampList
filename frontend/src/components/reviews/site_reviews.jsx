@@ -49,18 +49,15 @@ class SiteReviews extends React.Component {
   }
 
   componentDidMount() {
-    let siteReviews = this.props.fetchSiteReviews(this.props.siteId);
-    this.setState({
-      siteReviews: Object.values(siteReviews)
-    })
+    this.props.fetchSiteReviews(this.props.siteId);
     if (!this.props.users) {
       this.props.fetchUsers()
     }
   }
   
   render() {
-    
     if (!this.state.siteReviews) return null
+    
     return(
       <div className="review-holder">
         <form onSubmit={this.handleSubmit} className="review-form">
@@ -101,8 +98,9 @@ class SiteReviews extends React.Component {
         </form>
         <div className="review-list">
           <ReviewListContainer
-            reviews={this.state.siteReviews}
+            reviews={this.props.reviews}
             users={this.props.users}
+            newReview={this.props.newReview}
           />
         </div>
       </div>
