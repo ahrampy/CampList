@@ -1,0 +1,65 @@
+.site-form-feature {
+  margin-top: 25px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.site-form-feature input { 
+  display: none; 
+}
+
+.site-form-feature .site-form-seatButton { 
+  padding: 15px 100px 15px 15px; 
+  border: 1px solid #ccc; 
+  background: none;
+  cursor: pointer; 
+  margin: 0px 5px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.site-form-feature input:checked + .site-form-seatButton { 
+  background: rgb(64, 217, 172); 
+  color: white;
+}
+
+.site-form-container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.site-form-container h3 {
+  font-size: 3.0rem;
+  margin-bottom: 10px;
+}
+
+.site-form-wrapper h2 {
+  font-size: 2rem;
+  padding-top: 20px;
+  margin-bottom: 10px;
+  border-top: 1px solid #ccc;
+}
+
+.site-form-section-wrapper {
+  margin-bottom: 25px;
+}
+
+.site-form-section-wrapper > input {
+  padding: 10px;
+}
+
+#campname {
+  width: 300px;
+}
+
+#date {
+  width: 130px;
+}
+
+#description {
+  font-size: 18px;
+  line-height: 1.44em;
+  width: 500px;
+  min-height: 250px;
+  padding: 10px;
+}
