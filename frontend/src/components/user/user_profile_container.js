@@ -1,26 +1,35 @@
 import { connect } from 'react-redux';
 import UserProfile from './user_profile';
-import { selectSiteAuthor } from '../../reducers/selectors';
+import { selectSiteAuthor, selectUserReviews } from '../../reducers/selectors';
+import { fetchReviews } from '../../actions/review_actions';
+import { fetchSites } from '../../actions/site_actions';
 
 
 const mSTP = (state, ownProps) => {
-  let { id, username, email } = state.session.user
-  let { sites } = state.entities
-  let createdCampsites = selectSiteAuthor(sites, id)
+  debugger
   
+  let { id, username, email } = state.session.user
+  let { sites, reviews } = state.entities
+
+  let userCampsites = selectSiteAuthor(Object.values(sites), id)
+  let userReviews = selectUserReviews(Object.values(reviews), id)
+
   return {
     id,
     username,
     email,
-    createdCampsites
+    userCampsites,
+    userReviews,
+    sites: Object.values(sites),
+    session: state.session
   }
 }
 
-// const mDTP = dispatch => {
+const mDTP = dispatch => {
+  return {
+    fetchReviews:() => dispatch(fetchReviews()),
+    fetchSites: () => dispatch(fetchSites())
+  }
+}
 
-//   return {
-//     getUser: id => dispatch(getUser(id))
-//   }
-// }
-
-export default connect(mSTP)(UserProfile);
+export default connect(mSTP, mDTP)(UserProfile);

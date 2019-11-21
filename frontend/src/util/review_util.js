@@ -5,6 +5,5 @@ export const fetchReviews = () => {
 };
 
 export const createReview = review => {
-  
   return axios.post(`api/reviews/new`, review)
 }

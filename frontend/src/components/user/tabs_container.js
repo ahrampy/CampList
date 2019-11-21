@@ -1,13 +1,15 @@
 import { connect } from 'react-redux';
 import Tabs from './tabs';
+import { selectSiteNames } from '../../reducers/selectors';
 
 const mSTP = (state, ownProps) => {
+  let newReviews = selectSiteNames(ownProps.sites, ownProps.userReviews)
+  
   return {
-    // reviews: ownProps.reviews,
     tabSections: [
-      {title: "Reveiws", content: ['Review 1', 'Review 2', 'Review 3']},
+      {title: "Reviews", content: newReviews},
       {title: "Bookmarks", content: ['Site1', 'Site2', 'Site3']},
-      {title: "Your Campsites", content: ownProps.createdCampsites} 
+      {title: "Your Campsites", content: ownProps.userCampsites} 
     ]
   }
 }

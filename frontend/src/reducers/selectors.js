@@ -8,19 +8,36 @@ export const selectSites = (sites, attrs) => {
   return selectSites;
 }
 
-export const selectSiteReviews = (sites, userId) => {
-  // reviews = []
-  // sites.forEach(site => (
-  //   site.reviews.forEach(review => (
-  //     review.author === userId ? reviews.push(review)
-  //   ))
-  // ))
+export const selectUserReviews = (reviews, userId) => {
+  let userReviews = [];
+  reviews.forEach(review => {
+    if (review.author === userId) {
+      userReviews.push(review)
+    }
+  })
+  return userReviews;
 }
 
 export const selectSiteAuthor = (sites, userId) => {
+  let userSites = [];
+  sites.forEach(site => {
+    if (site.author === userId) {
+      userSites.push(site)
+    }
+  })
+  return userSites;
+}
+
+// every review needs a {..., name: "siteName"}
+export const selectSiteNames = (sites, reviews) => {
   
-  return Object.values(sites).filter(site => (
-    site.author === userId
-  ))
+  let displayReview = [];
+  reviews.forEach(review => {
+    sites.forEach(site => {
+      if (site._id === review.site) review['name'] = site.name;
+    })
+    return displayReview.push(review)
+  })
   
+  return displayReview;
 }

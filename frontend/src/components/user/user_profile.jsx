@@ -1,20 +1,30 @@
 import React from 'react';
+import { Redirect } from "react-router-dom";
 import TabsContainer from './tabs_container';
+
 
 class UserProfile extends React.Component {
   constructor(props) {
     super(props)
 
+    this.state = {
+      session: this.props.session
+    }
   }
 
-  // componentDidMount() {
-  //   this.props.getUser(this.props.id)
-  // }
+  componentDidMount() {
+    this.props.fetchReviews()
+    this.props.fetchSites()
+  }
+
+
 
   render() {
-    // if (!this.props.user) return null
+    if (!this.state.session) return <Redirect to="/"/>
+    if (!this.props.sites) return null
 
-    // let { reviews } = this.props.siteReviews;
+    
+    let { userReviews, userCampsites, sites } = this.props;
     return(
       <div className="user-main">
         <div className="user-details">
@@ -22,7 +32,9 @@ class UserProfile extends React.Component {
         </div>
         <div className="user-tabs">
           <TabsContainer 
-            createdCampsites={this.props.createdCampsites}
+            userCampsites={userCampsites}
+            userReviews={userReviews}
+            sites={sites}
           />
         </div>
       </div>
