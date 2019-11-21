@@ -1,6 +1,6 @@
 import React from 'react';
 import FilterAttrsContainer from '../search/filter_attrs_container';
-import MapContainer from '../map/map_container';
+import MapContainer from '../maps/index_map_container';
 
 
 class CampIndex extends React.Component {
@@ -68,11 +68,7 @@ class CampIndex extends React.Component {
         <div className="map-holder">
           <MapContainer
             sites={sites}
-            googleMapURL={`googleMapURL:"https://maps.googleapis.com/maps/api/js?key=AIzaSyBk7CBd8ZQcP0bHBHwiPgQcpcOU1oGVVbo&v=3.exp&libraries=geometry,drawing,places",`}
             checkedAttrs={itemChecked}
-            loadingElement={<div style={{ height: `100%` }} />}
-            containerElement={<div style={{ height: `200px` }} />}
-            mapElement={<div style={{ height: `100%` }} />}
           />
         </div>
       </div>
