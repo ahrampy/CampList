@@ -6,6 +6,10 @@ const ReviewSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'users'
   },
+  site: {
+    type: Schema.Types.ObjectId,
+    ref: 'sites'
+  },
   body: {
     type: String,
     required: true

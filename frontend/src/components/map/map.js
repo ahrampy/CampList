@@ -37,7 +37,7 @@ class MapComponent extends React.Component {
   };
 
   render() {
-
+    
     const { sites } = this.props
 
     return (

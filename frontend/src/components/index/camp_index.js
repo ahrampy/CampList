@@ -46,10 +46,11 @@ class CampIndex extends React.Component {
   componentDidMount() {
     this.props.fetchSites()
     this.props.fetchUsers()
+    this.props.fetchReviews()
   }
 
   render() {
-    if (!this.props.sites) return null;
+    if (!this.props.sites.length) return null;
     
     let { attrs, sites } = this.props;
     let { itemChecked } = this.state;
