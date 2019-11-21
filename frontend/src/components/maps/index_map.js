@@ -4,7 +4,7 @@ import { Map, GoogleApiWrapper, InfoWindow, Marker } from "google-maps-react";
 const styles = require("./GoogleMapStyles.json");
 const mapKey = process.env.REACT_APP_MAP_API;
 
-class MapComponent extends React.Component {
+class IndexMap extends React.Component {
   constructor(props){
     super(props)
     this.state = {
@@ -40,16 +40,24 @@ class MapComponent extends React.Component {
     
     const { sites } = this.props
 
+    let currentPosition;
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        currentPosition = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+      });
+    }
+
     return (
       <Map
         google={this.props.google}
-        zoom={6}
+        zoom={7}
         style={{ maxHeight: "600px", maxWidth: "600px" }}
         styles={styles}
-        initialCenter={{
-          lat: 36.7783,
-          lng: -119.4179
-        }}
+        initialCenter={currentPosition}
       >
         {/* <Data></Data> */}
         {sites.map((site, i) => (
@@ -81,5 +89,5 @@ class MapComponent extends React.Component {
 
 const WrappedMap = GoogleApiWrapper({
   apiKey: mapKey
-})(MapComponent);
+})(IndexMap);
 export default withRouter(WrappedMap);
