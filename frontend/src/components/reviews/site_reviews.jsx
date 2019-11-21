@@ -6,7 +6,6 @@ class SiteReviews extends React.Component {
     super(props)
 
     this.state = {
-      author: this.props.authorId,
       site: this.props.siteId,
       body: '',
       rating: '5'
@@ -20,10 +19,22 @@ class SiteReviews extends React.Component {
     return e => this.setState({ [field]: e.target.value })
   }
 
+  dispatchOpenModal() {
+    this.props.openModal('login')
+  }
 
   handleSubmit(e) {
     e.preventDefault()
-    this.props.createReview(this.state)
+    
+    if (!this.props.authorId) {
+      return this.dispatchOpenModal()
+    }
+
+    // let newReview = Object.assign(({}, this.state, {author: this.props.authorId}))
+    let newReview = { ...this.state, ...{author: this.props.authorId}}
+
+    this.props.createReview(newReview)
+
 
     this.setState({
       body: '',

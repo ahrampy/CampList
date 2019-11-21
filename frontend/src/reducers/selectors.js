@@ -8,19 +8,21 @@ export const selectSites = (sites, attrs) => {
   return selectSites;
 }
 
-export const selectSiteReviews = (sites, userId) => {
-  // reviews = []
-  // sites.forEach(site => (
-  //   site.reviews.forEach(review => (
-  //     review.author === userId ? reviews.push(review)
-  //   ))
-  // ))
+export const selectUserReviews = (reviews, userId) => {
+  let userReviews = [];
+  reviews.forEach(review => {
+    if (review.author === userId) {
+      userReviews.push(review)
+    }
+  })
+  debugger
+  return userReviews;
 }
 
 export const selectSiteAuthor = (sites, userId) => {
   
-  return Object.values(sites).filter(site => (
-    site.author === userId
-  ))
+  // return Object.values(sites).filter(site => (
+  //   site.author === userId
+  // ))
   
 }

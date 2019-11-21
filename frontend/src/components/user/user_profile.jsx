@@ -7,13 +7,13 @@ class UserProfile extends React.Component {
 
   }
 
-  // componentDidMount() {
-  //   this.props.getUser(this.props.id)
-  // }
+  componentDidMount() {
+    this.props.fetchReviews()
+  }
 
   render() {
     // if (!this.props.user) return null
-
+    debugger
     // let { reviews } = this.props.siteReviews;
     return(
       <div className="user-main">
