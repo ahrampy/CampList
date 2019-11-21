@@ -19,7 +19,7 @@ const Protected = ({ component: Component, loggedIn, ...rest }) => (
       loggedIn ? (
         <Component {...props} />
       ) : (
-        <Redirect to="/login" />
+        <Redirect to="/campsites" />
       )
     }
   />
@@ -30,5 +30,4 @@ const mapStateToProps = state => (
 );
 
 export const AuthRoute = withRouter(connect(mapStateToProps)(Auth));
-
 export const ProtectedRoute = withRouter(connect(mapStateToProps)(Protected));

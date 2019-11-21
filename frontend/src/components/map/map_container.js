@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Map from './map';
+import Map from './index_map';
 import { selectSites } from '../../reducers/selectors';
 
 const mSTP = (state, { checkedAttrs, sites }) => {

@@ -44,12 +44,14 @@ class MapComponent extends React.Component {
       <Map
         google={this.props.google}
         zoom={6}
+        style={{ maxHeight: "600px", maxWidth: "600px" }}
         styles={styles}
         initialCenter={{
           lat: 36.7783,
           lng: -119.4179
         }}
       >
+        {/* <Data></Data> */}
         {sites.map((site, i) => (
           <Marker
             key={i}
@@ -58,7 +60,7 @@ class MapComponent extends React.Component {
             name={site.name}
             position={{ lat: site.lat, lng: site.lng }}
             siteUrl={`#/campsites/${site._id}`}
-            icon={'/marker.png'}
+            icon={"/marker.png"}
           ></Marker>
         ))}
         <InfoWindow
