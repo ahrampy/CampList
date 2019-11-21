@@ -1,0 +1,9 @@
+.map-info-window a {
+    color: rgb(15, 94, 61);
+    text-decoration: none;
+    transition-duration: .5s;
+}
+
+.map-info-window a:hover {
+    color: rgb(99, 128, 223);
+}

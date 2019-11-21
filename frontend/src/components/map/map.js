@@ -1,5 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
+import { withRouter } from "react-router-dom";
 import { Map, GoogleApiWrapper, InfoWindow, Marker } from "google-maps-react";
+const styles = require("./GoogleMapStyles.json");
 const mapKey = process.env.REACT_APP_MAP_API;
 
 class MapComponent extends React.Component {
@@ -12,14 +14,18 @@ class MapComponent extends React.Component {
     };
     this.onMarkerClick = this.onMarkerClick.bind(this)
     this.onClose = this.onClose.bind(this)
+    // this.handleRoute = this.handleRoute.bind(this)
   }
 
-  onMarkerClick = (props, marker, e) =>
-    this.setState({
-      selectedPlace: props,
-      activeMarker: marker,
-      showingInfoWindow: true
-    });
+  onMarkerClick = (props, marker, e) => {
+    return (
+      this.setState({
+        selectedPlace: props,
+        activeMarker: marker,
+        showingInfoWindow: true
+      })
+    )
+  }
 
   onClose = props => {
     if (this.state.showingInfoWindow) {
@@ -32,48 +38,38 @@ class MapComponent extends React.Component {
 
   render() {
     
-    // if (!this.props.sites.length) return null;
     const { sites } = this.props
+
     return (
       <Map
         google={this.props.google}
         zoom={6}
-        style={{ width: "800px", height: "600px" }}
+        styles={styles}
         initialCenter={{
           lat: 36.7783,
           lng: -119.4179
         }}
       >
-        {sites.map(site => (
+        {sites.map((site, i) => (
           <Marker
-            key={site.id}
+            key={i}
+            id={site._id}
             onClick={this.onMarkerClick}
             name={site.name}
             position={{ lat: site.lat, lng: site.lng }}
-          >
-            {/* <InfoWindow
-              marker={this.state.activeMarker}
-              visible={this.state.showingInfoWindow}
-              onClose={this.onClose}
-            >
-              <div>
-                <h4>{this.state.selectedPlace.name}</h4>
-              </div>
-            </InfoWindow> */}
-          </Marker>
+            siteUrl={`#/campsites/${site._id}`}
+            icon={'/marker.png'}
+          ></Marker>
         ))}
-        {/* <Marker
-          onClick={this.onMarkerClick}
-          name={"Marker"}
-          position={{ lat: sites[20].lat, lng: sites[20].lng }}
-        /> */}
         <InfoWindow
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}
           onClose={this.onClose}
         >
-          <div>
-            <h4>{this.state.selectedPlace.name}</h4>
+          <div className="map-info-window">
+            <a href={`${this.state.selectedPlace.siteUrl}`}>
+              {this.state.selectedPlace.name}
+            </a>
           </div>
         </InfoWindow>
       </Map>
@@ -81,6 +77,7 @@ class MapComponent extends React.Component {
   }
 }
 
-export default GoogleApiWrapper({
+const WrappedMap = GoogleApiWrapper({
   apiKey: mapKey
 })(MapComponent);
+export default withRouter(WrappedMap);
