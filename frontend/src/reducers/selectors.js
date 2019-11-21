@@ -25,7 +25,12 @@ export const selectSiteAuthor = (sites, userId) => {
       userSites.push(site)
     }
   })
-  return userSites;
+  let bugFix = Array.from(new Set(userSites.map(review => review._id)))
+    .map(_id => {
+      return userSites.find(a => a._id === _id)
+    })
+  debugger
+  return bugFix
 }
 
 // every review needs a {..., name: "siteName"}
@@ -38,8 +43,7 @@ export const selectSiteNames = (sites, reviews) => {
     })
     return displayReview.push(review)
   })
-  
-  return displayReview;
+  return displayReview
 }
 
 export const selectReviewNames = (users, reviews) => {
