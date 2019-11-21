@@ -1,6 +1,9 @@
 import React from 'react';
 import Headers from './headers';
 import { Link } from 'react-router-dom';
+import ReviewsTab from './display_tabs/reviews_tab'
+import BookmarksTab from './display_tabs/bookmarks_tab';
+import SitesTab from './display_tabs/sites_tab';
 
 class Tabs extends React.Component {
   constructor(props) {
@@ -29,8 +32,19 @@ class Tabs extends React.Component {
     }
   }
 
+  handleTabContent(displayTab) {
+    if (displayTab.title === "Reviews") {
+      return (<ReviewsTab reviews={displayTab.content} />);
+    } else if (displayTab.title === "Bookmarks") {
+      return (<BookmarksTab bookmarks={displayTab.content} />);
+    } else {
+      return (<SitesTab campsites={displayTab.content} />);
+    }
+  }
+
   render() {
-    const displayTab = this.props.tabSections[this.state.activeTab];
+    let displayTab = this.props.tabSections[this.state.activeTab];
+    if (displayTab.content.length < 0) return null
     return(
       <div className="tabs">
         <Headers 
@@ -39,12 +53,8 @@ class Tabs extends React.Component {
           tabs={this.props.tabSections}
         />
         <div className="tab-content">
-            {this.handleEmptyTab()}
-          <ul>
-            {displayTab.content.map(item => (
-              <li>{item}</li>
-            ))}
-          </ul>
+          {this.handleEmptyTab()}
+          {this.handleTabContent(displayTab)}
         </div>
       </div>
     );

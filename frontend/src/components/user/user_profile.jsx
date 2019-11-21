@@ -9,12 +9,14 @@ class UserProfile extends React.Component {
 
   componentDidMount() {
     this.props.fetchReviews()
+    this.props.fetchSites()
   }
 
   render() {
-    // if (!this.props.user) return null
-    debugger
-    // let { reviews } = this.props.siteReviews;
+    if (!this.props.sites) return null
+
+    
+    let { userReviews, userCampsites } = this.props;
     return(
       <div className="user-main">
         <div className="user-details">
@@ -22,7 +24,8 @@ class UserProfile extends React.Component {
         </div>
         <div className="user-tabs">
           <TabsContainer 
-            createdCampsites={this.props.createdCampsites}
+            userCampsites={userCampsites}
+            userReviews={userReviews}
           />
         </div>
       </div>

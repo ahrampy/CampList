@@ -15,14 +15,15 @@ export const selectUserReviews = (reviews, userId) => {
       userReviews.push(review)
     }
   })
-  debugger
   return userReviews;
 }
 
 export const selectSiteAuthor = (sites, userId) => {
-  
-  // return Object.values(sites).filter(site => (
-  //   site.author === userId
-  // ))
-  
+  let userSites = [];
+  sites.forEach(site => {
+    if (site.author === userId) {
+      userSites.push(site)
+    }
+  })
+  return userSites;
 }

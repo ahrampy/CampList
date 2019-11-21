@@ -30,11 +30,8 @@ class SiteReviews extends React.Component {
       return this.dispatchOpenModal()
     }
 
-    // let newReview = Object.assign(({}, this.state, {author: this.props.authorId}))
     let newReview = { ...this.state, ...{author: this.props.authorId}}
-
     this.props.createReview(newReview)
-
 
     this.setState({
       body: '',
@@ -42,7 +39,6 @@ class SiteReviews extends React.Component {
     })
   }
   
-
   render() {
     
     return(
