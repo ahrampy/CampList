@@ -42,6 +42,10 @@ const SiteSchema = new Schema({
     type: String,
     required: false,
   },
+  distanceToNearCity: {
+    type: Number,
+    required: false,
+  },
   review: {
     type: Schema.Types.ObjectId,
     ref: 'reviews'
@@ -62,6 +66,10 @@ const SiteSchema = new Schema({
     firePit: {
       type: Boolean,
       default: false,
+    },
+    Swimming: {
+      type: Boolean,
+      default: false
     }
   }
   
