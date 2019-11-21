@@ -15,7 +15,7 @@ const receiveReview = review => ({
 })
 
 const receiveSiteReviews = reviews => {
-  debugger
+  
   return {
     type: RECEIVE_SITE_REVIEWS,
     reviews

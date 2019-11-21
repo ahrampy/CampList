@@ -5,10 +5,10 @@ export const fetchReviews = () => {
 };
 
 export const createReview = review => {
+  debugger
   return axios.post(`api/reviews/new`, review)
 }
 
 export const fetchSiteReviews = siteId => {
-  debugger
   return axios.get(`/api/reviews/site/${siteId}`)
 };

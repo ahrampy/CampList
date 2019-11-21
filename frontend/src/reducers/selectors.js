@@ -41,3 +41,14 @@ export const selectSiteNames = (sites, reviews) => {
   
   return displayReview;
 }
+
+export const selectReviewNames = (users, reviews) => {
+  let displayReview = [];
+  reviews.forEach(review => {
+    users.forEach(user => {
+      if (user._id === review.author) review['username'] = user.username;
+    })
+    return displayReview.push(review)
+  })
+  return displayReview;
+}

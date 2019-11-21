@@ -6,7 +6,6 @@ import { fetchSites } from '../../actions/site_actions';
 
 
 const mSTP = (state, ownProps) => {
-  debugger
   
   let { id, username, email } = state.session.user
   let { sites, reviews } = state.entities

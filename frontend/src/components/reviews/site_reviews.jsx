@@ -1,4 +1,6 @@
 import React from 'react';
+import ReviewList from './review_list'
+import ReviewListContainer from './review_list_container';
 
 class SiteReviews extends React.Component {
 
@@ -8,7 +10,8 @@ class SiteReviews extends React.Component {
     this.state = {
       site: this.props.siteId,
       body: '',
-      rating: '5'
+      rating: '5',
+      siteReviews: []
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -30,7 +33,13 @@ class SiteReviews extends React.Component {
       return this.dispatchOpenModal()
     }
 
-    let newReview = { ...this.state, ...{author: this.props.authorId}}
+    // let newReview = { ...this.state, ...{author: this.props.authorId}}
+    let newReview = {
+      site: this.state.site,
+      body: this.state.body,
+      rating: this.state.rating,
+      author: this.props.authorId
+    }
     this.props.createReview(newReview)
 
     this.setState({
@@ -38,13 +47,24 @@ class SiteReviews extends React.Component {
       rating: '5'
     })
   }
+
+  componentDidMount() {
+    let siteReviews = this.props.fetchSiteReviews(this.props.siteId);
+    this.setState({
+      siteReviews: Object.values(siteReviews)
+    })
+    if (!this.props.users) {
+      this.props.fetchUsers()
+    }
+  }
   
   render() {
     
+    if (!this.state.siteReviews) return null
     return(
       <div className="review-holder">
-        <p className="review-label">Submit your review here!</p>
         <form onSubmit={this.handleSubmit} className="review-form">
+          <p className="review-label">Submit your review here!</p>
           <div className="rating-container">
             <label className="rating-label">Rating (1-5)
               <input 
@@ -79,6 +99,12 @@ class SiteReviews extends React.Component {
             <button type="submit" className="btn">Submit Review</button>
           </div>
         </form>
+        <div className="review-list">
+          <ReviewListContainer
+            reviews={this.state.siteReviews}
+            users={this.props.users}
+          />
+        </div>
       </div>
     );
   }

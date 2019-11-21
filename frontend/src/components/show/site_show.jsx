@@ -8,34 +8,34 @@ export default class SiteShow extends Component {
     super(props)
 
     this.state = {
-      authorId : this.props.authorId,
       siteId : this.props.siteId
+
     }
   }
   componentDidMount() {
     window.scrollTo(0, 0)
     this.props.fetchSite(this.props.match.params.siteId)
+    this.props.fetchUsers()
 
-    
-    this.props.fetchSiteReviews(this.props.siteId)
   }
 
   render() {
-    if (!this.props.site) return null
+    if (!this.state.siteId) return null
     const { site } = this.props
     
     // make sure userId and siteId are correct
     return (
       <div>
         <div>
-          <SiteDetail 
+          {/* uncomment for merge, authorId doesn't work */}
+          {/* <SiteDetail 
           site={site}
-          />
+          /> */}
         </div>
         <div>
           <SiteReviewsContainer 
-            authorId={this.state.authorId}
             siteId={this.state.siteId}
+            users={this.props.users}
           />
         </div>
       </div>

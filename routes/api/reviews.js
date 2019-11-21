@@ -33,7 +33,7 @@ router.get('/', (req, res) => {
     .catch(err => res.status(404).json({ nositesfound: 'No users found' }));
 })
 
-router.get('/site/:site_id', (req, res) => {
+router.get('/site/:siteId', (req, res) => {
   Review.find({site: req.params.siteId})
     .then(reviews => res.json(reviews))
     .catch(err => 
