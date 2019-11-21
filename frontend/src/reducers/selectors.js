@@ -27,3 +27,17 @@ export const selectSiteAuthor = (sites, userId) => {
   })
   return userSites;
 }
+
+// every review needs a {..., name: "siteName"}
+export const selectSiteNames = (sites, reviews) => {
+  
+  let displayReview = [];
+  reviews.forEach(review => {
+    sites.forEach(site => {
+      if (site._id === review.site) review['name'] = site.name;
+    })
+    return displayReview.push(review)
+  })
+  
+  return displayReview;
+}

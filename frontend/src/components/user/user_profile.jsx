@@ -16,7 +16,7 @@ class UserProfile extends React.Component {
     if (!this.props.sites) return null
 
     
-    let { userReviews, userCampsites } = this.props;
+    let { userReviews, userCampsites, sites } = this.props;
     return(
       <div className="user-main">
         <div className="user-details">
@@ -26,6 +26,7 @@ class UserProfile extends React.Component {
           <TabsContainer 
             userCampsites={userCampsites}
             userReviews={userReviews}
+            sites={sites}
           />
         </div>
       </div>
