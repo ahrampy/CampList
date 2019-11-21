@@ -15,6 +15,9 @@ export default class SiteShow extends Component {
   componentDidMount() {
     window.scrollTo(0, 0)
     this.props.fetchSite(this.props.match.params.siteId)
+
+    
+    this.props.fetchSiteReviews(this.props.siteId)
   }
 
   render() {
