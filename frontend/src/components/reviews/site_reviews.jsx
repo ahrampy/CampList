@@ -28,7 +28,7 @@ class SiteReviews extends React.Component {
   
 
   render() {
-    debugger
+    
     return(
       <div>
         <form onSubmit={this.handleSubmit}>
@@ -37,7 +37,7 @@ class SiteReviews extends React.Component {
               type="number"
               min="0"
               max="5"
-              
+              value={this.state.rating}
               onChange={this.update("rating")}
               id="rating"
             />
@@ -48,10 +48,10 @@ class SiteReviews extends React.Component {
           <textarea
             required
             cols="31"
-            
+            value={this.state.body}
             onChange={this.update("body")}
           />
-
+          <br/>
           <button type="submit" >Submit Test Review</button>
         </form>
       </div>
