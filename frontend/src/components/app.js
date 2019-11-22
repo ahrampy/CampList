@@ -2,7 +2,7 @@ import React from 'react';
 import { Route } from 'react-router-dom'
 import { 
   AuthRoute,
-  //  ProtectedRoute
+  ProtectedRoute
 } from '../util/route_util';
 import { Switch } from 'react-router-dom';
 import Splash from './splash/splash';
@@ -23,7 +23,7 @@ const App = () => (
       <Route exact path="/campsites" component={CampIndexContainer} />
       <Route exact path="/campsites/new" component={CampFormContainer} />
       <Route exact path="/campsites/:siteId" component={CampShowContainer} />
-      <Route exact path="/users/:userId" component={UserProfileContainer}/>
+      <ProtectedRoute exact path="/users/:userId" component={UserProfileContainer}/>
     </Switch>
   </div>
 );

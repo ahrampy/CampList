@@ -27,6 +27,7 @@ export default class SiteShow extends Component {
         <div>
           <SiteDetail 
           site={site}
+          fetchUsers={this.props.fetchUsers}
           />
         </div>
         <div>

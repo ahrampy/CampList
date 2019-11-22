@@ -67,7 +67,7 @@ const SiteSchema = new Schema({
       type: Boolean,
       default: false,
     },
-    Swimming: {
+    swimming: {
       type: Boolean,
       default: false
     }
