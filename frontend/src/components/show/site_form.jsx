@@ -24,12 +24,8 @@ class SiteForm extends Component {
         parking: false,
         fishing: false,
         firePit: false,
-<<<<<<< HEAD
         hiking: false,
         Swimming: false,
-=======
-        hiking: false
->>>>>>> fix_map_again
       }
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -77,9 +73,6 @@ class SiteForm extends Component {
   // }
 
   render() {
-<<<<<<< HEAD
-    
-=======
     let currentPosition;
 
     if (navigator.geolocation) {
@@ -91,7 +84,6 @@ class SiteForm extends Component {
       });
     }
 
->>>>>>> fix_map_again
     return (
       <div className="site-form-container">
         <h3>Create a New Campsite</h3>
@@ -191,18 +183,6 @@ class SiteForm extends Component {
                   />
                   <span className="site-form-seatButton">Fire Pit</span>
                 </label>
-<<<<<<< HEAD
-=======
-
-                <label>
-                  <input
-                    type="checkbox"
-                    name="hiking"
-                    onChange={this.handleCheck("hiking")}
-                  />
-                  <span className="site-form-seatButton">Hiking</span>
-                </label>
->>>>>>> fix_map_again
               </div>
             </div>
             <div className="site-form-submit">
