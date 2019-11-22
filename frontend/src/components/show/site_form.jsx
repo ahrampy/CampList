@@ -7,27 +7,36 @@ const styles = require("../maps/GoogleMapStyles.json");
 class SiteForm extends Component {
   constructor(props) {
     super(props);
-    this.coords = { lat: props.lat, lng: props.lng };
     this.state = {
       description: "",
       name: "",
       date: "",
       photoFile: null,
       photoUrl: null,
-      lat: "", // for test
-      lng: "", // for test
+      fields: {
+        location: {
+          lat: null,
+          lng: null
+        },
+        trailLocation: {
+          lat: null,
+          lng: null
+        },
+        parkingLocation: {
+          lat: null,
+          lng: null
+        }
+      },
       siteFeatures: {
         parking: false,
         fishing: false,
         firePit: false,
         hiking: false,
-        Swimming: false,
+        Swimming: false
       }
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
-    this.handleClick = this.handleClick.bind(this);
-    
   }
 
   handleInput(type) {
@@ -51,7 +60,6 @@ class SiteForm extends Component {
   handleCheck(type) {
     return e => {
       let newSiteFeatures = Object.assign({}, this.state.siteFeatures);
-
       newSiteFeatures[type] = !this.state.siteFeatures[type];
       this.setState({ siteFeatures: newSiteFeatures });
     };
@@ -59,27 +67,96 @@ class SiteForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const site = Object.assign({}, this.state);
-    this.props.createNewSite(site).then(() => this.props.history.goBack());
+    const input = {
+      description: this.state.description,
+      name: this.state.name,
+      date: this.state.date,
+      photoFile: this.state.photoFile,
+      photoUrl: this.state.photoUrl,
+      siteFeatures: this.state.siteFeatures
+    }
+    const latLng = {
+      lat: this.state.fields.location.lat().toString(),
+      lng: this.state.fields.location.lng().toString()
+    };
+    const tlatLng = {
+      tlat: this.state.fields.trailLocation.lat().toString(),
+      tlng: this.state.fields.trailLocation.lng().toString()
+    };
+    const platLng = {
+      plat: this.state.fields.parkingLocation.lat().toString(),
+      plng: this.state.fields.parkingLocation.lng().toString()
+    };
+    const site = Object.assign( {}, input, latLng, tlatLng, platLng );
+      debugger;
+    this.props.createNewSite(site)
+      debugger;
+    // .then((site) => this.props.history.push(`/campsites/${site._id}`));
   }
 
-  componentDidMount() {
-    // window.google.maps.event.addListener(this.map, "click", event => {
-    //   const coords = getCoordsObj(event.latLng);
-    //   this.handleClick(coords);
-    // });
-    // const getCoordsObj = latLng => ({
-    //   lat: latLng.lat(),
-    //   lng: latLng.lng()
-    // });
+  async componentDidMount() {
+    const { lat, lng } = await this.getcurrentLocation();
+    this.setState(prev => ({
+      fields: {
+        ...prev.fields,
+        location: {
+          lat,
+          lng
+        }
+      },
+      currentLocation: {
+        lat,
+        lng
+      }
+    }));
   }
 
-  handleClick(e) {
-    // const coords = getCoordsObj(e.latLng);
-    console.log(e);
-    
+  getcurrentLocation() {
+    if (navigator && navigator.geolocation) {
+      return new Promise((resolve, reject) => {
+        navigator.geolocation.getCurrentPosition(pos => {
+          const coords = pos.coords;
+          resolve({
+            lat: coords.latitude,
+            lng: coords.longitude
+          });
+        });
+      });
+    }
+    return {
+      lat: 0,
+      lng: 0
+    };
   }
+  addMarker = (location, map) => {
+    this.setState(prev => ({
+      fields: {
+        ...prev.fields,
+        location
+      }
+    }));
+    map.panTo(location);
+  };
 
+  addTrailMarker = (trailLocation, map) => {
+    this.setState(prev => ({
+      fields: {
+        ...prev.fields,
+        trailLocation
+      }
+    }));
+    map.panTo(trailLocation);
+  };
+  
+  addParkingMarker = (parkingLocation, map) => {
+    this.setState(prev => ({
+      fields: {
+        ...prev.fields,
+        parkingLocation
+      }
+    }));
+    map.panTo(parkingLocation);
+  };
 
   render() {
     let currentPosition;
@@ -92,6 +169,64 @@ class SiteForm extends Component {
         };
       });
     }
+
+    let hikingMap = this.state.siteFeatures.hiking ? (
+      <div className="site-form-map-container">
+        <h2>Where was the trailhead?</h2>
+        <Map
+          google={this.props.google}
+          zoom={12}
+          style={{
+            height: "400px",
+            width: "100%",
+            position: "relative"
+          }}
+          styles={styles}
+          initialCenter={{
+            lat: this.state.fields.location.lat(),
+            lng: this.state.fields.location.lng()
+          }}
+          onClick={(t, map, c) => this.addTrailMarker(c.latLng, map)}
+        >
+          <Marker position={this.state.fields.location} icon={"/marker.png"} />
+          <Marker
+            position={this.state.fields.trailLocation}
+            icon={"/trail_flag.png"}
+          />
+        </Map>
+      </div>
+    ) : null;
+
+    let parkingMap = this.state.siteFeatures.parking ? (
+      <div className="site-form-map-container">
+        <h2>Where did you find parking?</h2>
+        <Map
+          google={this.props.google}
+          zoom={12}
+          style={{
+            height: "400px",
+            width: "100%",
+            position: "relative"
+          }}
+          styles={styles}
+          initialCenter={{
+            lat: this.state.fields.location.lat(),
+            lng: this.state.fields.location.lng()
+          }}
+          onClick={(t, map, c) => this.addParkingMarker(c.latLng, map)}
+        >
+          <Marker position={this.state.fields.location} icon={"/marker.png"} />
+          <Marker
+            position={this.state.fields.trailLocation}
+            icon={"/trail_flag.png"}
+          />
+          <Marker
+            position={this.state.fields.parkingLocation}
+            icon={"/parking.png"}
+          />
+        </Map>
+      </div>
+    ) : null;
 
     return (
       <div className="site-form-container">
@@ -122,7 +257,7 @@ class SiteForm extends Component {
             </div>
             <div className="site-form-section-wrapper">
               <h2>Where did you camp?</h2>
-              <div className='site-form-map-container'>
+              <div className="site-form-map-container">
                 <Map
                   google={this.props.google}
                   zoom={7}
@@ -133,8 +268,13 @@ class SiteForm extends Component {
                   }}
                   styles={styles}
                   initialCenter={currentPosition}
-                  // onClick={this.handleClick}
-                ></Map>
+                  onClick={(t, map, c) => this.addMarker(c.latLng, map)}
+                >
+                  <Marker
+                    position={this.state.fields.location}
+                    icon={"/marker.png"}
+                  />
+                </Map>
               </div>
             </div>
             <div className="site-form-section-wrapper">
@@ -177,6 +317,9 @@ class SiteForm extends Component {
                   <span className="site-form-seatButton">Hiking</span>
                 </label>
               </div>
+              {hikingMap}
+            </div>
+            <div>
             </div>
             <div className="site-form-section-wrapper">
               <h2>What features does the campsite have?</h2>
@@ -199,9 +342,10 @@ class SiteForm extends Component {
                   <span className="site-form-seatButton">Fire Pit</span>
                 </label>
               </div>
+              {parkingMap}
             </div>
             <div className="site-form-submit">
-              <input type="submit" value="Add your Spot!" />
+              <input type="submit" value="Add Campsite" />
             </div>
           </form>
         </div>

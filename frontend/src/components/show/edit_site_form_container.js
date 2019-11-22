@@ -4,6 +4,7 @@ import EditSiteForm from './edit_site_form';
 
 const mapStateToProps = (state, ownProps) => ({
   site: state.entities.sites[ownProps.match.params.siteId],
+  
 });
 
 const mapDispatchToProps = (dispatch) => ({
