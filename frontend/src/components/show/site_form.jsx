@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
+import FooterNav from '../nav/footer_nav'
+
 const mapKey = process.env.REACT_APP_MAP_API;
 const styles = require("../maps/GoogleMapStyles.json");
-import FooterNav from '../nav/footer_nav'
 
 class SiteForm extends Component {
   constructor(props) {
