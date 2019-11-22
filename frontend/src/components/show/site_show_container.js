@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
-import { fetchSite } from '../../actions/site_actions'
+import { fetchSite } from '../../actions/site_actions';
+import { fetchUsers } from '../../actions/user_actions'
 import SiteShow from './site_show';
 
 import { fetchSiteReviews } from '../../actions/review_actions';
@@ -8,7 +9,7 @@ import { fetchUsers } from '../../actions/user_actions';
 const mapStateToProps = (state, ownProps) => {
   // const siteId = parseInt(ownProps.match.params.siteId);
   // const site = seleteSite(state.entites, siteId);
-  let siteId = ownProps.match.params.siteId
+  let siteId = ownProps.match.params.siteId;
   
   return ({
     siteId,

@@ -41,6 +41,7 @@ router.post('/new',
     const newSite = new Site({
       author: req.user.id,
       name: req.body.name,
+      date: req.body.date,
       description: req.body.description,
       lat: req.body.lat,
       lng: req.body.lng,
@@ -50,5 +51,18 @@ router.post('/new',
     newSite.save().then(site => res.json(site));
   }
 )
+
+router.put('/edit/:id', (req, res) => {
+  Site.findById(req.params.id, (err, site) => {
+    site.name = req.body.name;
+    site.date = req.body.date;
+    site.description = req.body.description;
+    site.lat = req.body.lat;
+    site.lng = req.body.lng;
+    site.siteFeatures = req.body.siteFeatures;
+    site.save()
+    res.json(site)
+  })
+})
 
 module.exports = router;

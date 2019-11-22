@@ -1,5 +1,6 @@
 .site-form-feature {
   margin-top: 25px;
+  margin-bottom: 45px;
   display: flex;
   flex-wrap: wrap;
 }
@@ -33,9 +34,6 @@
   margin-bottom: 10px;
 }
 
-.site-form-wrapper {
-}
-
 .site-form-wrapper h2 {
   font-size: 2rem;
   padding-top: 20px;
@@ -65,4 +63,19 @@
   width: 500px;
   min-height: 250px;
   padding: 10px;
+}
+
+.site-form-submit input {
+  text-decoration: none;
+  margin-bottom: 30px;
+  padding: 10px;
+  background: white;
+  color: rgb(15, 94, 61);
+  border: 1px solid rgb(15, 94, 61);
+  transition-duration: 0.4s;
+}
+
+.site-form-submit input:hover {
+  background: rgb(15, 94, 61);
+  color: white;
 }
