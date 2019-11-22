@@ -51,4 +51,11 @@ router.delete('/:id', (req, res) => {
     )
 })
 
+router.put('/:id', (req, res) => {
+  Review.findByIdAndUpdate(req.params.id)
+    .then((review) => res.json(review))
+})
+
+
+
 module.exports = router;
