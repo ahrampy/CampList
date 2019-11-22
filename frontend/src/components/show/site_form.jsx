@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom';
+import FooterNav from '../nav/footer_nav'
 
 class SiteForm extends Component {
   constructor(props) {
@@ -64,6 +65,7 @@ class SiteForm extends Component {
   render() {
     
     return (
+      <div>
       <div className="site-form-container">
         <h3>Create a New Campsite</h3>
         <div className="site-form-splitline"></div>
@@ -170,6 +172,8 @@ class SiteForm extends Component {
             </div>
           </form>
         </div>
+      </div>
+      <FooterNav />
       </div>
     )
   }

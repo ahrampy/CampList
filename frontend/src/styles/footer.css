@@ -1,0 +1,13 @@
+.developers {
+  display: flex;
+  width: 80%;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.developers > div {
+  border: 1px solid black;
+  width: 100px;
+  height: 150px;
+  margin: 0px 40px;
+}

@@ -26,9 +26,9 @@ export default class SiteShow extends Component {
     return (
       <div>
         <div>
-          {/* <SiteDetail 
+          <SiteDetail 
           site={site}
-          /> */}
+          />
         </div>
         <div>
           <SiteReviewsContainer 
