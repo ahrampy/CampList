@@ -54,9 +54,17 @@ class SiteForm extends Component {
     }
   }
 
+  handleOpenModal() {
+    this.props.openModal('login');
+  }
+
   handleSubmit(e) {
     
     e.preventDefault();
+
+    if (!this.props.authorId) {
+      return this.handleOpenModal();
+    }
     const site = Object.assign({}, this.state);
     this.props.createNewSite(site)
       .then(() => this.props.history.goBack())
