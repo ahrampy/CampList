@@ -1,12 +1,19 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
 class Splash extends React.Component {
+  componentWillMount() {
+    window.scrollTo(0, 500);
+  }
 
   render() {
     return (
-      <div className=".splash-main">
-        <p>CampList</p>
-        <footer className=".splash-footer">This is a footer</footer>
+      <div className="splash-main">
+        <div className="splash-enter">
+          <div className="splash-buttons">
+            <Link to="/campsites">Start Camping</Link>
+          </div>
+        </div>
       </div>
     );
   }

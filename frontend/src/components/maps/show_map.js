@@ -85,49 +85,50 @@ class ShowMap extends React.Component {
     const { _id, name, lat, lng, tlat, tlng, plat, plng } = this.props.site;
 
     return (
-      <Map
-        google={this.props.google}
-        zoom={14}
-        style={{ maxHeight: "400px", maxWidth: "400px" }}
-        styles={styles}
-        initialCenter={{
-          lat: lat,
-          lng: lng
-        }}
-      >
-        <Marker
-          key={_id}
-          onClick={this.onMarkerClick}
-          name={name}
-          position={{ lat: lat, lng: lng }}
-          icon={"/marker.png"}
-          type={"Campsite"}
-        ></Marker>
-        <Marker
-          key={_id + "1"}
-          onClick={this.onMarkerClick}
-          name={name}
-          position={{ lat: tlat, lng: tlng }}
-          icon={"/trail_flag.png"}
-          type={"Trailhead"}
-        ></Marker>
-        <Marker
-          key={_id + "2"}
-          onClick={this.onMarkerClick}
-          name={name}
-          position={{ lat: plat, lng: plng }}
-          icon={"/parking.png"}
-          type={"Parking"}
-        ></Marker>
-        <InfoWindow
-          marker={this.state.activeMarker}
-          visible={this.state.showingInfoWindow}
-          onClose={this.onClose}
+      <div>
+        <Map
+          google={this.props.google}
+          zoom={14}
+          style={{ height: "400px", width: "400px" }}
+          styles={styles}
+          initialCenter={{
+            lat: lat,
+            lng: lng
+          }}
         >
-          <div className="map-info-window">
-            <h4>{this.state.selectedTag.type}</h4>
-            {/* <button onClick={this.calcRoute()}>Directions</button> */}
-            {/* <h4>
+          <Marker
+            key={_id}
+            onClick={this.onMarkerClick}
+            name={name}
+            position={{ lat: lat, lng: lng }}
+            icon={"/marker.png"}
+            type={"Campsite"}
+          ></Marker>
+          <Marker
+            key={_id + "1"}
+            onClick={this.onMarkerClick}
+            name={name}
+            position={{ lat: tlat, lng: tlng }}
+            icon={"/trail_flag.png"}
+            type={"Trailhead"}
+          ></Marker>
+          <Marker
+            key={_id + "2"}
+            onClick={this.onMarkerClick}
+            name={name}
+            position={{ lat: plat, lng: plng }}
+            icon={"/parking.png"}
+            type={"Parking"}
+          ></Marker>
+          <InfoWindow
+            marker={this.state.activeMarker}
+            visible={this.state.showingInfoWindow}
+            onClose={this.onClose}
+          >
+            <div className="map-info-window">
+              <h4>{this.state.selectedTag.type}</h4>
+              {/* <button onClick={this.calcRoute()}>Directions</button> */}
+              {/* <h4>
 
               <form
                 action="http://maps.google.com/maps"
@@ -157,9 +158,10 @@ class ShowMap extends React.Component {
                 />
               </form>
             </h4> */}
-          </div>
-        </InfoWindow>
-      </Map>
+            </div>
+          </InfoWindow>
+        </Map>
+      </div>
     );
   }
 }

@@ -23,8 +23,8 @@ export default class SiteShow extends Component {
     
     // make sure userId and siteId are correct
     return (
-      <div>
-        <div>
+      <div className='show-main-container'>
+        <div className='show-detail-container'>
           <SiteDetail 
           site={site}
           />

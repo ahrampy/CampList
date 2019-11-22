@@ -15,17 +15,17 @@ import UserProfileContainer from './user/user_profile_container';
 
 
 const App = () => (
-  <div>
-    <Modal />
-    <Nav />
-    <Switch>
-      <AuthRoute exact path="/" component={Splash} />
-      <Route exact path="/campsites" component={CampIndexContainer} />
-      <Route exact path="/campsites/new" component={CampFormContainer} />
-      <Route exact path="/campsites/:siteId" component={CampShowContainer} />
-      <ProtectedRoute exact path="/users/:userId" component={UserProfileContainer}/>
-    </Switch>
-  </div>
+    <div>
+      <Modal />
+      <Nav />
+      <Switch>
+        <Route exact path="/" component={Splash} />
+        <Route exact path="/campsites" component={CampIndexContainer} />
+        <Route exact path="/campsites/new" component={CampFormContainer} />
+        <Route exact path="/campsites/:siteId" component={CampShowContainer} />
+        <ProtectedRoute exact path="/users/:userId" component={UserProfileContainer}/>
+      </Switch>
+    </div>
 );
 
 export default App;
