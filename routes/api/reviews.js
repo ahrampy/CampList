@@ -42,4 +42,13 @@ router.get('/site/:siteId', (req, res) => {
   )
 })
 
+router.delete('/:id', (req, res) => {
+
+  Review.findByIdAndDelete(req.params.id)
+    .then(() => res.json({reviewGone: 'The review was removed'}))
+    .catch(err => 
+      res.status(404).json({noReviewForYou: "Nope"})  
+    )
+})
+
 module.exports = router;
