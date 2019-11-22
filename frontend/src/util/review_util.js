@@ -5,7 +5,6 @@ export const fetchReviews = () => {
 };
 
 export const fetchReview = reviewId => {
-  debugger
   return axios.get(`/api/reviews/${reviewId}`)
 }
 
@@ -22,6 +21,5 @@ export const trashReview = reviewId => {
 }
 
 export const updateReview = review => {
-
-  return axios.patch(`/api/reviews/${review._id}`)
+  return axios.put(`/api/reviews/${review.id}`, review)
 }

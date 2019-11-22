@@ -1,6 +1,6 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
-class ReviewForm extends React.Component {
+
+class ReviewFormEdit extends React.Component {
 
   constructor(props) {
     super(props)
@@ -19,7 +19,6 @@ class ReviewForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    
     if (this.props.formType !== 'Update Review' && !this.props.authorId) {
       return this.dispatchOpenModal()
     }
@@ -32,13 +31,9 @@ class ReviewForm extends React.Component {
       author: this.props.authorId
     }
 
-    if (this.props.formType === 'Update Review') {
-      review = { ...review, ...{id: this.props.match.params.reviewId}}
-    }
+
     this.props.submitReview(review)
-    if (this.props.formType === 'Update Review') {
-      this.props.history.goBack()
-    }
+
     this.setState({
       body: '',
       rating: '5'
@@ -60,13 +55,6 @@ class ReviewForm extends React.Component {
               onChange={this.update("rating")}
               id="rating"
             />
-            {/* <span>
-              <input type="radio" name="rating" value="1" >1</input>
-              <input type="radio" name="rating" value="2" >2</input>
-              <input type="radio" name="rating" value="3" >3</input>
-              <input type="radio" name="rating" value="4" >4</input>
-              <input type="radio" name="rating" value="5" >5</input>
-            </span> */}
           </label>
         </div>
         <div className="body-container">      
@@ -86,4 +74,4 @@ class ReviewForm extends React.Component {
     )
   }
 }
-export default withRouter(ReviewForm);
+export default ReviewFormEdit;

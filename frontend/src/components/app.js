@@ -23,8 +23,8 @@ const App = () => (
       <AuthRoute exact path="/" component={Splash} />
       <Route exact path="/campsites" component={CampIndexContainer} />
       <Route exact path="/campsites/new" component={CampFormContainer} />
-      <Route path="/campsites/:siteId" component={CampShowContainer} />
-      <Route exact path="/reviews/:reviewId/edit" component={EditReviewContainer}/>
+      <Route exact path="/campsites/:siteId" component={CampShowContainer} />
+      <Route path="/reviews/:reviewId/edit" component={EditReviewContainer}/>
       <ProtectedRoute exact path="/users/:userId" component={UserProfileContainer}/>
     </Switch>
   </div>

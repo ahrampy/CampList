@@ -60,7 +60,7 @@ router.delete('/:id', (req, res) => {
 })
 
 router.put('/:id', (req, res) => {
-  Review.findByIdAndUpdate(req.params.id)
+  Review.findByIdAndUpdate(req.params.id, req.body)
     .then((review) => res.json(review))
 })
 

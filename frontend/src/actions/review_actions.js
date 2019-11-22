@@ -41,8 +41,12 @@ export const createReview = review => dispatch => APIUtil.createReview(review)
 export const fetchSiteReviews = siteId => dispatch => APIUtil.fetchSiteReviews(siteId)
   .then(reviews => dispatch(receiveSiteReviews(reviews)));
 
-export const updateReview = review => dispatch => APIUtil.updateReview(review._id)
-  .then(review => dispatch(receiveReview(review)));
+export const updateReview = review => dispatch => APIUtil.updateReview(review)
+  .then(review => 
+      {
+      debugger
+      return dispatch(receiveReview(review))
+  })  
 
 export const trashReview = reviewId => dispatch => APIUtil.trashReview(reviewId)
   .then(() => dispatch(removeReview(reviewId)));
