@@ -20,7 +20,7 @@
 }
 
 .site-form-feature input:checked + .site-form-seatButton { 
-  background: rgb(64, 217, 172); 
+  background: rgb(15, 94, 61); 
   color: white;
 }
 
@@ -66,9 +66,11 @@
 }
 
 .site-form-submit input {
+  font-size: larger;
   text-decoration: none;
-  margin-bottom: 30px;
-  padding: 10px;
+  margin-bottom: 50px;
+  margin-left: 5px;
+  padding: 20px;
   background: white;
   color: rgb(15, 94, 61);
   border: 1px solid rgb(15, 94, 61);
@@ -78,4 +80,10 @@
 .site-form-submit input:hover {
   background: rgb(15, 94, 61);
   color: white;
+}
+
+.site-form-map-container {
+  display: block;
+  padding-bottom: 400px;
+  position: relative;
 }

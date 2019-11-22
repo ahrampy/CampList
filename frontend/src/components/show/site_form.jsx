@@ -2,11 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
 const mapKey = process.env.REACT_APP_MAP_API;
-
-const getCoordsObj = latLng => ({
-  lat: latLng.lat(),
-  lng: latLng.lng()
-});
+const styles = require("../maps/GoogleMapStyles.json");
 
 class SiteForm extends Component {
   constructor(props) {
@@ -30,6 +26,8 @@ class SiteForm extends Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    
   }
 
   handleInput(type) {
@@ -65,12 +63,23 @@ class SiteForm extends Component {
     this.props.createNewSite(site).then(() => this.props.history.goBack());
   }
 
-  // register() {
-  //   window.google.maps.event.addListener(this.map, "click", event => {
-  //     const coords = getCoordsObj(event.latLng);
-  //     this.handleClick(coords);
-  //   });
-  // }
+  componentDidMount() {
+    // window.google.maps.event.addListener(this.map, "click", event => {
+    //   const coords = getCoordsObj(event.latLng);
+    //   this.handleClick(coords);
+    // });
+    // const getCoordsObj = latLng => ({
+    //   lat: latLng.lat(),
+    //   lng: latLng.lng()
+    // });
+  }
+
+  handleClick(e) {
+    // const coords = getCoordsObj(e.latLng);
+    console.log(e);
+    
+  }
+
 
   render() {
     let currentPosition;
@@ -91,13 +100,14 @@ class SiteForm extends Component {
         <div className="site-form-wrapper">
           <form onSubmit={this.handleSubmit}>
             <div className="site-form-section-wrapper">
-              <h2>What is the name of your campsite?</h2>
+              <h2>Give your campsite a name.</h2>
               <input
                 type="text"
                 id="campname"
                 onChange={this.handleInput("name")}
                 value={this.state.name}
-                placeholder="Type your camp name here..."
+                placeholder="Type a camp name here..."
+                required
               />
             </div>
             <div className="site-form-section-wrapper">
@@ -107,33 +117,38 @@ class SiteForm extends Component {
                 id="date"
                 onChange={this.handleInput("date")}
                 value={this.state.date}
+                required
               />
             </div>
             <div className="site-form-section-wrapper">
-              <h2>What's your campsite's location?</h2>
-              <Map
-                google={this.props.google}
-                zoom={7}
-                style={{
-                  height: "400px",
-                  width: "400px",
-                  position: "relative"
-                }}
-                // styles={{ position: "relative" }}
-                initialCenter={currentPosition}
-              ></Map>
+              <h2>Where did you camp?</h2>
+              <div className='site-form-map-container'>
+                <Map
+                  google={this.props.google}
+                  zoom={7}
+                  style={{
+                    height: "400px",
+                    width: "100%",
+                    position: "relative"
+                  }}
+                  styles={styles}
+                  initialCenter={currentPosition}
+                  // onClick={this.handleClick}
+                ></Map>
+              </div>
             </div>
             <div className="site-form-section-wrapper">
-              <h2>What was your experience?</h2>
+              <h2>Tell us a little about your experience.</h2>
               <textarea
                 id="description"
                 value={this.state.description}
                 onChange={this.handleInput("description")}
                 placeholder="Type your camping experience here..."
+                required
               />
             </div>
             <div className="site-form-section-wrapper">
-              <h2>What activities are accessible on or near your property?</h2>
+              <h2>What activities are nearby?</h2>
               <div className="site-form-feature">
                 <label>
                   <input
@@ -148,26 +163,26 @@ class SiteForm extends Component {
                   <input
                     type="checkbox"
                     name="swimming"
-                    onChange={this.handleCheck('swimming')}
+                    onChange={this.handleCheck("swimming")}
                   />
                   <span className="site-form-seatButton">Swimming</span>
                 </label>
-                
+
                 <label>
-                  <input 
+                  <input
                     type="checkbox"
                     name="hiking"
-                    onChange={this.handleCheck('hiking')}
+                    onChange={this.handleCheck("hiking")}
                   />
                   <span className="site-form-seatButton">Hiking</span>
                 </label>
               </div>
             </div>
             <div className="site-form-section-wrapper">
-              <h2>What features are accessible on or near your property?</h2>
+              <h2>What features does the campsite have?</h2>
               <div className="site-form-feature">
                 <label>
-                  <input 
+                  <input
                     type="checkbox"
                     name="parking"
                     onChange={this.handleCheck("parking")}
@@ -186,7 +201,7 @@ class SiteForm extends Component {
               </div>
             </div>
             <div className="site-form-submit">
-              <input type="submit" value="Submit" />
+              <input type="submit" value="Add your Spot!" />
             </div>
           </form>
         </div>
@@ -195,7 +210,8 @@ class SiteForm extends Component {
   }
 }
 
-// const WrappedForm = GoogleApiWrapper({
-//   apiKey: mapKey
-// })(SiteForm);
-export default withRouter(SiteForm);
+
+const WrappedForm = GoogleApiWrapper({
+  apiKey: mapKey
+})(SiteForm);
+export default withRouter(WrappedForm);
