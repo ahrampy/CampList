@@ -4,9 +4,9 @@ import { selectReviewNames } from '../../reducers/selectors';
 import ReviewList from './review_list';
 
 const mSTP = (state, ownProps) => {
-  if (ownProps.newReview) {
-    ownProps.reviews.push(ownProps.newReview)
-  }
+  // if (ownProps.newReview) {
+  //   ownProps.reviews.push(ownProps.newReview)
+  // }
   let currentUserId;
   if (state.session.isAuthenticated) {
     currentUserId = state.session.user.id

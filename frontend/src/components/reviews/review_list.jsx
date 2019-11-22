@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class ReviewList extends React.Component {
   constructor(props) {
@@ -12,8 +13,10 @@ class ReviewList extends React.Component {
   }
 
   render() {
-    let { reviews, currentUserId } = this.props
+    let { reviews, currentUserId, siteId } = this.props
+
     if (!reviews) return null;
+    debugger
     return (
       <div>
         <p className="review-label">Recent Reviews</p>
@@ -27,7 +30,11 @@ class ReviewList extends React.Component {
             <br/>
             {
               currentUserId === review.author ?
-              <button onClick={() => this.handleDelete(review._id)}>Delete</button> :
+              <div>
+                <button onClick={() => this.handleDelete(review._id)}>Delete</button> 
+                <Link to={`/reviews/${review._id}/edit`}>Edit</Link>
+              </div>
+              :
               null
             }
           </div>

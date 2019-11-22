@@ -11,16 +11,13 @@ const mSTP = (state, ownProps) => {
   if (state.session.isAuthenticated) {
     authorId = state.session.user.id
   }
-  if (reviews.new) {
-    newReview = reviews.new
-  }
   
   return {
     siteId: ownProps.siteId,
     authorId,
     users: Object.values(users),
     reviews: Object.values(reviews.site),
-    newReview
+
   }
 }
 

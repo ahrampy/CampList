@@ -33,6 +33,14 @@ router.get('/', (req, res) => {
     .catch(err => res.status(404).json({ nositesfound: 'No users found' }));
 })
 
+router.get('/:id', (req,res) => {
+  Review.findById(req.params.id)
+    .then(review => res.json(review))
+    .catch(err => 
+      res.status(404).json({ noreviewfound: 'No review was found'})
+    );
+});
+
 router.get('/site/:siteId', (req, res) => {
   Review.find({site: req.params.siteId})
     .then(reviews => res.json(reviews))
@@ -52,7 +60,7 @@ router.delete('/:id', (req, res) => {
 })
 
 router.put('/:id', (req, res) => {
-  Review.findByIdAndUpdate(req.params.id)
+  Review.findByIdAndUpdate(req.params.id, req.body)
     .then((review) => res.json(review))
 })
 

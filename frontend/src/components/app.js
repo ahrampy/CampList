@@ -13,6 +13,7 @@ import CampFormContainer from './show/site_form_container';
 import CampShowContainer from './show/site_show_container';
 import UserProfileContainer from './user/user_profile_container';
 import EditSiteFormContainer from './show/edit_site_form_container';
+import EditReviewContainer from './reviews/edit_review_container';
 
 
 const App = () => (
@@ -25,6 +26,7 @@ const App = () => (
       <Route exact path="/campsites/new" component={CampFormContainer} />
       <Route exact path="/campsites/:siteId" component={CampShowContainer} />
       <Route exact path="/campsites/edit/:siteId" component={EditSiteFormContainer} />
+      <Route path="/reviews/:reviewId/edit" component={EditReviewContainer}/>
       <ProtectedRoute exact path="/users/:userId" component={UserProfileContainer}/>
     </Switch>
   </div>
