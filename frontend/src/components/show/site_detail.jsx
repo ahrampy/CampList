@@ -4,9 +4,17 @@ import ShowMap from '../maps/show_map';
 
 class SiteDetail extends Component {
 
+  handleSiteFeatures(feature) {
+    if (this.props.site.siteFeatures[feature] === true) {
+      return "Yes";
+    } else {
+      return "No";
+    }
+  }
+
   render() {
     const {
-      author, name, date, description, siteFeatures
+      author, name, date, description
     } = this.props.site
     // author commented out?
     
@@ -41,7 +49,7 @@ class SiteDetail extends Component {
                     Hiking Trails:
                   </div>
                   <div className="show-feature-body">
-                    {siteFeatures.hiking.toString()}
+                    {this.handleSiteFeatures("hiking")}
                   </div>
                 </div>
                 <div className="firePit">
@@ -49,7 +57,7 @@ class SiteDetail extends Component {
                     Fire Pit:
                   </div>
                   <div className="show-feature-body">
-                    {siteFeatures.firePit.toString()}
+                    {this.handleSiteFeatures("firePit")}
                   </div>
                 </div>
                 <div className="parking">
@@ -57,7 +65,7 @@ class SiteDetail extends Component {
                     Nearby Parking:
                   </div>
                   <div className="show-feature-body">
-                    {siteFeatures.parking.toString()}
+                    {this.handleSiteFeatures("parking")}
                   </div>
                 </div>
                 <div className="fishing">
@@ -65,7 +73,7 @@ class SiteDetail extends Component {
                     Fishing Spot:
                   </div>
                   <div className="show-feature-body">
-                    {siteFeatures.fishing.toString()}
+                    {this.handleSiteFeatures("fishing")}
                   </div>
                 </div>
               </div>

@@ -32,3 +32,8 @@ export const createNewSite = data => dispatch => (
   APIUtil.postNewSite(data)
     .then(site => dispatch(receiveSite(site)))
 );
+
+export const editSite = data => dispatch => (
+  APIUtil.editSite(data)
+    .then(site => dispatch(receiveSite(site)))
+);

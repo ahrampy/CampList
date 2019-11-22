@@ -15,3 +15,7 @@ export const getUserSites = id => {
 export const postNewSite = data => {
   return axios.post('/api/sites/new', data);
 };
+
+export const editSite = (data) => {
+  return axios.put(`/api/sites/edit/${data._id}`, data);
+};

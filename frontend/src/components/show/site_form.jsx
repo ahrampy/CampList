@@ -18,6 +18,7 @@ class SiteForm extends Component {
         fishing: false,
         firePit: false,
         hiking: false,
+        Swimming: false,
       }
     };
 
@@ -61,7 +62,7 @@ class SiteForm extends Component {
   }
 
   render() {
-    debugger
+    
     return (
       <div className="site-form-container">
         <h3>Create a New Campsite</h3>
@@ -126,6 +127,28 @@ class SiteForm extends Component {
                 <label>
                   <input 
                     type="checkbox"
+                    name="swimming"
+                    onChange={this.handleCheck('swimming')}
+                  />
+                  <span className="site-form-seatButton">Swimming</span>
+                </label>
+                
+                <label>
+                  <input 
+                    type="checkbox"
+                    name="hiking"
+                    onChange={this.handleCheck('hiking')}
+                  />
+                  <span className="site-form-seatButton">Hiking</span>
+                </label>
+              </div>
+            </div>
+            <div className="site-form-section-wrapper">
+              <h2>What features are accessible on or near your property?</h2>
+              <div className="site-form-feature">
+                <label>
+                  <input 
+                    type="checkbox"
                     name="parking"
                     onChange={this.handleCheck('parking')}
                   />
@@ -140,17 +163,8 @@ class SiteForm extends Component {
                   />
                   <span className="site-form-seatButton">Fire Pit</span>
                 </label>
-                
-                <label>
-                  <input 
-                    type="checkbox"
-                    name="hiking"
-                    onChange={this.handleCheck('hiking')}
-                  />
-                  <span className="site-form-seatButton">Hiking</span>
-                </label>
-                </div>
               </div>
+            </div>
             <div className="site-form-submit">
               <input type="submit" value="Submit"/>
             </div>
