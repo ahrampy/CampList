@@ -4,6 +4,7 @@ export const RECEIVE_ALL_REVIEWS = 'RECEIVE_ALL_REVIEWS';
 export const RECEIVE_REVIEW = 'RECEIVE_REVIEW';
 export const RECEIVE_SITE_REVIEWS = 'RECEIVE_SITE_REVIEWS';
 export const REMOVE_REVIEW = 'REMOVE_REVIEW';
+export const UPDATE_REVIEW = 'UPDATE_REVIEW';
 
 const receiveReviews = reviews => ({
   type: RECEIVE_ALL_REVIEWS,
@@ -29,6 +30,11 @@ const removeReview = reviewId => {
   }
 }
 
+const receiveUpdatedReview = review => ({
+  type: UPDATE_REVIEW,
+  review
+})
+
 export const fetchReviews = () => dispatch => APIUtil.fetchReviews()
   .then(reviews => dispatch(receiveReviews(reviews)));
 
@@ -44,8 +50,7 @@ export const fetchSiteReviews = siteId => dispatch => APIUtil.fetchSiteReviews(s
 export const updateReview = review => dispatch => APIUtil.updateReview(review)
   .then(review => 
       {
-      debugger
-      return dispatch(receiveReview(review))
+      return dispatch(receiveUpdatedReview(review))
   })  
 
 export const trashReview = reviewId => dispatch => APIUtil.trashReview(reviewId)

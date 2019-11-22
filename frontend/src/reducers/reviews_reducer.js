@@ -2,7 +2,8 @@ import {
   RECEIVE_ALL_REVIEWS, 
   RECEIVE_REVIEW, 
   RECEIVE_SITE_REVIEWS,
-  REMOVE_REVIEW
+  REMOVE_REVIEW,
+  UPDATE_REVIEW
 } from '../actions/review_actions';
 
 const ReviewsReducer = (state = { all: {}, site: [], new: undefined }, action) => {
@@ -17,6 +18,17 @@ const ReviewsReducer = (state = { all: {}, site: [], new: undefined }, action) =
     case RECEIVE_REVIEW:
       newState.site.push(action.review.data)
       return newState;
+    
+    case UPDATE_REVIEW:
+      for (var i = 0; i < newState.site.length; i++) {
+        if (newState.site[i]._id === action.review.data._id) {
+          newState.site.splice(i, 1);
+          break;
+        }
+      }
+      debugger
+      newState.site.push(action.review.data)
+      return newState
 
     case RECEIVE_SITE_REVIEWS:
       newState.site = action.reviews.data
