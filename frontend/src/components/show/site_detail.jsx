@@ -26,7 +26,7 @@ class SiteDetail extends Component {
           </div>
           <div className="show-info-wrapper">
             <div className="author-name">
-              {author}
+              {/* {author} */}
             </div>
             <div className="show-title-bar">
               <div className="show-name">
