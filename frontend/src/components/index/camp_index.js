@@ -47,6 +47,7 @@ class CampIndex extends React.Component {
     this.props.fetchSites()
     this.props.fetchUsers()
     this.props.fetchReviews()
+    window.scrollTo(0,0)
   }
 
   render() {

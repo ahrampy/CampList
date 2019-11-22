@@ -24,11 +24,11 @@ export default class SiteShow extends Component {
     const { site } = this.props
     
     return (
-      <div>
-        <div>
-          {/* <SiteDetail 
+      <div className='show-main-container'>
+        <div className='show-detail-container'>
+          <SiteDetail 
           site={site}
-          /> */}
+          />
         </div>
         <div>
           <SiteReviewsContainer 

@@ -1,5 +1,37 @@
 .splash-main {
     font-family: "Calibre", Helvetica, Arial, sans-serif;
     width: 100%;
-    height: 600px;
+    min-height: 900px;
+    background-image: url('/tent_splash.png');
+    background-size: contain;
+    background-size: cover;
+    background-position: center;
+}
+
+.splash-enter {
+    text-align: center;
+    padding-top: 30%;
+    z-index: 2;
+}
+
+.splash-buttons{
+    margin: 10px;
+    padding: 25px;
+    height: 20px;
+}
+
+.splash-buttons a {
+    text-decoration: none;
+    margin-right: 10px;
+    padding: 20px;
+    background: white;
+    color: rgb(15, 94, 61);
+    border: 0px solid rgb(15, 94, 61);
+    border-radius: 2px;
+    transition-duration: 0.4s;
+}
+
+.splash-buttons a:hover {
+    color: white;
+    background: rgb(15, 94, 61);
 }

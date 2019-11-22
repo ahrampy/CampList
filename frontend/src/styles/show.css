@@ -5,7 +5,10 @@
 }
 
 .show-map-info {
-  width: 25%;
+  position: relative;
+  width: 650px;
+  height: 650px;
+  overflow: hidden;
 }
 
 .show-detail-wrapper {
