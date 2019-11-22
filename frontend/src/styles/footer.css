@@ -1,0 +1,60 @@
+.developers {
+  display: flex;
+  width: 80%;
+  justify-content: center;
+  margin: 0 auto;
+  font-family: "Calibre", Helvetica, Arial, sans-serif;
+}
+
+.developers > div {
+  width: 200px;
+  height: 300px;
+  margin: 20px 40px;
+  margin-bottom: 40px;
+}
+
+.developer-name {
+  margin: 10px 0px;
+  text-align: center;
+  font-size: 22px;
+}
+
+.developer-link {
+  text-align: center;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.developer-link > a {
+  text-decoration: none;
+  color: black;
+  transition-duration: 0.4s;
+}
+
+.developer-link > a:hover {
+  color: rgb(15, 94, 61);
+}
+
+.developer-link > a > p {
+  margin: 5px 0px;
+}
+
+.footer-nav {
+  text-align: center;
+  background-color: rgba(131, 131, 131, 0.3);
+  padding: 5px;
+}
+
+.icons {
+  font-size: 20px;
+}
+
+.icons > a {
+  color: rgb(15, 94, 61);
+  transition-duration: 0.4s;
+}
+
+.icons > a:hover {
+  color: rgb(23, 161, 104);
+}

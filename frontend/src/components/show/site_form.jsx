@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
 const mapKey = process.env.REACT_APP_MAP_API;
 const styles = require("../maps/GoogleMapStyles.json");
+import FooterNav from '../nav/footer_nav'
 
 class SiteForm extends Component {
   constructor(props) {
@@ -57,8 +58,16 @@ class SiteForm extends Component {
     };
   }
 
+  handleOpenModal() {
+    this.props.openModal('login');
+  }
+
   handleSubmit(e) {
     e.preventDefault();
+
+    if (!this.props.authorId) {
+      return this.handleOpenModal();
+    }
     const site = Object.assign({}, this.state);
     this.props.createNewSite(site).then(() => this.props.history.goBack());
   }
@@ -94,6 +103,7 @@ class SiteForm extends Component {
     }
 
     return (
+      <div>
       <div className="site-form-container">
         <h3>Create a New Campsite</h3>
         <div className="site-form-splitline"></div>
@@ -205,6 +215,8 @@ class SiteForm extends Component {
             </div>
           </form>
         </div>
+      </div>
+      <FooterNav />
       </div>
     );
   }
