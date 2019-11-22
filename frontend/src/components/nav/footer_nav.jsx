@@ -16,8 +16,7 @@ export default class FooterNav extends Component {
         </div>
         <div className="developers">
           <div>
-            <div>
-              <img src="" alt=""/>
+            <div className="developer-pic">
             </div>
             <div>
               <p>Adrian Rampy</p>
@@ -29,8 +28,8 @@ export default class FooterNav extends Component {
             </div>
           </div>
           <div>
-            <div>
-              <img src="" alt=""/>
+            <div className="developer-pic">
+              
             </div>
             <div>
               <p>Will Smith</p>
@@ -43,8 +42,8 @@ export default class FooterNav extends Component {
             </div>
           </div>
           <div>
-            <div>
-              <img src="" alt=""/>
+            <div className="develper-pic">
+              
             </div>
             <div>
               <p>Max Li</p>
