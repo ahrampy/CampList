@@ -16,7 +16,6 @@ const ReviewsReducer = (state = { all: {}, site: [], new: undefined }, action) =
 
     case RECEIVE_REVIEW:
       newState.site.push(action.review.data)
-      debugger
       return newState;
 
     case RECEIVE_SITE_REVIEWS:
