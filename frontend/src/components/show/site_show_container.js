@@ -4,7 +4,6 @@ import { fetchUsers } from '../../actions/user_actions'
 import SiteShow from './site_show';
 
 import { fetchSiteReviews } from '../../actions/review_actions';
-import { fetchUsers } from '../../actions/user_actions';
 
 const mapStateToProps = (state, ownProps) => {
   // const siteId = parseInt(ownProps.match.params.siteId);
