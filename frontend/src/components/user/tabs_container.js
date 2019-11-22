@@ -8,7 +8,7 @@ const mSTP = (state, ownProps) => {
   return {
     tabSections: [
       {title: "Reviews", content: newReviews},
-      {title: "Bookmarks", content: ['Site1', 'Site2', 'Site3']},
+      {title: "Bookmarks", content: []},
       {title: "Your Campsites", content: ownProps.userCampsites} 
     ]
   }

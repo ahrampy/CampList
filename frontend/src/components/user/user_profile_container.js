@@ -6,13 +6,12 @@ import { fetchSites } from '../../actions/site_actions';
 
 
 const mSTP = (state, ownProps) => {
-  debugger
   
   let { id, username, email } = state.session.user
   let { sites, reviews } = state.entities
 
   let userCampsites = selectSiteAuthor(Object.values(sites), id)
-  let userReviews = selectUserReviews(Object.values(reviews), id)
+  let userReviews = selectUserReviews(Object.values(reviews.all), id)
 
   return {
     id,

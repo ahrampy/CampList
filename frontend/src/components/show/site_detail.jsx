@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import ShowMap from '../maps/show_map';
 
 class SiteDetail extends Component {
 
@@ -15,16 +16,17 @@ class SiteDetail extends Component {
     const {
       author, name, date, description
     } = this.props.site
-    debugger
+    // author commented out?
+    
     return (
       <div className="show-outer-container">
         <div className="show-detail-wrapper">
           <div className="show-map-info">
-            map
+            <ShowMap site={this.props.site}/>
           </div>
           <div className="show-info-wrapper">
             <div className="author-name">
-              {/* {author} */}
+              {author}
             </div>
             <div className="show-title-bar">
               <div className="show-name">

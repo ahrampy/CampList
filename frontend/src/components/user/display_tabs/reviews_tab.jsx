@@ -7,8 +7,8 @@ const ReviewsTab = props => {
   
   return(
     <div>
-      {reviews.map(review => (
-        <div>
+      {reviews.map((review, i) => (
+        <div key={`rev-${i}`}>
           <Link to={`/campsites/${review.site}`}>{review.name}</Link>
           <br/>
           {review.rating}

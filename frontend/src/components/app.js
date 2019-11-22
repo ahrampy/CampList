@@ -2,7 +2,7 @@ import React from 'react';
 import { Route } from 'react-router-dom'
 import { 
   AuthRoute,
-  ProtectedRoute
+   ProtectedRoute
 } from '../util/route_util';
 import { Switch } from 'react-router-dom';
 import Splash from './splash/splash';

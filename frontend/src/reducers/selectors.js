@@ -25,7 +25,11 @@ export const selectSiteAuthor = (sites, userId) => {
       userSites.push(site)
     }
   })
-  return userSites;
+  let bugFix = Array.from(new Set(userSites.map(review => review._id)))
+    .map(_id => {
+      return userSites.find(a => a._id === _id)
+    })
+  return bugFix
 }
 
 // every review needs a {..., name: "siteName"}
@@ -38,6 +42,16 @@ export const selectSiteNames = (sites, reviews) => {
     })
     return displayReview.push(review)
   })
-  
+  return displayReview
+}
+
+export const selectReviewNames = (users, reviews) => {
+  let displayReview = [];
+  reviews.forEach(review => {
+    users.forEach(user => {
+      if (user._id === review.author) review['username'] = user.username;
+    })
+    return displayReview.push(review)
+  })
   return displayReview;
 }

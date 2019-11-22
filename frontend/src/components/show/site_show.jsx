@@ -8,20 +8,21 @@ export default class SiteShow extends Component {
     super(props)
 
     this.state = {
-      authorId : this.props.authorId,
       siteId : this.props.siteId
+
     }
   }
   componentDidMount() {
     window.scrollTo(0, 0)
     this.props.fetchSite(this.props.match.params.siteId)
+    this.props.fetchUsers()
+
   }
 
   render() {
     if (!this.props.site) return null
     const { site } = this.props
     
-    // make sure userId and siteId are correct
     return (
       <div>
         <div>
@@ -32,8 +33,8 @@ export default class SiteShow extends Component {
         </div>
         <div>
           <SiteReviewsContainer 
-            authorId={this.state.authorId}
             siteId={this.state.siteId}
+            users={this.props.users}
           />
         </div>
       </div>
