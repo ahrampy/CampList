@@ -5,9 +5,13 @@ textarea {
 }
 
 .review-holder {
-  padding: 3% 5%;
+  margin-left: 150px;
+  margin-right: 150px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 1rem;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 
 }
 
@@ -24,6 +28,7 @@ textarea {
 
 .review-form div{
   padding: 20px;
+  padding-bottom: 40px;
 }
 
 .btn {

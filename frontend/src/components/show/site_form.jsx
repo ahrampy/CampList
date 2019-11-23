@@ -70,7 +70,7 @@ class SiteForm extends Component {
       return this.handleOpenModal();
     }
     const site = Object.assign({}, this.state);
-    this.props.createNewSite(site).then(() => this.props.history.goBack());
+    this.props.createNewSite(site).then((site) => this.props.history.push(`/campsite/${site._id}`));
   }
 
   componentDidMount() {
