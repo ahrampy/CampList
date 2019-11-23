@@ -1,7 +1,7 @@
 import React from 'react';
 import FilterAttrsContainer from '../search/filter_attrs_container';
 import MapContainer from '../maps/index_map_container';
-
+import Footer from '../nav/footer_nav';
 
 class CampIndex extends React.Component {
   constructor(props) { 
@@ -72,6 +72,9 @@ class CampIndex extends React.Component {
             checkedAttrs={itemChecked}
           />
         </div>
+        {/* <div>
+          <Footer />
+        </div> */}
       </div>
     );
   }

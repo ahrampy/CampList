@@ -32,8 +32,8 @@
 .entry-form input {
     box-sizing : border-box;
     font-size: medium;
-    border: 1px solid rgb(15, 94, 61);
-    border-radius: 0px;
+    border: 3px solid rgb(15, 94, 61);
+    border-radius: 2px;
     padding: 18px 20px;
     width: 100%;
     margin-top: 5px;
@@ -54,7 +54,8 @@
 .entry-form-button {
     text-decoration: none;
     color: rgb(15, 94, 61);
-    border: 1px solid rgb(15, 94, 61);
+    border: 3px solid rgb(15, 94, 61);
+    border-radius: 2px;
     padding: 18px 20px;
     width: 100%;
     margin-top: 15px;
@@ -73,6 +74,7 @@
 #entry-form-demo-button {
     width: 100%;
     padding: 10px 20px;
+    border: 3px solid rgb(15, 94, 61);
 }
 
 .entry-form-errors {
@@ -104,7 +106,7 @@
 #entry-form-demo-button {
     text-decoration: none;
     color: rgb(15, 94, 61);
-    border: 1px solid rgb(15, 94, 61);
+    border: 3px solid rgb(15, 94, 61);
     padding: 18px 20px;
     width: 100%;
     margin-top: 8px;

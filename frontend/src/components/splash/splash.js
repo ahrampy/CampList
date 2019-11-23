@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 class Splash extends React.Component {
   componentWillMount() {
-    window.scrollTo(0, 500);
+    window.scrollTo(0, document.body.scrollHeight);
   }
 
   render() {

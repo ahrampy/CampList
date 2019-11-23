@@ -83,7 +83,7 @@ class LoginForm extends React.Component {
             <div className="entry-form-errors">{this.renderErrors()}</div>
             <div className="entry-form-demo-button-container">
               <button
-                className="entry-form-sign-button"
+                className="entry-form-button"
                 id="entry-form-demo-button"
                 onClick={this.handleDemo}
               >

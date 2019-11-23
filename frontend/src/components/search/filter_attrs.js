@@ -41,7 +41,9 @@ class FilterAttrs extends React.Component {
     
     return(
       <div className="filter-sidebar">
-        <div className="filter-category">Attributes:</div>
+        <div className="filter-category">
+          <h3>Filter Sites</h3>
+        </div>
         {this.listChecks()}
       </div>
     );
