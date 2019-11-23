@@ -17,6 +17,5 @@ export const postNewSite = data => {
 };
 
 export const editSite = (data) => {
-  debugger
   return axios.put(`/api/sites/edit/${data._id}`, data);
 };

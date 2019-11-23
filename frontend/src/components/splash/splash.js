@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from "react-router-dom";
 
 class Splash extends React.Component {
-  componentWillMount() {
+  componentDidMount() {
     window.scrollTo(0, document.body.scrollHeight);
   }
 

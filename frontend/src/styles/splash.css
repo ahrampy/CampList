@@ -10,7 +10,7 @@
 
 .splash-enter {
     text-align: center;
-    padding-top: 25%;
+    padding-top: 35%;
     z-index: 2;
 }
 
@@ -23,15 +23,22 @@
     text-decoration: none;
     margin-right: 10px;
     padding: 25px;
-    background: white;
-    color: rgb(15, 94, 61);
+    background: rgb(15, 94, 61, 0.7);
+    color: white;
     border: 0px solid rgb(15, 94, 61);
-    background-opacity: 50%;
     border-radius: 2px;
     transition-duration: 0.4s;
+    font-weight: 600;
+
 }
 
 .splash-buttons a:hover {
     color: white;
     background: rgb(15, 94, 61);
+    opacity: 100;
+}
+
+.splash-buttons a:visited {
+    color: white;
+    text-decoration: none;
 }
