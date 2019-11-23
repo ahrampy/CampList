@@ -2,6 +2,7 @@ textarea {
   outline: none;
   resize: none;
   overflow: auto;
+  min-height: 100px;
 }
 
 .review-holder {
@@ -12,12 +13,19 @@ textarea {
   padding-top: 1rem;
   display: flex;
   justify-content: space-between;
+  /* font-family: "Calibre", Helvetica, Arial, sans-serif; */
 
 }
 
 .review-label {
   border-top: 1px solid black;
   font-size: 20px;
+  padding-top: 10px;
+  font-weight: 600;
+}
+
+.rating-container {
+  margin-top: 10px;
 }
 
 .review-form {
@@ -27,8 +35,7 @@ textarea {
 }
 
 .review-form div{
-  padding: 20px;
-  padding-bottom: 40px;
+  padding-bottom: 20px;
 }
 
 .btn {
@@ -51,6 +58,7 @@ textarea {
 .review-list-container > p {
   margin-bottom: 10px;
   padding-top: 10px;
+  font-weight: 600;
 }
 
 .single-review-container {
@@ -64,6 +72,7 @@ textarea {
 
 .username-rating {
   display: flex;
+  font-size: 20px;
 }
 
 .username-rating > div {

@@ -31,7 +31,7 @@
 }
 
 .show-name {
-  font-family: Roboto Condensed,Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-family: "Calibre", Helvetica, Arial, sans-serif;
   font-weight: 700;
   font-size: 38px;
   margin-bottom: 10px;
@@ -80,7 +80,7 @@
 
 .show-description > h3 {
   font-size: 23px;
-  font-family: Roboto Condensed,Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-family: "Calibre", Helvetica, Arial, sans-serif;
   font-weight: 700;
   margin-bottom: 10px;
 }
@@ -102,4 +102,5 @@
 .show-review-container {
   max-width: 1500px;
   margin: 0 auto;
+  margin-bottom: 40px;
 }
