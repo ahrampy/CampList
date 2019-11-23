@@ -10,7 +10,8 @@ const mSTP = (state, ownProps) => {
       {title: "Reviews", content: newReviews},
       {title: "Bookmarks", content: []},
       {title: "Your Campsites", content: ownProps.userCampsites} 
-    ]
+    ],
+    username: ownProps.username
   }
 }
 

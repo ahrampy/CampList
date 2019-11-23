@@ -8,17 +8,17 @@ const SitesTab = (props) => {
   return (
     <div>
       {campsites.map((site, i) => (
-        <div key={`site-${i}`}>
-          <div>
-            <div>
+        <div className="review" key={`site-${i}`}>
+          <div className="review-header">
+            <div className="camp-name">
               <Link to={`/campsites/${site._id}`}>{site.name}</Link>
             </div>
-            <div>
-              {site.date}
+            <div className="review-rating">
+              (created on: {site.date})
             </div>
           </div>
-          <div>
-            {site.description}
+          <div className="review-body">
+            Description: {site.description}
           </div>
         </div>
       ))}

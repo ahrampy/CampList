@@ -14,7 +14,7 @@ const ReviewsTab = props => {
               <Link to={`/campsites/${review.site}`}>{review.name}</Link>
             </div>
             <div className="review-rating">
-              (score: {review.rating})
+              ({review.rating}/5)
             </div>
           </div>
           <div className="review-body">
