@@ -1,11 +1,28 @@
+a {
+  text-decoration: none;
+} 
+
+a:visited {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+a:hover {
+  cursor: pointer;
+  font-weight: bold;
+}
+
 .user-main {
+  font-family: "Calibre", Helvetica, Arial, sans-serif;
   width: 80%;
+  min-height: 500px;
   margin: 3% auto;
   display: flex;
   justify-content: center;
   border: black solid 1px;
   padding: 5%;
-  background-color: gray;
+  background-color: rgb(218, 218, 218);
 }
 
 .user-details {
@@ -32,39 +49,47 @@
 .tab-header > li {
   width: 100%;
   text-align: center;
-  border-left: 1px solid black;
-  border-right: 1px solid black;
-  border-top: 2px solid black;
-  border-bottom: 2px solid black;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
 }
 
-.tab-header > li:first-child {
-  border-left: 2px solid black;
-}
-
-.tab-header > li:last-child {
-  border-right: 2px solid black;
-}
-
 .tab-header > li:hover {
   cursor: pointer;
-  background-color: rgb(15, 94, 61);
-  color: white;
+  background-color: white;
 }
 
 .active {
   font-weight: bold;
+  background-color: white;
+  border-bottom: 1px solid grey;
 }
 
 .tab-content {
   width: 100%;
-  border: 1px solid gray;
+  background-color: white;
   border-radius: 3px;
   text-align: center;
 }
 
 .tab-content li {
   padding: 10px;
+}
+
+.review-header {
+  display: flex;
+}
+
+.review {
+  padding: 7px;
+}
+
+.camp-name {
+  font-weight: bold;
+  padding-right: 3px;
+  text-transform: uppercase;
+}
+
+.review-body {
+  text-align: left;
+  padding: 3px 10px;
 }

@@ -6,15 +6,20 @@ const ReviewsTab = props => {
   if (!reviews) return null;
   
   return(
-    <div>
+    <div className="review-list">
       {reviews.map((review, i) => (
-        <div key={`rev-${i}`}>
-          <Link to={`/campsites/${review.site}`}>{review.name}</Link>
-          <br/>
-          {review.rating}
-          <br/>
-          {review.body}
-          <br/>
+        <div className="review" key={`rev-${i}`}>
+          <div className="review-header">
+            <div className="camp-name">
+              <Link to={`/campsites/${review.site}`}>{review.name}</Link>
+            </div>
+            <div className="review-rating">
+              (score: {review.rating})
+            </div>
+          </div>
+          <div className="review-body">
+            {review.body}
+          </div>
         </div>
       ))}
     </div>

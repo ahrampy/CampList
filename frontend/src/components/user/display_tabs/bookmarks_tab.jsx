@@ -5,7 +5,6 @@ const BookmarksTab = (props) => {
   if (!bookmarks) return null;
   return (
     <div>
-      Hi!
     </div>
   )
 }
