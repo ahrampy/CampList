@@ -47,3 +47,25 @@ textarea {
   color: rgb(15, 94, 61);
   background: white;
 }
+
+.review-list-container > p {
+  margin-bottom: 10px;
+  padding-top: 10px;
+}
+
+.single-review-container {
+  margin-bottom: 20px;
+  padding-left: 10px;
+}
+
+.single-review-container > div {
+  margin-bottom: 5px;
+}
+
+.username-rating {
+  display: flex;
+}
+
+.username-rating > div {
+  margin-right: 15px;
+}
