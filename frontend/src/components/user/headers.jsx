@@ -20,6 +20,7 @@ class Headers extends React.Component {
 
     return(
       <ul className="tab-header">
+        <li>Hi {this.props.username}!</li>
         {headers}
       </ul>
     );
