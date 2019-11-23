@@ -55,7 +55,7 @@ class IndexMap extends React.Component {
       <Map
         google={this.props.google}
         zoom={7}
-        style={{ maxHeight: "600px", maxWidth: "800px" }}
+        style={{ height: "600px", width: "100%" }}
         styles={styles}
         initialCenter={currentPosition}
       >

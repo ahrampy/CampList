@@ -10,23 +10,23 @@
 
 .splash-enter {
     text-align: center;
-    padding-top: 30%;
+    padding-top: 25%;
     z-index: 2;
 }
 
 .splash-buttons{
     margin: 10px;
-    padding: 25px;
     height: 20px;
 }
 
 .splash-buttons a {
     text-decoration: none;
     margin-right: 10px;
-    padding: 20px;
+    padding: 25px;
     background: white;
     color: rgb(15, 94, 61);
     border: 0px solid rgb(15, 94, 61);
+    background-opacity: 50%;
     border-radius: 2px;
     transition-duration: 0.4s;
 }

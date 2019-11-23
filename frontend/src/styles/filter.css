@@ -1,18 +1,26 @@
+.search-holder {
+  border: 3px solid #333;
+  border-radius: 2px 0px 0px 2px;
+}
+
 .filter-sidebar {
-  font-size: 20px;
   letter-spacing: 1px;
-  background-color: rgb(235, 235, 235);
 }
 
 .filter-category {
-  border-bottom: 1px solid gray;
-  margin-bottom: 3px;
+  margin-bottom: 15px;
+}
+
+.filter-category h3 {
+  font-size: 30px;
+  padding-bottom: 15px;
+  /* text-decoration: underline; */
 }
 
 .attr-list {
   display: flex;
   padding: 0;
-  text-transform: lowercase;
+  text-transform: capitalize;
   font-size: 18px;
   flex-direction: column;
   align-items: flex-start;
@@ -22,11 +30,13 @@
 .attr-item {
   display: flex;
   padding: 5px 0;
+  margin-bottom: 10px;
 }
 
 .checkbox-name {
   display: inline;
-  padding-left: 30px;
+  padding-left: 36px;
+  line-height: 1.45;
 }
 
 .checkbox-label {
@@ -39,6 +49,11 @@
   height: 24px;
   width: 24px;
   clear: both;
+  transition-duration: 0.4s;
+}
+
+.checkbox-label:hover {
+  color: rgb(15, 94, 61);
 }
 
 .checkbox-label input {
@@ -55,7 +70,7 @@
   width: 24px;
   background-color: transparent;
   border-radius: 5px;
-  border: 2px solid #000000;
+  border: 3px solid #333;
 }
 
 .checkbox-label input:checked ~ .checkbox-custom {
@@ -65,7 +80,7 @@
   -ms-transform: rotate(0deg) scale(1);
   transform: rotate(0deg) scale(1);
   opacity:1;
-  border: 2px solid rgb(0, 0, 0);
+  border: 3px solid #333;
 }
 
 .checkbox-label .checkbox-custom::after {
@@ -82,7 +97,7 @@
   -ms-transform: rotate(0deg) scale(0);
   transform: rotate(0deg) scale(0);
   opacity:1;
-  transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: all 0.1s cubic-bezier(0.075, 0.82, 0.165, 1);
   -webkit-transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
   -moz-transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
   -ms-transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);

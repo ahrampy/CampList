@@ -1,10 +1,8 @@
 .index-holder {
   display: flex;
-  /* widows: 100%; */
+  font-family: "Calibre", Helvetica, Arial, sans-serif;
   margin: 5%;
   /* justify-content: space-around; */
-  border-left: black 1px solid;
-  border-top: black 1px solid;
 }
 
 .search-holder {
@@ -14,8 +12,11 @@
 }
 
 .map-holder {
-  width: 200px;
-  /* width: 70%; */
-  margin-right: 100px;
-  /* border: 1px solid  */
+  position: relative;
+  width: 850px;
+  height: 600px;
+  overflow: hidden;
+  border: 3px solid #333;
+  border-left: 0px;
+  border-radius: 0px 2px 2px 0px;
 }

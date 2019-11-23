@@ -21,7 +21,8 @@
     padding: 10px;
     background: white;
     color: rgb(15, 94, 61);
-    border: 1px solid rgb(15, 94, 61);
+    border: 2px solid rgb(15, 94, 61);
+    border-radius: 2px;
     transition-duration: 0.4s;
 }
 
