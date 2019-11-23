@@ -45,6 +45,10 @@ router.post('/new',
       description: req.body.description,
       lat: req.body.lat,
       lng: req.body.lng,
+      plat: req.body.plat,
+      plng: req.body.plng,
+      tlat: req.body.tlat,
+      tlng: req.body.tlng,
       siteFeatures: req.body.siteFeatures
     });
 
