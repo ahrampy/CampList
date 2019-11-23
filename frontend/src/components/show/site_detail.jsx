@@ -38,7 +38,7 @@ class SiteDetail extends Component {
               <div className="site-features">
                 <div className="create-date">
                   <div className="show-feature-label">
-                    Created by:
+                    <h3>Created by:</h3>
                   </div>
                   <div className="show-feature-body">
                     author on {date}
@@ -46,7 +46,10 @@ class SiteDetail extends Component {
                 </div>
                 <div className="hiking">
                   <div className="show-feature-label">
-                    Hiking Trails:
+                    <img src="trail_flag.png" />
+                    <div>
+                      Hiking Trails:
+                    </div>
                   </div>
                   <div className="show-feature-body">
                     {this.handleSiteFeatures("hiking")}
@@ -54,6 +57,7 @@ class SiteDetail extends Component {
                 </div>
                 <div className="firePit">
                   <div className="show-feature-label">
+                    <img src="fire_icon.png" />
                     Fire Pit:
                   </div>
                   <div className="show-feature-body">
@@ -62,6 +66,7 @@ class SiteDetail extends Component {
                 </div>
                 <div className="parking">
                   <div className="show-feature-label">
+                    <img src="parking.png" alt=""/>
                     Nearby Parking:
                   </div>
                   <div className="show-feature-body">
@@ -70,10 +75,20 @@ class SiteDetail extends Component {
                 </div>
                 <div className="fishing">
                   <div className="show-feature-label">
+                    <img src="fishing.png" />
                     Fishing Spot:
                   </div>
                   <div className="show-feature-body">
                     {this.handleSiteFeatures("fishing")}
+                  </div>
+                </div>
+                <div className="swimming">
+                  <div className="show-feature-label">
+                    <img src="swimming.png" alt=""/>
+                    Swimming:
+                  </div>
+                  <div className="show-feature-body">
+                    {this.handleSiteFeatures("swimming")}
                   </div>
                 </div>
               </div>

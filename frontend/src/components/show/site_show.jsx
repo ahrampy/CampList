@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import SiteDetail from './site_detail';
 import SiteReviewsContainer from '../reviews/site_reviews_container';
+import FooterNav from '../nav/footer_nav';
 
 export default class SiteShow extends Component {
 
@@ -29,10 +30,13 @@ export default class SiteShow extends Component {
           site={site}
           />
         </div>
-        <div>
+        <div className="show-review-container">
           <SiteReviewsContainer 
             siteId={this.state.siteId}
           />
+        </div>
+        <div>
+          <FooterNav />
         </div>
       </div>
     )

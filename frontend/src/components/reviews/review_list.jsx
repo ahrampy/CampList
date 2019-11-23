@@ -16,27 +16,34 @@ class ReviewList extends React.Component {
     let { reviews, currentUserId, siteId } = this.props
 
     if (!reviews) return null;
-    debugger
+    
     return (
-      <div>
+      <div className="review-list-container">
         <p className="review-label">Recent Reviews</p>
         {reviews.map((review, i) => (
-          <div key={`key-${i}`}>
-            {review.username}
-            <br/>
-            {review.rating}
-            <br/>
-            {review.body}
-            <br/>
-            {
-              currentUserId === review.author ?
+          <div key={`key-${i}`} className="single-review-container">
+            <div className="username-rating">
               <div>
-                <button onClick={() => this.handleDelete(review._id)}>Delete</button> 
-                <Link to={`/reviews/${review._id}/edit`}>Edit</Link>
+                {review.username}
               </div>
-              :
-              null
-            }
+              <div>
+                {review.rating}
+              </div>
+            </div>
+            <div className="review-body">
+              {review.body}
+            </div>
+            <div>
+              {
+                currentUserId === review.author ?
+                  <div>
+                    <button onClick={() => this.handleDelete(review._id)}>Delete</button>
+                    <Link to={`/reviews/${review._id}/edit`}>Edit</Link>
+                  </div>
+                  :
+                  null
+              }
+            </div>
           </div>
         ))}
       </div>
