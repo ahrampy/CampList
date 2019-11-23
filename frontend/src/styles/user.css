@@ -1,14 +1,14 @@
-a {
+.user-main a {
   text-decoration: none;
 } 
 
-a:visited {
+.user-main a:visited {
   text-decoration: none;
   color: black;
   font-weight: bold;
 }
 
-a:hover {
+.user-main a:hover {
   cursor: pointer;
   font-weight: bold;
 }

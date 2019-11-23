@@ -6,12 +6,12 @@
 }
 
 .search-holder {
-
   width: 12%;
   padding: 5% 3%;
 }
 
 .map-holder {
+  display: block;
   position: relative;
   width: 850px;
   height: 600px;
@@ -19,4 +19,8 @@
   border: 3px solid #333;
   border-left: 0px;
   border-radius: 0px 2px 2px 0px;
+}
+
+.footer-holder {
+  display: block
 }
