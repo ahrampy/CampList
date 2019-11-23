@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import ShowMap from '../maps/show_map';
 
 class SiteDetail extends Component {
@@ -14,9 +14,10 @@ class SiteDetail extends Component {
 
   render() {
     const {
-      author, name, date, description
+      author, name, date, description, _id
     } = this.props.site
     // author commented out?
+    if (!this.props.siteAuthor) return null
     
     return (
       <div className="show-outer-container">
@@ -25,12 +26,19 @@ class SiteDetail extends Component {
             <ShowMap site={this.props.site}/>
           </div>
           <div className="show-info-wrapper">
-            <div className="author-name">
-              {/* {author} */}
-            </div>
             <div className="show-title-bar">
               <div className="show-name">
                 {name}
+              </div>
+              <div>
+                {
+                  this.props.currentUserId === author ? 
+                    <div>
+                      <Link to={`/campsites/edit/${_id}`}>Edit</Link>
+                    </div>
+                    :
+                    null
+                }
               </div>
             </div>
             
@@ -41,7 +49,12 @@ class SiteDetail extends Component {
                     <h3>Created by:</h3>
                   </div>
                   <div className="show-feature-body">
-                    author on {date}
+                    <div>
+                      {this.props.siteAuthor.username}
+                    </div>
+                    <div >
+                      on {date}
+                    </div>
                   </div>
                 </div>
                 <div className="hiking">
