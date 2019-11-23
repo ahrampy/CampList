@@ -53,9 +53,11 @@ class SiteReviews extends React.Component {
     
     return(
       <div className="review-holder">
-        <ReviewFormContainer
-          siteId={this.props.siteId}
-        />
+        <div className="review-form-container">
+          <ReviewFormContainer
+            siteId={this.props.siteId}
+          />
+        </div>
         <div className="review-list">
           <ReviewListContainer
             reviews={this.props.reviews}
