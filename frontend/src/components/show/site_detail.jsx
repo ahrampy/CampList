@@ -33,7 +33,7 @@ class SiteDetail extends Component {
               <div>
                 {
                   this.props.currentUserId === author ? 
-                    <div>
+                    <div className="edit-btn">
                       <Link to={`/campsites/edit/${_id}`}>Edit</Link>
                     </div>
                     :
@@ -49,7 +49,7 @@ class SiteDetail extends Component {
                     <h3>Created by:</h3>
                   </div>
                   <div className="show-feature-body">
-                    <div>
+                    <div id="show-username">
                       {this.props.siteAuthor.username}
                     </div>
                     <div >

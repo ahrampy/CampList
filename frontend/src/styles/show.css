@@ -66,6 +66,7 @@
 
 .show-feature-body {
   width: 70%;
+  display: flex;
 }
 
 .show-picture-wrapper > div {
@@ -104,4 +105,31 @@
   max-width: 1500px;
   margin: 0 auto;
   margin-bottom: 40px;
+}
+
+#show-username {
+  margin-right: 4px;
+}
+
+.edit-btn {
+  display: flex;
+  align-content: center;
+}
+
+.edit-btn > a {
+  font-size: 16px;
+  text-decoration: none;
+  margin-bottom: 50px;
+  margin-left: 5px;
+  padding: 5px 15px;
+  background: rgb(15, 94, 61);
+  color: white;
+  border: 1px solid rgb(15, 94, 61);
+  transition-duration: 0.4s;
+}
+
+.edit-btn > a:hover {
+  background-color: white;
+  color: rgb(15, 94, 61);
+  font-weight: normal;
 }

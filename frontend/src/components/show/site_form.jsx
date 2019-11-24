@@ -97,7 +97,7 @@ class SiteForm extends Component {
       plng: this.state.fields.parkingLocation.lng().toString()
     };
     const site = Object.assign( {}, input, latLng, tlatLng, platLng );
-    this.props.createNewSite(site).then((site) => this.props.history.push(`/campsite/${site._id}`));
+    this.props.createNewSite(site).then(() => this.props.history.goBack());
   }
 
   async componentDidMount() {
