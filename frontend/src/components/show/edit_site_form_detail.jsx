@@ -30,6 +30,7 @@ class EditSiteFormDetail extends Component {
           lng: null
         }
       },
+      mapClicked: false,
       siteFeatures: {
         parking: this.props.site.parking,
         fishing: this.props.site.fishing,
@@ -162,6 +163,7 @@ class EditSiteFormDetail extends Component {
       }
     }));
     map.panTo(parkingLocation);
+    this.setState({ mapClicked: true })
   };
 
   render() {
@@ -183,7 +185,7 @@ class EditSiteFormDetail extends Component {
       lng: this.props.site.lng
     }
 
-    let hikingMap = this.state.siteFeatures.hiking ? (
+    let hikingMap = this.state.siteFeatures.hiking && this.state.mapClicked ? (
       <div className="site-form-map-container">
         <h2>Where was the trailhead?</h2>
         <Map
@@ -210,7 +212,7 @@ class EditSiteFormDetail extends Component {
       </div>
     ) : null;
 
-    let parkingMap = this.state.siteFeatures.parking ? (
+    let parkingMap = this.state.siteFeatures.parking && this.state.mapClicked ? (
       <div className="site-form-map-container">
         <h2>Where did you find parking?</h2>
         <Map
