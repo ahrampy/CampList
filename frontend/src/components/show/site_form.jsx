@@ -37,6 +37,7 @@ class SiteForm extends Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
+    this.handleOpenModal = this.handleOpenModal.bind(this);
   }
 
   handleInput(type) {

@@ -42,6 +42,7 @@ class EditSiteFormDetail extends Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
+    this.handleOpenModal = this.handleOpenModal.bind(this);
   }
 
   handleInput(type) {
@@ -49,6 +50,10 @@ class EditSiteFormDetail extends Component {
       [type]: e.target.value
     });
   };
+
+  handleOpenModal() {
+    this.props.openModal('login');
+  }
 
   handleFile(e) {
     const file = e.currentTarget.files[0];

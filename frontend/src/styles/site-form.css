@@ -69,12 +69,14 @@
 .site-form-submit input {
   font-size: larger;
   text-decoration: none;
+  margin-top: 25px;
   margin-bottom: 50px;
   margin-left: 5px;
   padding: 20px;
   background: white;
   color: rgb(15, 94, 61);
-  border: 1px solid rgb(15, 94, 61);
+  border: 2px solid rgb(15, 94, 61);
+  border-radius: 2px;
   transition-duration: 0.4s;
 }
 

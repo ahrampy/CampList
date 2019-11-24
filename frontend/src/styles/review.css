@@ -50,9 +50,9 @@ textarea {
 .btn {
   text-decoration: none;
   padding: 10px;
-  border: 1px solid rgb(15, 94, 61);
+  border: 2px solid rgb(15, 94, 61);
+  border-radius: 2px;
   transition-duration: 0.4s;
-
   background: rgb(15, 94, 61);
   color: white;
   text-decoration: none;
