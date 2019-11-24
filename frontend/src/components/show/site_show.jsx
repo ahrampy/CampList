@@ -9,7 +9,7 @@ export default class SiteShow extends Component {
     super(props)
 
     this.state = {
-      siteId : this.props.siteId
+      siteId : this.props.siteId,
 
     }
   }
@@ -23,11 +23,14 @@ export default class SiteShow extends Component {
   render() {
     if (!this.props.site) return null
     const { site } = this.props
+    
     return (
       <div className='show-main-container'>
         <div className='show-detail-container'>
           <SiteDetail 
           site={site}
+          currentUserId={this.props.currentUserId}
+          siteAuthor={this.props.siteAuthor}
           />
         </div>
         <div className="show-review-container">

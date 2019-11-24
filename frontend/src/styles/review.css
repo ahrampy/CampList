@@ -12,7 +12,7 @@ textarea {
   padding-right: 15px;
   padding-top: 1rem;
   display: flex;
-  justify-content: space-between;
+  
   /* font-family: "Calibre", Helvetica, Arial, sans-serif; */
 
 }
@@ -26,6 +26,15 @@ textarea {
 
 .rating-container {
   margin-top: 10px;
+}
+
+.review-form-container {
+  margin-right: 100px;
+  width: 30%;
+}
+
+.review-list {
+  width: 70%;
 }
 
 .review-form {

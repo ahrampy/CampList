@@ -55,3 +55,17 @@ export const selectReviewNames = (users, reviews) => {
   })
   return displayReview;
 }
+
+export const selectSiteAuthorName = (sites, users) => {
+  let authorId;
+  let siteAuthor;
+  sites.forEach(site => {
+    authorId = site.author;
+  })
+  users.forEach(user => {
+    if (user._id === authorId) {
+      siteAuthor = user;
+    }
+  })
+  return siteAuthor;
+}

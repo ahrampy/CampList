@@ -12,7 +12,7 @@ const mSTP = (state, ownProps) => {
 
   let userCampsites = selectSiteAuthor(Object.values(sites), id)
   let userReviews = selectUserReviews(Object.values(reviews.all), id)
-
+  
   return {
     id,
     username,
