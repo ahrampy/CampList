@@ -17,24 +17,19 @@ class UserProfile extends React.Component {
     this.props.fetchSites()
   }
 
-
-
   render() {
     if (!this.state.session) return <Redirect to="/"/>
     if (!this.props.sites) return null
 
-    
-    let { userReviews, userCampsites, sites } = this.props;
+    let { userReviews, userCampsites, sites, username } = this.props;
     return(
       <div className="user-main">
-        <div className="user-details">
-          Hi {this.props.username}!
-        </div>
         <div className="user-tabs">
           <TabsContainer 
             userCampsites={userCampsites}
             userReviews={userReviews}
             sites={sites}
+            username={username}
           />
         </div>
       </div>

@@ -57,25 +57,28 @@ class CampIndex extends React.Component {
     let { itemChecked } = this.state;
     
     return(
-      <div className="index-holder">
-  
-        <div className="search-holder">
-          <FilterAttrsContainer
-            attrs={attrs}
-            onCheck={this.handleCheck}
-            unCheck={this.handleUncheck}
-          />
+      <div>
+        <div className="index-holder">
+    
+          <div className="search-holder">
+            <FilterAttrsContainer
+              attrs={attrs}
+              onCheck={this.handleCheck}
+              unCheck={this.handleUncheck}
+            />
+          </div>
+          <div className="map-holder">
+            <MapContainer
+              sites={sites}
+              checkedAttrs={itemChecked}
+            />
+          </div>
         </div>
-        <div className="map-holder">
-          <MapContainer
-            sites={sites}
-            checkedAttrs={itemChecked}
-          />
-        </div>
-        {/* <div>
+        <div className="footer-holder">
           <Footer />
-        </div> */}
+        </div>
       </div>
+
     );
   }
 }

@@ -51,6 +51,7 @@ class Tabs extends React.Component {
           activeTab={this.state.activeTab}
           onTabChosen={this.handleClick}
           tabs={this.props.tabSections}
+          username={this.props.username}
         />
         <div className="tab-content">
           {this.handleEmptyTab()}

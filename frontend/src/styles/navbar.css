@@ -1,15 +1,16 @@
 .nav-bar-container {
+    font-family: "Calibre", Helvetica, Arial, sans-serif;
     position: sticky;
 }
 
-.nav-bar{
+.nav-bar {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     height: 90px;
 }
 
-.nav-buttons{
+.nav-buttons {
     margin: 10px;
     padding: 15px;
     height: 20px;
@@ -37,8 +38,35 @@
     font: 16px system-ui
 }
 
-.nav-buttons a:visited{
+.nav-buttons a:hover {
+    background: rgb(15, 94, 61);
+    color: white;
+    font-weight: 400;
+}
+
+.nav-home-container {
+    margin: 24px 10px 10px 20px;
+    padding: 15px;
+    height: 20px;
+}
+
+.nav-home {
     text-decoration: none;
-    border: none;
+    margin-right: 10px;
+    padding: 10px;
+    background: white;
     color: rgb(15, 94, 61);
+    border: 2px solid rgb(15, 94, 61);
+    border-radius: 2px;
+    transition-duration: 0.4s;
+}
+
+.nav-home:visited {
+    color: rgb(15, 94, 61);
+}
+
+.nav-home:hover {
+    background: rgb(15, 94, 61);
+    color: white;
+    font-weight: 400;
 }

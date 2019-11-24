@@ -27,13 +27,8 @@ const Nav = (props) => {
     return (
         <header className='nav-bar-container'>
             <div className='nav-bar'>
-                <div className='nav-logo-container'>
-                    <Link to='/' style={{ textDecoration: 'none' }, { outline: 'none' }}>
-                        <div className='nav-logos'>
-                            {/* <img className='nav-logo-name' src='/logo.png'> */}
-                            {/* </img> */}
-                        </div>
-                    </Link>
+                <div className='nav-home-container'>
+                    <Link className="btn, nav-home" to='/campsites'>Home</Link>
                 </div>
                 <div className='nav-buttons'>
                     {buttons}

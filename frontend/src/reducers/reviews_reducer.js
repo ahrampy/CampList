@@ -26,7 +26,6 @@ const ReviewsReducer = (state = { all: {}, site: [], new: undefined }, action) =
           break;
         }
       }
-      debugger
       newState.site.push(action.review.data)
       return newState
 

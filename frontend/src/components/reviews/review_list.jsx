@@ -16,7 +16,6 @@ class ReviewList extends React.Component {
     let { reviews, currentUserId, siteId } = this.props
 
     if (!reviews) return null;
-    
     return (
       <div className="review-list-container">
         <p className="review-label">Recent Reviews</p>
