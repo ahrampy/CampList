@@ -52,6 +52,7 @@
 
 .nav-home {
     text-decoration: none;
+    outline: none;
     margin-right: 10px;
     padding: 10px;
     background: white;
@@ -62,6 +63,8 @@
 }
 
 .nav-home:visited {
+    text-decoration: none;
+    outline: none;
     color: rgb(15, 94, 61);
 }
 

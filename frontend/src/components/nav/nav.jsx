@@ -28,7 +28,10 @@ const Nav = (props) => {
         <header className='nav-bar-container'>
             <div className='nav-bar'>
                 <div className='nav-home-container'>
-                    <Link className="btn, nav-home" to='/campsites'>Home</Link>
+                    <Link className="btn, nav-home" to='/campsites'
+                    style={{ textDecoration: 'none' }, { outline: 'none' }}>
+                    Home
+                    </Link>
                 </div>
                 <div className='nav-buttons'>
                     {buttons}

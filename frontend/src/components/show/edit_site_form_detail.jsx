@@ -31,6 +31,7 @@ class EditSiteFormDetail extends Component {
           lng: null
         }
       },
+      mapClicked: false,
       siteFeatures: {
         parking: this.props.site.siteFeatures.parking,
         fishing: this.props.site.siteFeatures.fishing,
@@ -42,6 +43,7 @@ class EditSiteFormDetail extends Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
+    this.handleOpenModal = this.handleOpenModal.bind(this);
   }
 
   handleInput(type) {
@@ -49,6 +51,10 @@ class EditSiteFormDetail extends Component {
       [type]: e.target.value
     });
   };
+
+  handleOpenModal() {
+    this.props.openModal('login');
+  }
 
   handleFile(e) {
     const file = e.currentTarget.files[0];
@@ -168,6 +174,7 @@ class EditSiteFormDetail extends Component {
       }
     }));
     map.panTo(parkingLocation);
+    this.setState({ mapClicked: true })
   };
 
   render() {
@@ -189,7 +196,7 @@ class EditSiteFormDetail extends Component {
       lng: this.props.site.lng
     }
 
-    let hikingMap = this.state.siteFeatures.hiking ? (
+    let hikingMap = this.state.siteFeatures.hiking && this.state.mapClicked ? (
       <div className="site-form-map-container">
         <h2>Where was the trailhead?</h2>
         <Map
@@ -216,7 +223,7 @@ class EditSiteFormDetail extends Component {
       </div>
     ) : null;
 
-    let parkingMap = this.state.siteFeatures.parking ? (
+    let parkingMap = this.state.siteFeatures.parking && this.state.mapClicked ? (
       <div className="site-form-map-container">
         <h2>Where did you find parking?</h2>
         <Map

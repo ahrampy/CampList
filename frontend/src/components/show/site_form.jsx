@@ -16,10 +16,7 @@ class SiteForm extends Component {
       photoFile: null,
       photoUrl: null,
       fields: {
-        location: {
-          lat: null,
-          lng: null
-        },
+        location: null,
         trailLocation: {
           lat: null,
           lng: null
@@ -27,8 +24,9 @@ class SiteForm extends Component {
         parkingLocation: {
           lat: null,
           lng: null
-        }
+        },
       },
+      mapClicked: false,
       siteFeatures: {
         parking: false,
         fishing: false,
@@ -39,6 +37,7 @@ class SiteForm extends Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
+    this.handleOpenModal = this.handleOpenModal.bind(this);
   }
 
   handleInput(type) {
@@ -101,7 +100,7 @@ class SiteForm extends Component {
   }
 
   async componentDidMount() {
-    const { lat, lng } = await this.getcurrentLocation();
+    const { lat, lng } = await this.getCurrentLocation();
     this.setState(prev => ({
       fields: {
         ...prev.fields,
@@ -117,7 +116,7 @@ class SiteForm extends Component {
     }));
   }
 
-  getcurrentLocation() {
+  getCurrentLocation() {
     if (navigator && navigator.geolocation) {
       return new Promise((resolve, reject) => {
         navigator.geolocation.getCurrentPosition(pos => {
@@ -142,6 +141,7 @@ class SiteForm extends Component {
       }
     }));
     map.panTo(location);
+    this.setState({mapClicked: true})
   };
 
   addTrailMarker = (trailLocation, map) => {
@@ -176,7 +176,7 @@ class SiteForm extends Component {
       });
     }
 
-    let hikingMap = this.state.siteFeatures.hiking ? (
+    let hikingMap = this.state.siteFeatures.hiking && this.state.mapClicked ? (
       <div className="site-form-map-container">
         <h2>Where was the trailhead?</h2>
         <Map
@@ -203,7 +203,7 @@ class SiteForm extends Component {
       </div>
     ) : null;
 
-    let parkingMap = this.state.siteFeatures.parking ? (
+    let parkingMap = this.state.siteFeatures.parking && this.state.mapClicked ? (
       <div className="site-form-map-container">
         <h2>Where did you find parking?</h2>
         <Map
@@ -232,7 +232,7 @@ class SiteForm extends Component {
           />
         </Map>
       </div>
-    ) : null;
+    ) : null; 
 
     return (
       <div>

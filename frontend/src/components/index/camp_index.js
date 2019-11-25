@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom'
 import FilterAttrsContainer from '../search/filter_attrs_container';
 import MapContainer from '../maps/index_map_container';
 import Footer from '../nav/footer_nav';
@@ -13,6 +14,7 @@ class CampIndex extends React.Component {
 
     this.handleCheck = this.handleCheck.bind(this);
     this.handleUncheck = this.handleUncheck.bind(this);
+    this.handleRedirect = this.handleRedirect.bind(this);
   }
 
   handleCheck(attr) {
@@ -50,6 +52,10 @@ class CampIndex extends React.Component {
     window.scrollTo(0,0)
   }
 
+  handleRedirect() {
+    this.props.history.push('/campsites/new')
+  }
+
   render() {
     if (!this.props.sites.length) return null;
     
@@ -58,9 +64,16 @@ class CampIndex extends React.Component {
     
     return(
       <div>
+        <div className="index-title-holder">
+          <h1>Welcome to Camp List,</h1>
+          <br/>
+          <p>search, discover, and share unmarked camping spots on BLM land.</p>
+        </div>
         <div className="index-holder">
-    
           <div className="search-holder">
+            <div className="index-add-site">
+              <button onClick={this.handleRedirect}>Add a Spot</button>
+            </div>
             <FilterAttrsContainer
               attrs={attrs}
               onCheck={this.handleCheck}
