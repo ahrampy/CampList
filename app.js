@@ -10,17 +10,11 @@ const reviews = require("./routes/api/reviews")
 const path = require('path');
 // require("dotenv").config();
 
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static('frontend/public'));
-    app.get('/', (req, res) => {
-        res.sendFile(path.resolve(__dirname, 'frontend', 'public', 'index.html'));
-    })
-}
 
 mongoose
-    .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => console.log("Connected to MongoDB"))
-    .catch(err => console.log(err));
+.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
+.then(() => console.log("Connected to MongoDB"))
+.catch(err => console.log(err));
 
 app.use(passport.initialize());
 require('./config/passport')(passport);
@@ -38,3 +32,10 @@ app.use("/api/reviews", reviews);
 const port = process.env.PORT || 5000;
 
 app.listen(port, () => console.log(`Server is running on port ${port}`));
+
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('frontend/public'));
+    app.get('/', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'frontend', 'public', 'index.html'));
+    })
+}
