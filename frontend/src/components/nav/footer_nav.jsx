@@ -34,7 +34,7 @@ export default class FooterNav extends Component {
           </div>
           <div>
             <div className="developer-pic">
-              <img src="Will_smith.jpg" alt=""/>
+              <img src="Will_Smith.jpg" alt=""/>
             </div>
             <div className="developer-name">
               <p>Will Smith</p>
