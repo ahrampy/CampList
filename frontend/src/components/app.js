@@ -15,7 +15,6 @@ import UserProfileContainer from './user/user_profile_container';
 import EditSiteFormContainer from './show/edit_site_form_container';
 import EditReviewContainer from './reviews/edit_review_container';
 
-
 const App = () => (
   <div>
     <Modal />
