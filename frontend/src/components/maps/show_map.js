@@ -4,83 +4,83 @@ const styles = require("./GoogleMapStyles.json");
 const mapKey = process.env.REACT_APP_MAP_API;
 
 class ShowMap extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showingInfoWindow: false,
+      activeMarker: {},
+      selectedTag: {},
+      currentPosition: { lat: null, lng: null }
+    };
+    this.onMarkerClick = this.onMarkerClick.bind(this);
+    this.onClose = this.onClose.bind(this);
+    // this.checkLoction = this.checkLoction.bind(this)
+    // this.calcRoute = this.calcRoute.bind(this)
+  }
 
-    constructor(props) {
-        super(props);
-        this.state = {
-        showingInfoWindow: false, //Hides or the shows the infoWindow
-        activeMarker: {}, //Shows the active marker upon click
-        selectedTag: {}, //Shows the infoWindow to the selected place upon a marker
-        currentPosition: { lat: null, lng: null}
-        };
-        this.onMarkerClick = this.onMarkerClick.bind(this);
-        this.onClose = this.onClose.bind(this);
-        // this.checkLoction = this.checkLoction.bind(this)
-        // this.calcRoute = this.calcRoute.bind(this)
+  onMarkerClick = (props, marker, e) => {
+    return this.setState({
+      selectedTag: props,
+      activeMarker: marker,
+      showingInfoWindow: true
+    });
+  };
+
+  onClose = props => {
+    if (this.state.showingInfoWindow) {
+      this.setState({
+        showingInfoWindow: false,
+        activeMarker: null
+      });
     }
+  };
 
-    onMarkerClick = (props, marker, e) => {
-        return this.setState({
-        selectedTag: props,
-        activeMarker: marker,
-        showingInfoWindow: true
-        });
-    };
+  // componentDidMount() {
+  //     this.checkLoction()
+  // }
 
-    onClose = props => {
-        if (this.state.showingInfoWindow) {
-        this.setState({
-            showingInfoWindow: false,
-            activeMarker: null
-        });
-        }
-    };
+  // checkLoction = () => {
+  //     let that = this
+  //     if (navigator.geolocation) {
+  //     navigator.geolocation.getCurrentPosition(
+  //         function(position) {
+  //         that.setState({currentPosition:{
+  //             lat: position.coords.latitude,
+  //             lng: position.coords.longitude}
+  //         })
+  //         }
+  //     );
+  //     }
+  // };
+
+  //   calcRoute() {
+  //         const directionsService = new window.google.maps.DirectionsService();
+  //         const directionsRenderer = new window.google.maps.DirectionsRenderer();
+
+  //         let directionsLat;
+  //         let directionsLng;
+  //             if (this.props.site.parking) {
+  //                 directionsLat = this.props.site.plat;
+  //                 directionsLng = this.props.site.plng;
+  //             } else {
+  //                 directionsLat = this.props.site.lat;
+  //                 directionsLng = this.props.site.lng;
+  //             }
+  //         const start = new window.google.maps.LatLng(this.state.currentPosition);
+  //         const end = new window.google.maps.LatLng(directionsLat, directionsLng);
+  //         const request = {
+  //             origin: start,
+  //             destination: end,
+  //             travelMode: 'DRIVING'
+  //         };
+  //         directionsService.route(request, function(result, status) {
+  //             if (status == 'OK') {
+  //                 directionsRenderer.setDirections(result);
+  //             }
+  //         });
+  //     }
+
   
-    // componentDidMount() {
-    //     this.checkLoction()
-    // }
-
-    // checkLoction = () => {
-    //     let that = this
-    //     if (navigator.geolocation) {
-    //     navigator.geolocation.getCurrentPosition(
-    //         function(position) {
-    //         that.setState({currentPosition:{
-    //             lat: position.coords.latitude,
-    //             lng: position.coords.longitude}
-    //         })
-    //         }
-    //     );
-    //     } 
-    // };
-
-//   calcRoute() {
-//         const directionsService = new window.google.maps.DirectionsService();
-//         const directionsRenderer = new window.google.maps.DirectionsRenderer();
-
-//         let directionsLat;
-//         let directionsLng;
-//             if (this.props.site.parking) {
-//                 directionsLat = this.props.site.plat;
-//                 directionsLng = this.props.site.plng;
-//             } else {
-//                 directionsLat = this.props.site.lat;
-//                 directionsLng = this.props.site.lng;
-//             }
-//         const start = new window.google.maps.LatLng(this.state.currentPosition);
-//         const end = new window.google.maps.LatLng(directionsLat, directionsLng);
-//         const request = {
-//             origin: start,
-//             destination: end,
-//             travelMode: 'DRIVING'
-//         };
-//         directionsService.route(request, function(result, status) {
-//             if (status == 'OK') {
-//                 directionsRenderer.setDirections(result);
-//             }
-//         });
-//     }
-
   render() {
     const { _id, name, lat, lng, tlat, tlng, plat, plng } = this.props.site;
 

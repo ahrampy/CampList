@@ -1,5 +1,6 @@
 .splash-main {
     font-family: "Calibre", Helvetica, Arial, sans-serif;
+    color: #333;
     width: 100%;
     min-height: 900px;
     background-image: url('/tent_splash.png');
@@ -10,8 +11,18 @@
 
 .splash-enter {
     text-align: center;
-    padding-top: 35%;
+    padding-top: 30%;
     z-index: 2;
+}
+
+.splash-head-holder{
+    margin: 30px;
+}
+
+.splash-head-holder h1{
+    color: white;
+    font-size: 45px;
+    padding-bottom: 2%;
 }
 
 .splash-buttons{

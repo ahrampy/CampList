@@ -1,6 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-import { Map, GoogleApiWrapper, InfoWindow, Marker } from "google-maps-react";
+import { Map, GoogleApiWrapper, InfoWindow, Marker, Polygon } from "google-maps-react";
 const styles = require("./GoogleMapStyles.json");
 const mapKey = process.env.REACT_APP_MAP_API;
 
@@ -51,6 +51,22 @@ class IndexMap extends React.Component {
       });
     }
 
+      const poly1 = [
+        { lng: -122.561, lat: 40.739},
+        { lng: -122.603, lat: 40.679},
+        { lng: -122.646, lat: 40.645},
+        { lng: -122.617, lat: 40.610},
+        { lng: -122.555, lat: 40.581},
+        { lng: -122.505, lat: 40.536},
+        { lng: -122.463, lat: 40.57},
+        { lng: -122.445, lat: 40.627},
+        { lng: -122.444, lat: 40.680},
+        { lng: -122.476, lat: 40.728},
+        { lng: -122.526, lat: 40.77},
+        { lng: -122.601, lat: 40.787},
+        { lng: -122.561, lat: 40.739}
+      ];
+
     return (
       <Map
         google={this.props.google}
@@ -59,7 +75,14 @@ class IndexMap extends React.Component {
         styles={styles}
         initialCenter={currentPosition}
       >
-        {/* <Data></Data> */}
+        <Polygon
+          paths={poly1}
+          strokeColor="#4d2600"
+          strokeOpacity={0.8}
+          strokeWeight={2}
+          fillColor="#4d2600"
+          fillOpacity={0.35}
+        />
         {sites.map((site, i) => (
           <Marker
             key={i}
