@@ -70,6 +70,27 @@ textarea {
   font-weight: 600;
 }
 
+.review-list-container a, button {
+  text-decoration: none;
+  margin-right: 10px;
+  padding: 7px;
+  background: white;
+  color: rgb(15, 94, 61);
+  border: 2px solid rgb(15, 94, 61);
+  border-radius: 2px;
+  transition-duration: 0.4s;
+}
+
+.review-list-container a:hover {
+  background: rgb(15, 94, 61);
+  color: white;
+}
+
+.review-list-container button:hover {
+  background: rgb(15, 94, 61);
+  color: white;
+}
+
 .single-review-container {
   margin-bottom: 20px;
   padding-left: 10px;
