@@ -14,11 +14,11 @@ class SiteDetail extends Component {
 
   render() {
     const {
-      author, name, date, description, _id
+      author, name, date, description, _id, photoUrl
     } = this.props.site
     // author commented out?
     if (!this.props.siteAuthor) return null
-    
+    debugger
     return (
       <div className="show-outer-container">
         <div className="show-detail-wrapper">

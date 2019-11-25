@@ -64,15 +64,23 @@ class EditSiteFormDetail extends Component {
   render() {
     if (!this.props.site) return null
 
+    let checkboxes = document.getElementsByClassName('feature-checkbox');
+
+    for (let i = 0; i < checkboxes.length; i++) {
+
+      if (checkboxes[i].value === "true") {
+        checkboxes[i].checked = true;
+      }
+    }
   
     return (
       <div className="site-form-container">
-        <h3>Create a New Campsite</h3>
+        <h3>Edit your Campsite</h3>
         <div className="site-form-splitline"></div>
         <div className="site-form-wrapper">
           <form onSubmit={this.handleSubmit}>
             <div className="site-form-section-wrapper">
-              <h2>What is the name of your campsite?</h2>
+              <h2>Give your campsite a name.</h2>
               <input
                 type="text"
                 id="campname"
@@ -121,6 +129,7 @@ class EditSiteFormDetail extends Component {
                   <input
                     type="checkbox"
                     name="fishing"
+                    value={this.state.siteFeatures.fishing}
                     onChange={this.handleCheck('fishing')}
                   />
                   <span className="site-form-seatButton">Fishing</span>
@@ -130,6 +139,7 @@ class EditSiteFormDetail extends Component {
                   <input
                     type="checkbox"
                     name="swimming"
+                    value={this.state.siteFeatures.swimming}
                     onChange={this.handleCheck('swimming')}
                   />
                   <span className="site-form-seatButton">Swimming</span>
@@ -139,6 +149,7 @@ class EditSiteFormDetail extends Component {
                   <input
                     type="checkbox"
                     name="hiking"
+                    value={this.state.siteFeatures.hiking}
                     onChange={this.handleCheck('hiking')}
                   />
                   <span className="site-form-seatButton">Hiking</span>
@@ -152,6 +163,7 @@ class EditSiteFormDetail extends Component {
                   <input
                     type="checkbox"
                     name="parking"
+                    value={this.state.siteFeatures.parking}
                     onChange={this.handleCheck('parking')}
                   />
                   <span className="site-form-seatButton">Parking</span>
@@ -161,6 +173,7 @@ class EditSiteFormDetail extends Component {
                   <input
                     type="checkbox"
                     name="firePit"
+                    value={this.state.siteFeatures.firePit}
                     onChange={this.handleCheck('firePit')}
                   />
                   <span className="site-form-seatButton">Fire Pit</span>

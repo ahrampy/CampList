@@ -14,7 +14,7 @@ class SiteForm extends Component {
       name: "",
       date: "",
       photoFile: null,
-      photoUrl: null,
+      photoUrl: "",
       fields: {
         location: null,
         trailLocation: {
@@ -283,6 +283,17 @@ class SiteForm extends Component {
                   />
                 </Map>
               </div>
+            </div>
+            <div className="site-form-section-wrapper">
+              <h2>Add a picture for the campsite.</h2>
+              <input
+                type="text"
+                id="pictures"
+                value={this.state.photoUrl}
+                onChange={this.handleInput("photoUrl")}
+                placeholder="photo url"
+                required
+              />
             </div>
             <div className="site-form-section-wrapper">
               <h2>Tell us a little about your experience.</h2>
