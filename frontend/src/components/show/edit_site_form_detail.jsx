@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
 import FooterNav from '../nav/footer_nav';
+import { throws } from 'assert';
 
 const mapKey = process.env.REACT_APP_MAP_API;
 const styles = require("../maps/GoogleMapStyles.json");
@@ -32,11 +33,11 @@ class EditSiteFormDetail extends Component {
       },
       mapClicked: false,
       siteFeatures: {
-        parking: this.props.site.parking,
-        fishing: this.props.site.fishing,
-        firePit: this.props.site.firePit,
-        hiking: this.props.site.hiking,
-        swimming: this.props.site.swimming,
+        parking: this.props.site.siteFeatures.parking,
+        fishing: this.props.site.siteFeatures.fishing,
+        firePit: this.props.site.siteFeatures.firePit,
+        hiking: this.props.site.siteFeatures.hiking,
+        swimming: this.props.site.siteFeatures.swimming,
       }
     }
 
@@ -76,11 +77,15 @@ class EditSiteFormDetail extends Component {
     }
   }
 
+  // handleOpenModal() {
+  //   this.props.openModal('login');
+  // }
+
   handleSubmit(e) {
     e.preventDefault();
-    if (!this.props.authorId) {
-      return this.handleOpenModal();
-    }
+    // if (!this.props.authorId) {
+    //   return this.handleOpenModal();
+    // }
     const input = {
       description: this.state.description,
       name: this.state.name,
@@ -90,18 +95,19 @@ class EditSiteFormDetail extends Component {
       siteFeatures: this.state.siteFeatures
     }
     const latLng = {
-      lat: this.state.fields.location.lat().toString(),
-      lng: this.state.fields.location.lng().toString()
+      // lat: this.state.fields.location.lat().toString(),
+      // lng: this.state.fields.location.lng().toString()
     };
     const tlatLng = {
-      tlat: this.state.fields.trailLocation.lat().toString(),
-      tlng: this.state.fields.trailLocation.lng().toString()
+      // tlat: this.state.fields.trailLocation.lat().toString(),
+      // tlng: this.state.fields.trailLocation.lng().toString()
     };
     const platLng = {
-      plat: this.state.fields.parkingLocation.lat().toString(),
-      plng: this.state.fields.parkingLocation.lng().toString()
+      // plat: this.state.fields.parkingLocation.lat().toString(),
+      // plng: this.state.fields.parkingLocation.lng().toString()
     };
-    const site = Object.assign({}, input, latLng, tlatLng, platLng);
+    // const site = Object.assign({}, input, latLng, tlatLng, platLng);
+    const site = Object.assign({}, input)
     this.props.editSite(site)
       .then(() => this.props.history.goBack())
   }
@@ -174,16 +180,16 @@ class EditSiteFormDetail extends Component {
   render() {
     if (!this.props.site) return null
 
-    let currentPosition;
+    // let currentPosition;
 
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(function (position) {
-        currentPosition = {
-          lat: position.coords.latitude,
-          lng: position.coords.longitude
-        };
-      });
-    }
+    // if (navigator.geolocation) {
+    //   navigator.geolocation.getCurrentPosition(function (position) {
+    //     currentPosition = {
+    //       lat: position.coords.latitude,
+    //       lng: position.coords.longitude
+    //     };
+    //   });
+    // }
 
     let currentCampPosition = {
       lat: this.props.site.lat,
@@ -247,6 +253,16 @@ class EditSiteFormDetail extends Component {
         </Map>
       </div>
     ) : null;
+
+    let checkboxes = document.getElementsByClassName('feature-checkbox');
+    
+    for (let i = 0; i < checkboxes.length; i++) {
+      
+      if (checkboxes[i].value === "true") {
+        checkboxes[i].checked = true;
+      }
+    }
+
     
     return (
       <div>
@@ -313,24 +329,31 @@ class EditSiteFormDetail extends Component {
                 <div className="site-form-feature">
                   <label>
                     <input
+                      className="feature-checkbox"
                       type="checkbox"
                       name="fishing"
+                      value={this.state.siteFeatures.fishing}
                       onChange={this.handleCheck("fishing")}
+                      
                     />
                     <span className="site-form-seatButton">Fishing</span>
                   </label>
 
                   <label>
                     <input
+                      className="feature-checkbox"
                       type="checkbox"
                       name="swimming"
+                      value={this.state.siteFeatures.swimming}
                       onChange={this.handleCheck("swimming")}
+                      
                     />
                     <span className="site-form-seatButton">Swimming</span>
                   </label>
 
                   <label>
                     <input
+                      className="feature-checkbox"
                       type="checkbox"
                       name="hiking"
                       onChange={this.handleCheck("hiking")}
@@ -347,6 +370,7 @@ class EditSiteFormDetail extends Component {
                 <div className="site-form-feature">
                   <label>
                     <input
+                      className="feature-checkbox"
                       type="checkbox"
                       name="parking"
                       onChange={this.handleCheck("parking")}
@@ -356,6 +380,7 @@ class EditSiteFormDetail extends Component {
 
                   <label>
                     <input
+                      className="feature-checkbox"
                       type="checkbox"
                       name="firePit"
                       onChange={this.handleCheck("firePit")}

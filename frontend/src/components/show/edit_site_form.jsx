@@ -15,6 +15,7 @@ class EditSiteForm extends Component {
         <EditSiteFormDetail
           site={this.props.site}
           editSite={this.props.editSite}
+          openModal={this.props.openModal}
         />
       </div>
     )
