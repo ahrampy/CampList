@@ -87,14 +87,21 @@ class SiteForm extends Component {
       lat: this.state.fields.location.lat().toString(),
       lng: this.state.fields.location.lng().toString()
     };
-    const tlatLng = {
-      tlat: this.state.fields.trailLocation.lat().toString(),
-      tlng: this.state.fields.trailLocation.lng().toString()
-    };
-    const platLng = {
+    let tlatLng = ""
+    if (this.state.siteFeatures.hiking) {
+      tlatLng = {
+        tlat: this.state.fields.trailLocation.lat().toString(),
+        tlng: this.state.fields.trailLocation.lng().toString()
+      };
+    }
+
+    let platLng = ""
+    if (this.state.siteFeatures.parking) {
+      platLng = {
       plat: this.state.fields.parkingLocation.lat().toString(),
       plng: this.state.fields.parkingLocation.lng().toString()
-    };
+      };
+    }
     const site = Object.assign( {}, input, latLng, tlatLng, platLng );
     this.props.createNewSite(site).then(() => this.props.history.goBack());
   }
