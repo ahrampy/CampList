@@ -3,15 +3,13 @@ import { createNewSite } from '../../actions/site_actions';
 import SiteForm from './site_form';
 import { openModal } from '../../actions/modal';
 
-const mapStateToProps = (state, { location }) => {
+const mapStateToProps = state => {
   let authorId
   if (state.session.isAuthenticated) {
     authorId = state.session.user.id
   }
   
   return ({
-    lat: new URLSearchParams(location.search).get('lat'),
-    lng: new URLSearchParams(location.search).get('lng'),
     authorId
   })
 };

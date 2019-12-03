@@ -59,7 +59,7 @@ router.post('/new',
 
 router.put('/edit/:id', (req, res) => {
   Site.findById(req.params.id, (err, site) => {
-    // site.id = req.body._id,
+    site.id = req.body.id,
     site.name = req.body.name;
     site.date = req.body.date;
     site.description = req.body.description;
