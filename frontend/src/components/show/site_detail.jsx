@@ -16,8 +16,8 @@ class SiteDetail extends Component {
     const {
       author, name, date, description, _id, photoUrl
     } = this.props.site
-    // author commented out?
     if (!this.props.siteAuthor) return null
+    
     return (
       <div className="show-outer-container">
         <div className="show-detail-wrapper">

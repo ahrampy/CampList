@@ -16,19 +16,19 @@ class EditSiteFormDetail extends Component {
       name: this.props.site.name,
       date: this.props.site.date,
       photoFile: null,
-      photoUrl: null,
+      photoUrl: this.props.site.photoUrl,
       fields: {
         location: {
           lat: this.props.site.lat,
           lng: this.props.site.lng
         },
         trailLocation: {
-          lat: null,
-          lng: null
+          lat: this.props.site.tlat,
+          lng: this.props.site.tlng
         },
         parkingLocation: {
-          lat: null,
-          lng: null
+          lat: this.props.site.plat,
+          lng: this.props.site.plng
         }
       },
       mapClicked: false,
@@ -56,16 +56,16 @@ class EditSiteFormDetail extends Component {
     this.props.openModal('login');
   }
 
-  handleFile(e) {
-    const file = e.currentTarget.files[0];
-    const fileReader = new FileReader();
-    fileReader.onloadend = () => {
-      this.setState({ photoFile: file, photoUrl: fileReader.result });
-    };
-    if (file) {
-      fileReader.readAsDataURL(file);
-    }
-  }
+  // handleFile(e) {
+  //   const file = e.currentTarget.files[0];
+  //   const fileReader = new FileReader();
+  //   fileReader.onloadend = () => {
+  //     this.setState({ photoFile: file, photoUrl: fileReader.result });
+  //   };
+  //   if (file) {
+  //     fileReader.readAsDataURL(file);
+  //   }
+  // }
 
   handleCheck(type) {
     return e => {
@@ -86,6 +86,7 @@ class EditSiteFormDetail extends Component {
     // if (!this.props.authorId) {
     //   return this.handleOpenModal();
     // }
+    
     const input = {
       id: this.state._id,
       description: this.state.description,
@@ -96,7 +97,7 @@ class EditSiteFormDetail extends Component {
       siteFeatures: this.state.siteFeatures
     }
     let latLng;
-    if (this.state.fields.location) {
+    if (typeof this.state.fields.location.lat === "string") {
       latLng = {
         lat: this.state.fields.location.lat,
         lng: this.state.fields.location.lng
@@ -107,21 +108,32 @@ class EditSiteFormDetail extends Component {
         lng: this.state.fields.location.lng().toString()
       };
     }
-    let tlatLng = ""
-    if (this.state.siteFeatures.hiking) {
+    let tlatLng;
+    if (typeof this.state.fields.trailLocation.lat === "string") {
+      tlatLng = {
+        tlat: this.state.fields.trailLocation.lat,
+        tlng: this.state.fields.trailLocation.lng
+      }
+    } else {
       tlatLng = {
         tlat: this.state.fields.trailLocation.lat().toString(),
         tlng: this.state.fields.trailLocation.lng().toString()
       };
     }
-
-    let platLng = ""
-    if (this.state.siteFeatures.parking) {
+    
+    let platLng;
+    if (typeof this.state.fields.parkingLocation.lat === "string") {
+      platLng = {
+        plat: this.state.fields.parkingLocation.lat,
+        plng: this.state.fields.parkingLocation.lng
+      }
+    } else {
       platLng = {
         plat: this.state.fields.parkingLocation.lat().toString(),
         plng: this.state.fields.parkingLocation.lng().toString()
       };
     }
+
     const site = Object.assign({}, input, latLng, tlatLng, platLng);
     this.props.editSite(site)
       // .then(() => this.props.history.push('/campsites'))
@@ -239,7 +251,9 @@ class EditSiteFormDetail extends Component {
             position: "relative"
           }}
           styles={styles}
-          initialCenter={ currentCampPosition }
+          initialCenter={ 
+            currentCampPosition 
+          }
           onClick={(t, map, c) => this.addParkingMarker(c.latLng, map)}
         >
           <Marker position={this.state.fields.location} icon={"/marker.png"} />
@@ -333,6 +347,8 @@ class EditSiteFormDetail extends Component {
                     <input
                       type="checkbox"
                       name="fishing"
+                      checked={this.state.siteFeatures.fishing}
+                      value={this.state.siteFeatures.fishing}
                       onChange={this.handleCheck("fishing")}
                     />
                     <span className="site-form-seatButton">Fishing</span>
@@ -342,6 +358,8 @@ class EditSiteFormDetail extends Component {
                     <input
                       type="checkbox"
                       name="swimming"
+                      checked={this.state.siteFeatures.swimming}
+                      value={this.state.siteFeatures.swimming}
                       onChange={this.handleCheck("swimming")}
                     />
                     <span className="site-form-seatButton">Swimming</span>
@@ -351,6 +369,8 @@ class EditSiteFormDetail extends Component {
                     <input
                       type="checkbox"
                       name="hiking"
+                      checked={this.state.siteFeatures.hiking}
+                      value={this.state.siteFeatures.hiking}
                       onChange={this.handleCheck("hiking")}
                     />
                     <span className="site-form-seatButton">Hiking</span>
@@ -367,6 +387,8 @@ class EditSiteFormDetail extends Component {
                     <input
                       type="checkbox"
                       name="parking"
+                      checked={this.state.siteFeatures.parking}
+                      value={this.state.siteFeatures.parking}
                       onChange={this.handleCheck("parking")}
                     />
                     <span className="site-form-seatButton">Parking</span>
@@ -376,6 +398,8 @@ class EditSiteFormDetail extends Component {
                     <input
                       type="checkbox"
                       name="firePit"
+                      checked={this.state.siteFeatures.firePit}
+                      value={this.state.siteFeatures.firePit}
                       onChange={this.handleCheck("firePit")}
                     />
                     <span className="site-form-seatButton">Fire Pit</span>
