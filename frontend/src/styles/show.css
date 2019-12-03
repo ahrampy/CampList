@@ -47,11 +47,15 @@
 
 .site-features {
   font-size: 15px;
-  width: 60%;
+  width: 45%;
 }
 
 .show-picture-wrapper {
-  width: 40%;
+  width: 55%;
+}
+
+.show-picture-wrapper img {
+  width: 100%
 }
 
 .site-features > div {
@@ -60,12 +64,12 @@
 }
 
 .show-feature-label {
-  width: 30%;
+  width: 50%;
   margin-right: 25px;
 }
 
 .show-feature-body {
-  width: 70%;
+  width: 50%;
   display: flex;
 }
 
