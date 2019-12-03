@@ -87,7 +87,7 @@ class SiteForm extends Component {
       lat: this.state.fields.location.lat().toString(),
       lng: this.state.fields.location.lng().toString()
     };
-    let tlatLng = ""
+    let tlatLng;
     if (this.state.siteFeatures.hiking) {
       tlatLng = {
         tlat: this.state.fields.trailLocation.lat().toString(),
@@ -95,7 +95,7 @@ class SiteForm extends Component {
       };
     }
 
-    let platLng = ""
+    let platLng;
     if (this.state.siteFeatures.parking) {
       platLng = {
       plat: this.state.fields.parkingLocation.lat().toString(),

@@ -19,8 +19,8 @@ module.exports = function validateSiteInput(data) {
     errors.name = 'Name field is required';
   }
 
-  if (!Validator.isLength(data.description, { min: 5, max: 140 })) {
-    errors.description = 'Description must be between 5 and 140 characters';
+  if (!Validator.isLength(data.description, { min: 5, max: 400 })) {
+    errors.description = 'Description must be between 5 and 400 characters';
   }
 
   if (Validator.isEmpty(data.description)) {
