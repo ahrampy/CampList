@@ -59,16 +59,17 @@ router.post('/new',
 
 router.put('/edit/:id', (req, res) => {
   Site.findById(req.params.id, (err, site) => {
-    // site.id = req.body._id,
+    site.id = req.body.id,
     site.name = req.body.name;
     site.date = req.body.date;
     site.description = req.body.description;
     site.lat = req.body.lat;
     site.lng = req.body.lng;
-    site.plat = req.body.plat,
-    site.plng = req.body.plng,
     site.tlat = req.body.tlat,
     site.tlng = req.body.tlng,
+    site.plat = req.body.plat,
+    site.plng = req.body.plng,
+    site.photoUrl = req.body.photoUrl,
     site.siteFeatures = req.body.siteFeatures;
     site.save()
     res.json(site)
