@@ -18,7 +18,7 @@ class SiteDetail extends Component {
     } = this.props.site
     // author commented out?
     if (!this.props.siteAuthor) return null
-    debugger
+    
     return (
       <div className="show-outer-container">
         <div className="show-detail-wrapper">
