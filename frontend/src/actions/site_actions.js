@@ -37,3 +37,8 @@ export const editSite = data => dispatch => (
   APIUtil.editSite(data)
     .then(site => dispatch(receiveSite(site)))
 );
+
+export const addPhoto = data => dispatch => (
+  APIUtil.addPhoto(data)
+    .then(site => dispatch(receiveSite(site)))
+)

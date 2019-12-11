@@ -29,6 +29,8 @@ export default class SiteShow extends Component {
         <div className='show-detail-container'>
           <SiteDetail 
           site={site}
+          siteId={this.state.siteId}
+          addPhoto={this.props.addPhoto}
           currentUserId={this.props.currentUserId}
           siteAuthor={this.props.siteAuthor}
           />

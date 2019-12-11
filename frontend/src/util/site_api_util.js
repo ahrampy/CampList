@@ -17,6 +17,10 @@ export const postNewSite = data => {
 };
 
 export const editSite = (data) => {
-  debugger
   return axios.put(`/api/sites/edit/${data.id}`, data);
 };
+
+export const addPhoto = data => {
+  debugger
+  return axios.put(`/api/sites/addPhoto/${data.id}`, data)
+}

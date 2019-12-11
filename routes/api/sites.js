@@ -58,6 +58,7 @@ router.post('/new',
 )
 
 router.put('/edit/:id', (req, res) => {
+
   Site.findById(req.params.id, (err, site) => {
     site.id = req.body.id,
     site.name = req.body.name;
@@ -69,13 +70,16 @@ router.put('/edit/:id', (req, res) => {
     site.tlng = req.body.tlng,
     site.plat = req.body.plat,
     site.plng = req.body.plng,
-    site.photoUrl = req.body.photoUrl,
+    site.photoUrl = site.photoUrl.concat([req.body.photoUrl]),
     site.siteFeatures = req.body.siteFeatures;
     site.save()
     res.json(site)
   })
-  // Site.findByIdAndUpdate(req.params.id, req.body)
-  //   .then((site) => res.json(site))
+})
+
+router.put('/addPhoto/:id', (req, res) => {
+  Site.findByIdAndUpdate(req.params.id, {$push: {photoUrl: req.body.photo}})
+    .then(site => res.json(site))
 })
 
 module.exports = router;

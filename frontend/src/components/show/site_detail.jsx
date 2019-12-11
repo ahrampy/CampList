@@ -3,6 +3,15 @@ import { withRouter, Link } from 'react-router-dom';
 import ShowMap from '../maps/show_map';
 
 class SiteDetail extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      newPhoto: ""
+    }
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
 
   handleSiteFeatures(feature) {
     if (this.props.site.siteFeatures[feature] === true) {
@@ -10,6 +19,17 @@ class SiteDetail extends Component {
     } else {
       return "No";
     }
+  }
+
+  update(property) {
+    return e => this.setState({
+      [property]: e.target.value
+    })
+  }
+
+  handleSubmit(e) {
+    e.preventDefault()
+    this.props.addPhoto({ id: this.props.siteId, photo: this.state.newPhoto })
   }
 
   render() {
@@ -109,6 +129,19 @@ class SiteDetail extends Component {
                 <div>
                   <img src={this.props.site.photoUrl} alt=""/>
                 </div>
+                <form onSubmit={this.handleSubmit}>
+                  <label>
+                    Add a photo of this site
+                    <br/>
+                    <input 
+                      type="text"
+                      value={this.state.newPhoto}
+                      onChange={this.update('newPhoto')}
+                    />
+                  </label>
+                  <br/>
+                  <button type="submit">Submit</button>
+                </form>
                 
               </div>
             </div>
