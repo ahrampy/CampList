@@ -8,7 +8,8 @@ class SiteDetail extends Component {
     super(props)
 
     this.state = {
-      newPhoto: ""
+      newPhoto: "",
+      errors: ""
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -30,7 +31,12 @@ class SiteDetail extends Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    this.props.addPhoto({ id: this.props.siteId, photo: this.state.newPhoto })
+    this.state.newPhoto.includes(".com" || ".org" || ".gov") ? 
+      this.props.addPhoto({ id: this.props.siteId, photo: this.state.newPhoto }) &&
+      this.setState({errors: ""}) : 
+      this.setState({
+        errors: "Must be a valid url!"
+      })
     this.setState({
       newPhoto: ""
     })
@@ -139,28 +145,23 @@ class SiteDetail extends Component {
             
               <div className="show-picture-wrapper">
                 {/* Carousel here */}
-                <div>
-                  <SlideSet
-                    imgUrls={this.props.site.photoUrl}
-                  />
-                </div>
-                <br/>
+                <SlideSet
+                  imgUrls={this.props.site.photoUrl}
+                />
                 {/* Add new photo here */}
-                <form onSubmit={this.handleSubmit}>
+                {this.state.errors}
+                <form className="photo-input" onSubmit={this.handleSubmit}>
+                  <div className="display-errors">
+                  </div>
                   <br/>
-                  <label>
-                    Add a photo of this site
-                    <br/>
-                    <input 
-                      type="text"
-                      value={this.state.newPhoto}
-                      onChange={this.update('newPhoto')}
-                    />
-                  </label>
-                  <br/>
+                  <input 
+                    type="text"
+                    placeholder="Add a photo of this site"
+                    value={this.state.newPhoto}
+                    onChange={this.update('newPhoto')}
+                  />
                   <button type="submit">Submit</button>
                 </form>
-                
               </div>
             </div>
 

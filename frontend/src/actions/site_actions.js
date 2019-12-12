@@ -42,7 +42,6 @@ export const addPhoto = data => dispatch => (
   APIUtil.addPhoto(data)
     .then(site => 
       {
-      debugger 
       return dispatch(receiveSite(site))
       })
 )

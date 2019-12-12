@@ -1,0 +1,13 @@
+.slideset {
+  display: flex;
+  align-items: center;
+}
+
+.slide-arrow:hover {
+  cursor: pointer;
+}
+
+.photo-input {
+  display: flex;
+  justify-content: space-around;
+}

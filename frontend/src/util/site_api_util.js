@@ -21,6 +21,5 @@ export const editSite = (data) => {
 };
 
 export const addPhoto = data => {
-  debugger
   return axios.put(`/api/sites/addPhoto/${data.id}`, data)
 }
