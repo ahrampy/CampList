@@ -79,16 +79,6 @@ class SiteDetail extends Component {
               <div className="show-name">
                 {name}
               </div>
-              {/* <div>
-                {
-                  this.props.currentUserId === author ? 
-                    <div className="edit-btn">
-                      <Link to={`/campsites/edit/${_id}`}>Edit</Link>
-                    </div>
-                    :
-                    null
-                }
-              </div> */}
             </div>
             
             <div className="show-mid-section">
@@ -182,7 +172,7 @@ class SiteDetail extends Component {
                   value={this.state.newPhoto}
                   onChange={this.update('newPhoto')}
                 />
-                <button type="submit">Submit</button>
+                <button className="btn" type="submit">Submit</button>
               </form>
             </div>
         </div>
