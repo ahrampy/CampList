@@ -1,6 +1,8 @@
 .search-holder {
   border: 3px solid #333;
   border-radius: 2px 0px 0px 2px;
+  min-width: 150px;
+  padding: 3% 3%;
 }
 
 .filter-sidebar {
@@ -14,7 +16,6 @@
 .filter-category h3 {
   font-size: 20px;
   padding-bottom: 5px;
-  /* text-decoration: underline; */
 }
 
 .attr-list {
