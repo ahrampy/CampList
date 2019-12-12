@@ -1,6 +1,35 @@
 .slideset {
   display: flex;
+  justify-content: center;
   align-items: center;
+}
+
+.slideset-img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.image-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.image-slide > img {
+  flex-shrink: 0;
+  min-width: 100%;
+  min-height: 100%
+}
+
+.slide-arrow {
+  height: 100%;
 }
 
 .slide-arrow:hover {
@@ -9,5 +38,6 @@
 
 .photo-input {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  margin-top: 15px;
 }

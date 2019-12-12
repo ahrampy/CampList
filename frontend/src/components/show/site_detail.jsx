@@ -60,8 +60,18 @@ class SiteDetail extends Component {
                 <ShowMap site={this.props.site}/>
               </div>
             </div>
-            <div>
-              <a className="btn" href={`https://maps.google.com/?q=${lat},${lng}`}>Get Directions</a>
+            <div className="show-btn-container">
+              <div>
+                <a className="btn" href={`https://maps.google.com/?q=${lat},${lng}`}>Get Directions</a>
+              </div>
+              <div>
+                {
+                  this.props.currentUserId === author ?
+                      <Link className="btn" to={`/campsites/edit/${_id}`}>Edit</Link>
+                    :
+                    null
+                }
+              </div>
             </div>
           </div>
           <div className="show-info-wrapper">
@@ -69,7 +79,7 @@ class SiteDetail extends Component {
               <div className="show-name">
                 {name}
               </div>
-              <div>
+              {/* <div>
                 {
                   this.props.currentUserId === author ? 
                     <div className="edit-btn">
@@ -78,7 +88,7 @@ class SiteDetail extends Component {
                     :
                     null
                 }
-              </div>
+              </div> */}
             </div>
             
             <div className="show-mid-section">
@@ -92,15 +102,6 @@ class SiteDetail extends Component {
                   </div>
                   <div className="show-feature-body">
                     {this.handleSiteFeatures("hiking")}
-                  </div>
-                </div>
-                <div className="firePit">
-                  <div className="show-feature-label">
-                    <img src="fire_icon.png" />
-                    Fire Pit
-                  </div>
-                  <div className="show-feature-body">
-                    {this.handleSiteFeatures("firePit")}
                   </div>
                 </div>
                 <div className="parking">
@@ -130,6 +131,15 @@ class SiteDetail extends Component {
                     {this.handleSiteFeatures("swimming")}
                   </div>
                 </div>
+                <div className="firePit">
+                  <div className="show-feature-label">
+                    <img src="fire_icon.png" />
+                    Campfire
+                  </div>
+                  <div className="show-feature-body">
+                    {this.handleSiteFeatures("firePit")}
+                  </div>
+                </div>
                 <br></br>
                 <div className="create-date">
                   <div className="show-feature-label">
@@ -137,35 +147,15 @@ class SiteDetail extends Component {
                   </div>
                   <div className="show-feature-body">
                     <div id="show-username">
-                      {this.props.siteAuthor.username}
+                      {this.props.siteAuthor.username} camped here {date}
                     </div>
-                    <div >
+                    {/* <div >
                       camped here {date}
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>
             
-              <div className="show-picture-wrapper">
-                {/* Carousel here */}
-                <SlideSet
-                  imgUrls={imageUrls}
-                />
-                {/* Add new photo here */}
-                {this.state.errors}
-                <form className="photo-input" onSubmit={this.handleSubmit}>
-                  <div className="display-errors">
-                  </div>
-                  <br/>
-                  <input 
-                    type="text"
-                    placeholder="Add a photo of this site"
-                    value={this.state.newPhoto}
-                    onChange={this.update('newPhoto')}
-                  />
-                  <button className="btn" type="submit">Submit</button>
-                </form>
-              </div>
             </div>
 
             <div className="show-description">
@@ -173,9 +163,28 @@ class SiteDetail extends Component {
               <div>
                 {description}
               </div>
-              
             </div>
           </div>
+            <div className="show-picture-wrapper">
+              {/* Carousel here */}
+              <SlideSet
+                imgUrls={imageUrls}
+              />
+              {/* Add new photo here */}
+              {this.state.errors}
+              <form className="photo-input" onSubmit={this.handleSubmit}>
+                <div className="display-errors">
+                </div>
+                <br />
+                <input
+                  type="text"
+                  placeholder="Add a photo of this site"
+                  value={this.state.newPhoto}
+                  onChange={this.update('newPhoto')}
+                />
+                <button type="submit">Submit</button>
+              </form>
+            </div>
         </div>
       </div>
     )

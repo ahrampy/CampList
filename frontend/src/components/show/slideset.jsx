@@ -38,19 +38,25 @@ class SlideSet extends React.Component {
 
     return (
       <div className="slideset">
-        <Arrow 
-          direction="left"
-          clickFunction={ this.previousSlide }
-          glyph="&#9664;"
-        />
+        <div>
+          <Arrow 
+            direction="left"
+            clickFunction={ this.previousSlide }
+            glyph="&#9664;"
+          />
+        </div>
 
-        <ImageSlide url={ this.props.imgUrls[this.state.currentImageIndex] } />
+        <div className="slideset-img-container">
+          <ImageSlide url={ this.props.imgUrls[this.state.currentImageIndex] } />
+        </div>
 
-        <Arrow
-          direction="right"
-          clickFunction={this.nextSlide}
-          glyph="&#9654;"
-        />
+        <div>
+          <Arrow
+            direction="right"
+            clickFunction={this.nextSlide}
+            glyph="&#9654;"
+          />
+        </div>
       </div>
     );
   }

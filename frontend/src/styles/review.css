@@ -47,23 +47,6 @@ textarea {
   padding-bottom: 20px;
 }
 
-.btn {
-  text-decoration: none;
-  padding: 10px;
-  border: 2px solid rgb(15, 94, 61);
-  border-radius: 2px;
-  transition-duration: 0.4s;
-  background: rgb(15, 94, 61);
-  color: white;
-  text-decoration: none;
-  font: 16px system-ui;
-}
-
-.btn:hover {
-  color: rgb(15, 94, 61);
-  background: white;
-}
-
 .review-list-container > p {
   margin-bottom: 10px;
   padding-top: 10px;
