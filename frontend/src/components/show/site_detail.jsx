@@ -163,7 +163,7 @@ class SiteDetail extends Component {
                     value={this.state.newPhoto}
                     onChange={this.update('newPhoto')}
                   />
-                  <button type="submit">Submit</button>
+                  <button className="btn" type="submit">Submit</button>
                 </form>
               </div>
             </div>

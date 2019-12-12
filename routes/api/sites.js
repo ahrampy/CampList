@@ -82,4 +82,13 @@ router.put('/addPhoto/:id', (req, res) => {
     .then(site => res.json(site))
 })
 
+router.delete('/:id', (req, res) => {
+
+  Site.findByIdAndDelete(req.params.id)
+    .then(() => res.json({siteGone: 'The site was removed'}))
+    .catch(err => 
+      res.status(404).json({noReviewForYou: "Nope"})  
+    )
+})
+
 module.exports = router;

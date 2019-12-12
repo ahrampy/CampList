@@ -6,8 +6,8 @@ const mSTP = (state, ownProps) => {
   let newReviews = selectSiteNames(ownProps.sites, ownProps.userReviews)
   return {
     tabSections: [
-      {title: "Reviews", content: newReviews},
       {title: "Photos", content: ownProps.userPhotos},
+      {title: "Reviews", content: newReviews},
       {title: "Your Campsites", content: ownProps.userCampsites} 
     ],
     username: ownProps.username

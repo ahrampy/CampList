@@ -291,7 +291,7 @@ class SiteForm extends Component {
                 </Map>
               </div>
             </div>
-            <div className="site-form-section-wrapper">
+            {/* <div className="site-form-section-wrapper">
               <h2>Add a picture for the campsite.</h2>
               <input
                 type="text"
@@ -301,7 +301,7 @@ class SiteForm extends Component {
                 placeholder="photo url"
                 required
               />
-            </div>
+            </div> */}
             <div className="site-form-section-wrapper">
               <h2>Tell us a little about your experience.</h2>
               <textarea

@@ -92,7 +92,7 @@ class EditSiteFormDetail extends Component {
       name: this.state.name,
       date: this.state.date,
       photoFile: this.state.photoFile,
-      photoUrl: {author: this.props.site.author, site: this.props.site._id, url: this.state.photoUrl},
+      photoUrl: {author: this.props.site.author, site: this.props.site._id, url: 'https://i.imgur.com/YBPxRX5.jpg'},
       siteFeatures: this.state.siteFeatures
     }
     let latLng;
@@ -318,7 +318,7 @@ class EditSiteFormDetail extends Component {
                   </Map>
                 </div>
               </div>
-              <div className="site-form-section-wrapper">
+              {/* <div className="site-form-section-wrapper">
                 <h2>Add a picture for the campsite.</h2>
                 <input
                   type="text"
@@ -328,7 +328,7 @@ class EditSiteFormDetail extends Component {
                   placeholder="photo url"
                   required
                 />
-              </div>
+              </div> */}
               <div className="site-form-section-wrapper">
                 <h2>Tell us a little about your experience.</h2>
                 <textarea
