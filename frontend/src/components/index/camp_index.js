@@ -65,7 +65,7 @@ class CampIndex extends React.Component {
     return(
       <div>
         <div className="index-title-holder">
-          <h1>Welcome to Camp List</h1>
+          <h1>Welcome to CampList</h1>
           <br/>
           <p>Search, discover, and share your favorite camping spots</p>
           {/* <br /> */}
