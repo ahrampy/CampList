@@ -9,6 +9,7 @@ const mSTP = state => {
     {id: 1, name: 'hiking'}, 
     {id: 2, name: 'parking'}, 
     {id: 3, name: 'fishing'},
+    {id: 5, name: 'swimming'},
     {id: 4, name: 'firePit'}
   ]
   return {

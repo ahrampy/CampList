@@ -28,7 +28,7 @@ class FilterAttrs extends React.Component {
               />
               <span className="checkbox-custom"></span>
               <div className="checkbox-name">
-                {attr.name}
+                {attr.name === 'firePit' ? 'Campfire' : `${attr.name}`}             
               </div>
             </label>
           </div>
