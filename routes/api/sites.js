@@ -42,7 +42,7 @@ router.post('/new',
       author: req.user.id,
       name: req.body.name,
       date: req.body.date,
-      photoUrl: req.body.photoUrl,
+      photoUrl: [], //temporary fix, photos should be added after a sites creation
       description: req.body.description,
       lat: req.body.lat,
       lng: req.body.lng,
@@ -70,7 +70,7 @@ router.put('/edit/:id', (req, res) => {
     site.tlng = req.body.tlng,
     site.plat = req.body.plat,
     site.plng = req.body.plng,
-    site.photoUrl = req.body.photoUrl,
+    site.photoUrl = site.photoUrl, //temporary fix, photo's shouldn't be added during the edit phase
     site.siteFeatures = req.body.siteFeatures;
     site.save()
     res.json(site)

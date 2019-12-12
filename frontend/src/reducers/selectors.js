@@ -71,11 +71,16 @@ export const selectSiteAuthorName = (sites, users) => {
 }
 
 export const selectUserPhotos = (sites, user) => {
-  const ans = [];
+  let ans = [];
   sites.forEach(site => {
     site.photoUrl.forEach(photoObj => {
       if (photoObj.author === user) ans.push(photoObj) 
     })
   })
-  return ans
+
+  let bugFix = Array.from(new Set(ans.map(photoObj => photoObj.url)))
+    .map(url=> {
+      return ans.find(a => a.url === url)
+    })
+  return bugFix
 }

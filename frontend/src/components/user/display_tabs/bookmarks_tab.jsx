@@ -9,6 +9,9 @@ const BookmarksTab = (props) => {
         <ul className="photo-list">
           <li className="photo-item">
             <img className="photo-image" src={photo.url} alt=""/>
+            <br/>
+            <br/>
+            <p>{photo.site}</p>
           </li>
         </ul>
       ))}

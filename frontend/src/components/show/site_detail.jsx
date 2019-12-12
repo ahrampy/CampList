@@ -31,8 +31,9 @@ class SiteDetail extends Component {
 
   handleSubmit(e) {
     e.preventDefault()
+
     this.state.newPhoto.includes(".com" || ".org" || ".gov") ? 
-      this.props.addPhoto({ id: this.props.siteId, photo: { author: this.props.currentUserId, site: this.props.site._id, url: this.state.newPhoto } }) &&
+      this.props.addPhoto({ id: this.props.siteId, photo: { author: this.props.currentUserId, site: this.props.site.name, url: this.state.newPhoto } }) &&
       this.setState({errors: ""}) : 
       this.setState({
         errors: "Must be a valid url!"
