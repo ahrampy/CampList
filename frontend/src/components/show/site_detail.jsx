@@ -36,7 +36,7 @@ class SiteDetail extends Component {
       this.props.addPhoto({ id: this.props.siteId, photo: { author: this.props.currentUserId, site: this.props.site.name, url: this.state.newPhoto } }) &&
       this.setState({errors: ""}) : 
       this.setState({
-        errors: "Must be a valid url!"
+        errors: "Invalid URL"
       })
     this.setState({
       newPhoto: ""
@@ -161,11 +161,8 @@ class SiteDetail extends Component {
                 imgUrls={imageUrls}
               />
               {/* Add new photo here */}
-              {this.state.errors}
               <form className="photo-input" onSubmit={this.handleSubmit}>
-                <div className="display-errors">
-                </div>
-                <br />
+              <p>{this.state.errors}</p>
                 <input
                   type="text"
                   placeholder="Add a photo of this site"
