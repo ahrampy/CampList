@@ -70,7 +70,7 @@ router.put('/edit/:id', (req, res) => {
     site.tlng = req.body.tlng,
     site.plat = req.body.plat,
     site.plng = req.body.plng,
-    site.photoUrl = site.photoUrl.concat([req.body.photoUrl]),
+    site.photoUrl = req.body.photoUrl,
     site.siteFeatures = req.body.siteFeatures;
     site.save()
     res.json(site)

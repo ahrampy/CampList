@@ -40,5 +40,9 @@ export const editSite = data => dispatch => (
 
 export const addPhoto = data => dispatch => (
   APIUtil.addPhoto(data)
-    .then(site => dispatch(receiveSite(site)))
+    .then(site => 
+      {
+      debugger 
+      return dispatch(receiveSite(site))
+      })
 )
