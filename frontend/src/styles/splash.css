@@ -2,27 +2,33 @@
     font-family: "Calibre", Helvetica, Arial, sans-serif;
     color: #333;
     width: 100%;
-    min-height: 900px;
+    height: 100vh;
     background-image: url('/tent_splash.png');
-    background-size: contain;
-    background-size: cover;
+    /* background-size: contain; */
+    /* background-size: cover; */
     background-position: center;
 }
 
+
 .splash-enter {
+    position: absolute;
     text-align: center;
-    padding-top: 30%;
-    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* left: 40%; */
+    /* right: 40%; */
+    /* z-index: 2; */
 }
 
 .splash-head-holder{
-    margin: 30px;
+    /* margin: 30px; */
 }
 
 .splash-head-holder h1{
     color: white;
-    font-size: 45px;
-    padding-bottom: 2%;
+    font-size: 50px;
+    margin-bottom: 40px;
 }
 
 .splash-buttons{
@@ -34,13 +40,13 @@
     text-decoration: none;
     margin-right: 10px;
     padding: 25px;
+    margin-top: 20px;
     background: rgb(15, 94, 61, 0.7);
     color: white;
     border: 0px solid rgb(15, 94, 61);
     border-radius: 2px;
     transition-duration: 0.4s;
     font-weight: 600;
-
 }
 
 .splash-buttons a:hover {

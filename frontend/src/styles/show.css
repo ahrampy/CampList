@@ -6,11 +6,11 @@
 
 .show-map-info {
   position: relative;
-  width: 470px;
-  height: 450px;
+  min-width: 400px;
+  min-height: 400px;
+  margin-bottom: 30px;
   overflow: hidden;
-}
-
+} 
 .show-detail-wrapper {
   margin-left: 150px;
   margin-right: 150px;
@@ -48,6 +48,7 @@
 .site-features {
   font-size: 15px;
   width: 60%;
+  padding-left: 15px;
 }
 
 .show-picture-wrapper {
@@ -59,14 +60,11 @@
   margin: 8px 0px;
 }
 
-.show-feature-label {
-  width: 30%;
-  margin-right: 25px;
-}
-
 .show-feature-body {
   width: 70%;
   display: flex;
+  justify-content: flex-end;
+  padding-right: 30px;
 }
 
 .show-picture-wrapper > div {
@@ -89,6 +87,7 @@
 
 .show-feature-label {
   display: flex;
+  width: 200px;
 }
 
 .show-feature-label > img {

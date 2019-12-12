@@ -128,26 +128,28 @@ class ShowMap extends React.Component {
             <div className="map-info-window">
               <h4>{this.state.selectedTag.type}</h4>
               {/* <button onClick={this.calcRoute()}>Directions</button> */}
-              {/* <h4>
+              <h4>
 
-              <form
+              {/* <form
                 action="http://maps.google.com/maps"
                 method="get"
               >
                 <input
                   type="hidden"
                   name="saddr"
-                  value={
-                    new window.google.maps.LatLng(
+                  
+                  value=
+                  {
                       this.state.currentPosition.lat,
                       this.state.currentPosition.lat
-                    )
                   }
                 />
                 <input
                   type="hidden"
                   name="daddr"
-                  value={
+                  
+                  value=
+                  {
                     new window.google.maps.LatLng(directionsLat, directionsLng)
                   }
                 />
@@ -156,8 +158,8 @@ class ShowMap extends React.Component {
                   type="submit"
                   value="Get Directions"
                 />
-              </form>
-            </h4> */}
+              </form> */}
+            </h4>
             </div>
           </InfoWindow>
         </Map>
