@@ -14,15 +14,22 @@ class SiteDetail extends Component {
 
   render() {
     const {
-      author, name, date, description, _id, photoUrl
+      author, name, date, description, _id, photoUrl, lat, lng
     } = this.props.site
     if (!this.props.siteAuthor) return null
   
     return (
       <div className="show-outer-container">
         <div className="show-detail-wrapper">
-          <div className="show-map-info">
-            <ShowMap site={this.props.site}/>
+          <div className="show-map-wrapper">
+            <div className="show-map-info">
+              <div>
+                <ShowMap site={this.props.site}/>
+              </div>
+            </div>
+            <div>
+              <a className="btn" href={`https://maps.google.com/?q=${lat},${lng}`}>Get Directions</a>
+            </div>
           </div>
           <div className="show-info-wrapper">
             <div className="show-title-bar">
@@ -43,24 +50,11 @@ class SiteDetail extends Component {
             
             <div className="show-mid-section">
               <div className="site-features">
-                <div className="create-date">
-                  <div className="show-feature-label">
-                    <h3>Created by:</h3>
-                  </div>
-                  <div className="show-feature-body">
-                    <div id="show-username">
-                      {this.props.siteAuthor.username}
-                    </div>
-                    <div >
-                      on {date}
-                    </div>
-                  </div>
-                </div>
                 <div className="hiking">
                   <div className="show-feature-label">
                     <img src="trail_flag.png" />
                     <div>
-                      Hiking Trails:
+                      Hiking Trail
                     </div>
                   </div>
                   <div className="show-feature-body">
@@ -70,7 +64,7 @@ class SiteDetail extends Component {
                 <div className="firePit">
                   <div className="show-feature-label">
                     <img src="fire_icon.png" />
-                    Fire Pit:
+                    Fire Pit
                   </div>
                   <div className="show-feature-body">
                     {this.handleSiteFeatures("firePit")}
@@ -79,7 +73,7 @@ class SiteDetail extends Component {
                 <div className="parking">
                   <div className="show-feature-label">
                     <img src="parking.png" alt=""/>
-                    Nearby Parking:
+                    Nearby Parking
                   </div>
                   <div className="show-feature-body">
                     {this.handleSiteFeatures("parking")}
@@ -88,7 +82,7 @@ class SiteDetail extends Component {
                 <div className="fishing">
                   <div className="show-feature-label">
                     <img src="fishing.png" />
-                    Fishing Spot:
+                    Fishing Spot
                   </div>
                   <div className="show-feature-body">
                     {this.handleSiteFeatures("fishing")}
@@ -97,10 +91,24 @@ class SiteDetail extends Component {
                 <div className="swimming">
                   <div className="show-feature-label">
                     <img src="swimming.png" alt=""/>
-                    Swimming:
+                    Swimming
                   </div>
                   <div className="show-feature-body">
                     {this.handleSiteFeatures("swimming")}
+                  </div>
+                </div>
+                <br></br>
+                <div className="create-date">
+                  <div className="show-feature-label">
+                    {/* <h3>First Camper</h3> */}
+                  </div>
+                  <div className="show-feature-body">
+                    <div id="show-username">
+                      {this.props.siteAuthor.username}
+                    </div>
+                    <div >
+                      camped here {date}
+                    </div>
                   </div>
                 </div>
               </div>
