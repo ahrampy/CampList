@@ -32,7 +32,7 @@ class SiteDetail extends Component {
   handleSubmit(e) {
     e.preventDefault()
     this.state.newPhoto.includes(".com" || ".org" || ".gov") ? 
-      this.props.addPhoto({ id: this.props.siteId, photo: this.state.newPhoto }) &&
+      this.props.addPhoto({ id: this.props.siteId, photo: { author: this.props.currentUserId, site: this.props.site._id, url: this.state.newPhoto } }) &&
       this.setState({errors: ""}) : 
       this.setState({
         errors: "Must be a valid url!"
@@ -46,8 +46,10 @@ class SiteDetail extends Component {
     const {
       author, name, date, description, _id, photoUrl, lat, lng
     } = this.props.site
+
+    const imageUrls = photoUrl.map(photoObj => photoObj.url);
+
     if (!this.props.siteAuthor) return null
-  
     return (
       <div className="show-outer-container">
         <div className="show-detail-wrapper">
@@ -146,7 +148,7 @@ class SiteDetail extends Component {
               <div className="show-picture-wrapper">
                 {/* Carousel here */}
                 <SlideSet
-                  imgUrls={this.props.site.photoUrl}
+                  imgUrls={imageUrls}
                 />
                 {/* Add new photo here */}
                 {this.state.errors}

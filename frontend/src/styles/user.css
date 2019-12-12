@@ -102,3 +102,7 @@
   text-align: left;
   padding: 3px 10px;
 }
+
+.photo-image {
+  width: 100%;
+}

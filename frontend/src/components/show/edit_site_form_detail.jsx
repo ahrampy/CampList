@@ -86,14 +86,13 @@ class EditSiteFormDetail extends Component {
     // if (!this.props.authorId) {
     //   return this.handleOpenModal();
     // }
-    
     const input = {
       id: this.state._id,
       description: this.state.description,
       name: this.state.name,
       date: this.state.date,
       photoFile: this.state.photoFile,
-      photoUrl: this.state.photoUrl,
+      photoUrl: {author: this.props.site.author, site: this.props.site._id, url: this.state.photoUrl},
       siteFeatures: this.state.siteFeatures
     }
     let latLng;

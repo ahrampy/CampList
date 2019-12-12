@@ -69,3 +69,13 @@ export const selectSiteAuthorName = (sites, users) => {
   })
   return siteAuthor;
 }
+
+export const selectUserPhotos = (sites, user) => {
+  const ans = [];
+  sites.forEach(site => {
+    site.photoUrl.forEach(photoObj => {
+      if (photoObj.author === user) ans.push(photoObj) 
+    })
+  })
+  return ans
+}

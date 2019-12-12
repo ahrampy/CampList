@@ -1,10 +1,17 @@
 import React from 'react';
 
 const BookmarksTab = (props) => {
-  const { bookmarks } = props;
-  if (!bookmarks) return null;
+  const { photos } = props;
+  if (!photos) return null;
   return (
-    <div>
+    <div className="photo-list-container">
+      {photos.map(photo => (
+        <ul className="photo-list">
+          <li className="photo-item">
+            <img className="photo-image" src={photo.url} alt=""/>
+          </li>
+        </ul>
+      ))}
     </div>
   )
 }

@@ -80,7 +80,7 @@ class SiteForm extends Component {
       name: this.state.name,
       date: this.state.date,
       photoFile: this.state.photoFile,
-      photoUrl: this.state.photoUrl,
+      photoUrl: {author: this.props.authorId, url: this.state.photoUrl},
       siteFeatures: this.state.siteFeatures
     }
     const latLng = {

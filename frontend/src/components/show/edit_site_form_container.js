@@ -4,9 +4,9 @@ import EditSiteForm from './edit_site_form';
 import { openModal } from '../../actions/modal';
 
 const mapStateToProps = (state, ownProps) => {
-  
   return ({
   site: state.entities.sites[ownProps.match.params.siteId],
+  authorId: state.session.user.id
   })
 };
 

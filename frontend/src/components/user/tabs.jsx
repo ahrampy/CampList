@@ -35,8 +35,8 @@ class Tabs extends React.Component {
   handleTabContent(displayTab) {
     if (displayTab.title === "Reviews") {
       return (<ReviewsTab reviews={displayTab.content} />);
-    } else if (displayTab.title === "Bookmarks") {
-      return (<BookmarksTab bookmarks={displayTab.content} />);
+    } else if (displayTab.title === "Photos") {
+      return (<BookmarksTab photos={displayTab.content} />);
     } else {
       return (<SitesTab campsites={displayTab.content} />);
     }
