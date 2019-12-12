@@ -15,7 +15,7 @@ const SiteSchema = new Schema({
     // default: Date.now
   },
   photoUrl: {
-    type: String
+    type: Array
   },
   description: {
     type: String,

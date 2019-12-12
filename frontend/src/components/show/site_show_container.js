@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchSite } from '../../actions/site_actions';
+import { fetchSite, addPhoto } from '../../actions/site_actions';
 import { fetchUsers } from '../../actions/user_actions'
 import SiteShow from './site_show';
 
@@ -31,6 +31,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => ({
   fetchSite: id => dispatch(fetchSite(id)),
+  addPhoto: data => dispatch(addPhoto(data)),
   fetchUsers: () => dispatch(fetchUsers())
 });
 
