@@ -74,6 +74,9 @@ class SiteForm extends Component {
     e.preventDefault();
     if (!this.props.authorId) {
       return this.handleOpenModal();
+    } else if (!this.state.mapClicked){
+      const map = document.getElementById("location-map");
+      return map.scrollIntoView();
     }
     const input = {
       description: this.state.description,
@@ -269,7 +272,7 @@ class SiteForm extends Component {
                 required
               />
             </div>
-            <div className="site-form-section-wrapper">
+              <div id="location-map" className="site-form-section-wrapper">
               <h2>Where did you camp?</h2>
               <div className="site-form-map-container">
                 <Map
