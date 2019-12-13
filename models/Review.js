@@ -17,6 +17,12 @@ const ReviewSchema = new Schema({
   rating: {
     type: String,
     default: '5'
+  },
+  upvotes: {
+    type: Array
+  },
+  downvotes: {
+    type: Array
   }
 })
 

@@ -64,6 +64,28 @@ router.put('/:id', (req, res) => {
     .then((review) => res.json(review))
 })
 
+router.put('/upvote/:id', (req, res) => {
+  Review.findByIdAndUpdate(req.params.id, {$addToSet: {upvotes: req.body.user}})
+    .then((review) => res.json(review))
+})
+
+router.put('/downvote/:id', (req, res) => {
+  Review.findByIdAndUpdate(req.params.id, {$addToSet: {downvotes: req.body.user}})
+    .then((review) => res.json(review))
+})
+
+router.put('/removeDownvote/:id', (req, res) => {
+  Review.findByIdAndUpdate(req.params.id, {$unset: { downvotes: req.body.user }})
+    .then((review) => res.json(review))
+})
+
+router.put('/removeUpvote/:id', (req, res) => {
+  Review.findByIdAndUpdate(req.params.id, {$unset: { upvotes: req.body.user }})
+    .then((review) => res.json(review))
+})
+
+
+
 
 
 module.exports = router;

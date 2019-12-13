@@ -23,3 +23,19 @@ export const trashReview = reviewId => {
 export const updateReview = review => {
   return axios.put(`/api/reviews/${review.id}`, review)
 }
+
+export const addUpvote = data => {
+  return axios.put(`/api/reviews/upvote/${data.id}`, data)
+}
+
+export const addDownvote = data => {
+  return axios.put(`/api/reviews/downvote/${data.id}`, data)
+}
+
+export const removeDownvote = data => {
+  return axios.put(`/api/reviews/removeDownvote/${data.id}`, data)
+}
+
+export const removeUpvote = data => {
+  return axios.put(`/api/reviews/removeUpvote/${data.id}`, data)
+}
