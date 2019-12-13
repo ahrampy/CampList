@@ -66,36 +66,42 @@ class ReviewList extends React.Component {
         <p className="review-label">Recent Reviews</p>
         {reviews.map((review, i) => (
           <div key={`key-${i}`} className="single-review-container">
-            <div className="username-rating" value="hi">
-              <div>
-                {review.username}
+            <div className="review-votes">
+              <div className="review-score">
+                <div className="positive">
+                  [+{review.upvotes.length}]
+                </div>
+                <div className="negative">
+                  [-{review.downvotes.length}]
+                </div>
               </div>
-              <div>
-                {review.rating}
-              </div>
-            </div>
-            <div className="review-body">
-              
               <div className="upvote">
                 <button className="btn" value={review._id} onClick={this.handleUpvote}>{uparrow}</button>
               </div>
-              {review.upvotes.length - review.downvotes.length}
               <div className="downvote">
                 <button className="btn" value={review._id} onClick={this.handleDownvote}>{downarrow}</button>
               </div>
-              <br/>
-              {review.body}
             </div>
-            <div>
-              {
-                currentUserId === review.author ?
+            <div className="review-body">
+              <div className="review-content">
+                <div className="username-rating" value="hi">
                   <div>
-                    <button onClick={() => this.handleDelete(review._id)}>Delete</button>
-                    <Link to={`/reviews/${review._id}/edit`}>Edit</Link>
+                    {review.username} ({review.rating}/5)
                   </div>
-                  :
-                  null
-              }
+                </div>
+                {review.body}
+              </div>
+              <div className="review-options">
+                {
+                  currentUserId === review.author ?
+                    <div>
+                      <button onClick={() => this.handleDelete(review._id)}>Delete</button>
+                      <Link to={`/reviews/${review._id}/edit`}>Edit</Link>
+                    </div>
+                    :
+                    null
+                }
+              </div>
             </div>
           </div>
         ))}

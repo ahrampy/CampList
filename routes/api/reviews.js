@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const passport = require('passport');
+mongoose.set('useFindAndModify', false);
 
 const Review = require('../../models/Review');
 const validateReviewInput = require('../../validation/review.js');

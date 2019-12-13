@@ -60,13 +60,6 @@ class ReviewForm extends React.Component {
               onChange={this.update("rating")}
               id="rating"
             />
-            {/* <span>
-              <input type="radio" name="rating" value="1" >1</input>
-              <input type="radio" name="rating" value="2" >2</input>
-              <input type="radio" name="rating" value="3" >3</input>
-              <input type="radio" name="rating" value="4" >4</input>
-              <input type="radio" name="rating" value="5" >5</input>
-            </span> */}
           </label>
         </div>
         <div className="body-container">      
