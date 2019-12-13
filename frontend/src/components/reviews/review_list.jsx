@@ -8,8 +8,6 @@ class ReviewList extends React.Component {
     this.handleDelete = this.handleDelete.bind(this);
     this.handleUpvote = this.handleUpvote.bind(this);
     this.handleDownvote = this.handleDownvote.bind(this);
-
-    
   }
 
   handleDelete(id) {
@@ -27,10 +25,15 @@ class ReviewList extends React.Component {
     })
 
     if (ans[0].downvotes.includes(this.props.currentUserId)) {
-      this.props.addUpvote(data) && this.props.removeDownvote(data) 
-    } else {
-      return this.props.addUpvote(data);
+      this.props.addUpvote(data) && this.props.removeDownvote(data)
     }
+    else if (ans[0].upvotes.includes(this.props.currentUserId)) {
+      this.props.removeUpvote(data)
+    } else {
+      this.props.addUpvote(data);
+      
+    }
+    
   }
 
   handleDownvote(e) {
@@ -45,20 +48,19 @@ class ReviewList extends React.Component {
 
     if (ans[0].upvotes.includes(this.props.currentUserId)) {
       this.props.addDownvote(data) && this.props.removeUpvote(data)
+    } else if (ans[0].downvotes.includes(this.props.currentUserId)) {
+      this.props.removeDownvote(data)
     } else {
       return this.props.addDownvote(data)
     }
   }
-  
 
   render() {
-    let { currentUserId, siteId, reviews } = this.props
+    const { currentUserId, siteId, reviews } = this.props
 
-    let uparrow ="▲";
-    let downarrow ="▼";
-
-    if (!this.props.reviews) return null;
-
+    const uparrow ="▲";
+    const downarrow ="▼";
+   
     return (
       <div className="review-list-container">
         <p className="review-label">Recent Reviews</p>
@@ -73,12 +75,13 @@ class ReviewList extends React.Component {
               </div>
             </div>
             <div className="review-body">
-              {review.upvotes.length} | {review.downvotes.length}
+              
               <div className="upvote">
-                <button classname="btn" value={review._id} onClick={this.handleUpvote}>{uparrow}</button>
+                <button className="btn" value={review._id} onClick={this.handleUpvote}>{uparrow}</button>
               </div>
+              {review.upvotes.length - review.downvotes.length}
               <div className="downvote">
-                <button classname="btn" value={review._id} onClick={this.handleDownvote}>{downarrow}</button>
+                <button className="btn" value={review._id} onClick={this.handleDownvote}>{downarrow}</button>
               </div>
               <br/>
               {review.body}

@@ -56,9 +56,12 @@ export const updateReview = review => dispatch => APIUtil.updateReview(review)
 export const trashReview = reviewId => dispatch => APIUtil.trashReview(reviewId)
   .then(() => dispatch(removeReview(reviewId)));
 
+
+
 export const addUpvote = data => dispatch => APIUtil.addUpvote(data)
   .then(review => 
     {
+    
     return dispatch(receiveUpdatedReview(review))
   })
 
@@ -69,7 +72,8 @@ export const addDownvote = data => dispatch => APIUtil.addDownvote(data)
   })
 
 export const removeDownvote = data => dispatch => APIUtil.removeDownvote(data)
-  .then(review => {
+  .then(review => 
+    {
     return dispatch(receiveUpdatedReview(review))
   })
 

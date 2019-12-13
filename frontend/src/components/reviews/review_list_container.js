@@ -10,6 +10,7 @@ const mSTP = (state, ownProps) => {
     currentUserId = state.session.user.id
   }
   let reviews = selectReviewNames(ownProps.users, ownProps.reviews)
+
   return {
     reviews,
     siteId: ownProps.siteId,
@@ -23,7 +24,7 @@ const mDTP = dispatch => ({
   addDownvote:(data) => dispatch(addDownvote(data)),
   removeDownvote:(data) => dispatch(removeDownvote(data)),
   removeUpvote:(data) => dispatch(removeUpvote(data)),
-  fetchSiteReviews:(id) => dispatch(fetchSiteReviews(id ))
+  fetchSiteReviews:(id) => dispatch(fetchSiteReviews(id))
 })
 
 export default connect(mSTP, mDTP)(ReviewList);

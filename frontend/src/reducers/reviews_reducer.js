@@ -7,6 +7,7 @@ import {
 } from '../actions/review_actions';
 
 const ReviewsReducer = (state = { all: {}, site: [], new: undefined }, action) => {
+  
   Object.freeze(state);
   let newState = Object.assign({}, state);
   switch (action.type) {

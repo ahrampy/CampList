@@ -7,8 +7,6 @@ import { fetchSiteReviews } from '../../actions/review_actions';
 import { selectSiteAuthorName } from '../../reducers/selectors';
 
 const mapStateToProps = (state, ownProps) => {
-  // const siteId = parseInt(ownProps.match.params.siteId);
-  // const site = seleteSite(state.entites, siteId);
   let siteId = ownProps.match.params.siteId;
   let currentUserId;
   if (state.session.isAuthenticated) {
@@ -22,7 +20,6 @@ const mapStateToProps = (state, ownProps) => {
   return ({
     siteId,
     site: state.entities.sites[ownProps.match.params.siteId],
-    siteReviews: Object.values(state.entities.reviews),
     users: state.entities.users,
     currentUserId: currentUserId || 0,
     siteAuthor: siteAuthor

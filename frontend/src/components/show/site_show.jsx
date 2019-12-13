@@ -23,7 +23,6 @@ export default class SiteShow extends Component {
   render() {
     if (!this.props.site) return null
     const { site } = this.props
-    
     return (
       <div className='show-main-container'>
         <div className='show-detail-container'>
