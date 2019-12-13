@@ -74,10 +74,12 @@ export const addDownvote = data => dispatch => APIUtil.addDownvote(data)
 export const removeDownvote = data => dispatch => APIUtil.removeDownvote(data)
   .then(review => 
     {
+    debugger
     return dispatch(receiveUpdatedReview(review))
   })
 
 export const removeUpvote = data => dispatch => APIUtil.removeUpvote(data)
   .then(review => {
+    debugger
     return dispatch(receiveUpdatedReview(review))
   })

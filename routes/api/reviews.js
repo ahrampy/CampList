@@ -76,12 +76,12 @@ router.put('/downvote/:id', (req, res) => {
 })
 
 router.put('/removeDownvote/:id', (req, res) => {
-  Review.findByIdAndUpdate(req.params.id, {$unset: { downvotes: req.body.user }}, {'new': true})
+  Review.findByIdAndUpdate(req.params.id, {$pull: { downvotes: req.body.user }}, {'new': true})
     .then((review) => res.json(review))
 })
 
 router.put('/removeUpvote/:id', (req, res) => {
-  Review.findByIdAndUpdate(req.params.id, {$unset: { upvotes: req.body.user }}, {'new': true})
+  Review.findByIdAndUpdate(req.params.id, {$pull: { upvotes: req.body.user }}, {'new': true})
     .then((review) => res.json(review))
 })
 
