@@ -7,8 +7,8 @@ A site built for campers, by campers.
 The Bureau of Land Management (BLM) is responsible for overseeing approximately 250 million acres or ⅛ of the entire country. While the agency maintains regulated zones for some recreational activity, there are many areas of the BLM outside of these boundaries which contain unlisted camp sites, hiking trails, and other attractions. CampList offers to be the first unofficial guidebook for finding and planning your camping trips to these areas of untapped wilderness.
 
 The users of CampList can expect to:
-* Explore a collection of campsites, areas of interest, and reviews
-* Directions and the locations of listed campsites through Google Maps API
+* Explore and filter a collection of campsites, areas of interest, and rated reviews
+* Get directions and the locations of listed campsites through Google Maps API
 * Create and review new campsites, and add photos to any existing listing
 
 
