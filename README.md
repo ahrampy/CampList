@@ -8,7 +8,7 @@ The Bureau of Land Management (BLM) is responsible for overseeing approximately 
 
 The users of CampList can expect to:
 * Explore and filter a collection of campsites, areas of interest, and rated reviews
-* Get directions and the locations of listed campsites through Google Maps API
+* Get directions and the locations of listed campsites, along with any accesable parking and hiking trails nearby.
 * Create and review new campsites, and add photos to any existing listing
 
 
