@@ -9,25 +9,24 @@ The Bureau of Land Management (BLM) is responsible for overseeing approximately 
 The users of CampList can expect to:
 * Explore a collection of campsites, areas of interest, and reviews
 * Directions and the locations of listed campsites through Google Maps API
-* The ability for users to create and review their own campsites
+* Create and review new campsites, and add photos to any existing listing
 
 
 ## Technologies
-CampList is a web application built with MERN stack (MongoDB, Express.js, React and Node.js).
+CampList is a web application built with MERN stack (MongoDB, Express, React and Node).
 
 Technologies:
 
-Backend: Express.js and MongoDB
+Backend: Express.js and MongoDB for simplified, non-relational storage for speed and cross-device accessability through developement
 
-Frontend: React and Node.js
+Frontend: Node.js, React and Redux for single-page site flow
 
-Google Map API
+Google Maps API
 
-Amazon Web Service
+Amazon Web Service*
 
 ## Features
 
-## Primary Components
-
 ## Future Plans
 
+*Integrate AWS to allow ease of use while maintaining minimized storage needs
