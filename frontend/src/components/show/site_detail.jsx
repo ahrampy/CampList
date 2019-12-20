@@ -62,7 +62,7 @@ class SiteDetail extends Component {
             </div>
             <div className="show-btn-container">
               <div>
-                <a className="btn" href={`https://maps.google.com/?q=${lat},${lng}`}>Get Directions</a>
+                <a className="btn" target="_blank" href={`https://maps.google.com/?q=${lat},${lng}`}>Get Directions</a>
               </div>
               <div>
                 {
