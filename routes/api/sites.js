@@ -79,7 +79,7 @@ router.put('/edit/:id', (req, res) => {
 })
 
 router.put('/addPhoto/:id', (req, res) => {
-  Site.findByIdAndUpdate(req.params.id, {$push: {photoUrl: req.body.photo}})
+  Site.findByIdAndUpdate(req.params.id, {$push: {photoUrl: req.body.photo}}, {"new": true})
     .then(site => res.json(site))
 })
 
