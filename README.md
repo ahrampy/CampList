@@ -11,6 +11,7 @@ The users of CampList can expect to:
 * Get directions and the locations of listed campsites, along with any accesable parking and hiking trails nearby.
 * Create and review new campsites, and add photos to any existing listing
 
+This is a site built to share camping spots that would otherwise be considered "off the grid", since much of BLM territory is not registered within other camp systems, and only has a resources listing ranger stations and other govermental entities, even though all BLM is accessible and free to the public to use as camping space. With the addition of hiking and parking map markings, and a listing of what other features a found spot might have nearby, we hope to open up what has historically been untapped wilderness exploration for those looking for something either different or simply nearby. Thanks for taking a look at out Git!
 
 ## Technologies
 CampList is a web application built with MERN stack (MongoDB, Express, React and Node).
@@ -27,15 +28,15 @@ Amazon Web Service*
 
 ## Features
 
-Responsive campsite filtering
+Responsive campsite filtering: to allow users to see what site features may be available at sites they are considering, or can't go without.
 
 ![filter](frontend/public/campListFilter.gif)
 
-Review campsites and vote on comments
+Review campsites and vote on comments: to give users the option of adding their personal experience at a site, and to vote on how useful or truthful they consider other reviews.
 
 ![comment](frontend/public/campListComment.gif)
 
-Share exact locations of nearby site features
+Share exact locations of nearby site features: people often want to do more outdoors than camp! Once you're out there, it is often the highlight of the trip find a good hike, or to find a new fishing spot.
 
 ![site](frontend/public/campListCreate.gif)
 
