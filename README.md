@@ -26,13 +26,17 @@ Google Maps API
 Amazon Web Service*
 
 ## Features
+
 Responsive campsite filtering
+
 ![filter](frontend/public/campListFilter.gif)
 
 Review campsites and vote on comments
+
 ![comment](frontend/public/campListComment.gif)
 
 Share exact locations of nearby site features
+
 ![site](frontend/public/campListCreate.gif)
 
 ## Future Plans
