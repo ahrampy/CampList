@@ -28,15 +28,18 @@ Amazon Web Service*
 
 ## Features
 
-* Responsive campsite filtering: to allow users to see what site features may be available at sites they are considering, or can't go without.
+### Responsive campsite filtering
+to allow users to see what site features may be available at sites they are considering, or can't go without.
 
 ![filter](frontend/public/campListFilter.gif)
 
-* Review campsites and vote on comments: to give users the option of adding their personal experience at a site, and to vote on how useful or truthful they consider other reviews.
+### Review campsites and vote on comments
+to give users the option of adding their personal experience at a site, and to vote on how useful or truthful they consider other reviews.
 
 ![comment](frontend/public/campListComment.gif)
 
-* Share exact locations of nearby site features: people often want to do more outdoors than camp! Once you're out there, it is often the highlight of the trip find a good hike, or to find a new fishing spot.
+### Share exact locations of nearby site features
+campers often want to do more outdoors than just camp! Once you're out there, it is often the highlight of the trip find a good hike, or to find a new fishing spot nearby.
 
 ![site](frontend/public/campListCreate.gif)
 
