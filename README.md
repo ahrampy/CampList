@@ -39,7 +39,7 @@ We want to give users the option of adding their personal experience at a site (
 ![comment](frontend/public/campListComment.gif)
 
 ### Mark Locations of Nearby Features
-Campers often want to do more outdoors than just camp! Once you're out there, it is often the highlight of the trip find a good hike, or to find a new fishing spot nearby.
+Campers often want to do more outdoors than just camp! Once you're out there, it is often the highlight of the trip find a good hike, or to find a new fishing spot nearby; and we all need to know where to park.
 
 ![site](frontend/public/campListCreate.gif)
 
