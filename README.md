@@ -32,23 +32,104 @@ Amazon Web Service*
 In order to allow users to see what site features may be available at sites they are considering, or can't go without. If you just want to go for a swim, or need a fire to tell your ghost stories, find out which spots to visit!
 
 <p align="center">
-  <img src="frontend/public/campListFilter.gif" width="80%" >
+  <img src="frontend/public/campListFilter.gif" width="80%">
 </p>   
 
+```
+handleCheck(attr) {
+  let newItemCheck = []
+  if (!this.state.itemChecked) {
+    this.setState({ itemsChecked: [attr.name] })
+  } else {
+    for (let i = 0; i < this.state.itemChecked.length; i++) {
+      newItemCheck[i] = this.state.itemChecked[i];
+    }
+    newItemCheck.push(attr.name);
+    this.setState({
+      itemChecked: newItemCheck
+    })
+  }
+}
+
+handleUncheck(attr) {
+  let { itemChecked } = this.state;
+  let newItemCheck = []
+  for (let i = 0; i < itemChecked.length; i++) {
+    newItemCheck[i] = itemChecked[i];
+  }
+  newItemCheck.splice(newItemCheck.indexOf(attr.name), 1)
+  this.setState({
+    itemChecked: newItemCheck
+  })
+}
+```
 
 ### Review Campsites and Vote on Comments
 We want to give users the option of adding their personal experience at a site (in addition to being able to add photos of their experience, and to vote on how helpful they consider other reviews.
 
 <p align="center">
   <img src="frontend/public/campListComment.gif" width="80%" >
-</p>    
+</p> 
+
+```
+handleUpvote(e) {
+  e.preventDefault()
+
+  const id = e.target.value
+  const data = {id, user: this.props.currentUserId}
+
+  let ans = this.props.reviews.filter(review => {
+    return review._id === id
+  })
+
+  if (ans[0].downvotes.includes(this.props.currentUserId)) {
+    this.props.addUpvote(data) && this.props.removeDownvote(data)
+  }
+  else if (ans[0].upvotes.includes(this.props.currentUserId)) {
+    this.props.removeUpvote(data)
+  } else {
+    this.props.addUpvote(data);
+  }
+}
+```
 
 ### Mark Locations of Nearby Features
 Campers often want to do more outdoors than just camp! Once you're out there, it is often the highlight of the trip find a good hike, or to find a new fishing spot nearby; and we all need to know where to park.
 
 <p align="center">
   <img src="frontend/public/campListCreate.gif" width="80%" >
-</p>                                                      
+</p>   
+
+```
+constructor(props) {
+  super(props);
+  this.state = {
+    showingInfoWindow: false,
+    activeMarker: {},
+    selectedTag: {},
+    currentPosition: { lat: null, lng: null }
+  };
+  this.onMarkerClick = this.onMarkerClick.bind(this);
+  this.onClose = this.onClose.bind(this);
+}
+
+onMarkerClick = (props, marker, e) => {
+  return this.setState({
+    selectedTag: props,
+    activeMarker: marker,
+    showingInfoWindow: true
+  });
+};
+
+onClose = props => {
+  if (this.state.showingInfoWindow) {
+    this.setState({
+      showingInfoWindow: false,
+      activeMarker: null
+    });
+  }
+};
+```
 
 ## Future Plans
 
