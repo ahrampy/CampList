@@ -1,3 +1,16 @@
+.footer-nav {
+  transition-duration: 0.4s;
+}
+
+.footer-nav:hover {
+  background-color: rgb(15, 94, 61);
+  cursor: pointer;
+}
+
+.footer-nav:hover > .footer-about-us {
+  color: white;
+}
+
 .developers {
   display: flex;
   width: 80%;
@@ -41,9 +54,18 @@
 }
 
 .footer-nav {
-  text-align: center;
+  display: flex;
+  justify-content: space-around;
   background-color: rgba(131, 131, 131, 0.3);
   padding: 5px;
+}
+
+.footer-about-us {
+  text-align: center;
+}
+
+.footer-about-us > p {
+  padding-top: 5px;
 }
 
 .icons {
@@ -51,10 +73,14 @@
 }
 
 .icons > a {
-  color: rgb(15, 94, 61);
+  color: #333;
   transition-duration: 0.4s;
 }
 
 .icons > a:hover {
-  color: rgb(23, 161, 104);
+  color: white;
+}
+
+.footer-hidden {
+  display: none;
 }

@@ -2,18 +2,45 @@ import React, { Component } from 'react'
 
 export default class FooterNav extends Component {
 
+  constructor(props) {
+    super(props)
+    
+    this.state = {
+      hidden: 'footer-hidden'
+    };
+
+    this.toggleDevs = this.toggleDevs.bind(this);
+  };
+
+  toggleDevs() {
+    if (this.state.hidden === 'footer-hidden') {
+      this.setState({hidden: ''});
+    } else {
+      this.setState({hidden: 'footer-hidden'});
+    };
+  };
+
   render() {
 
     return (
       <div className="footer">
-        <div className="footer-nav">
+        <div className="footer-nav" onClick={this.toggleDevs}>
+          <div className="footer-about-us">
+            <p>About Us</p>
+            <p>▼</p>
+          </div>
           <div className="icons">
             <a href="https://github.com/ahrampy/CampList">
               <i className="fab fa-github fa-2x"></i>
             </a>
           </div>
+          <div className="footer-about-us">
+            <p>About Us</p>
+            <p>▼</p>
+          </div>
+
         </div>
-        <div className="developers">
+        <div className={`developers ${this.state.hidden}`} >
           <div>
             <div className="developer-pic">
               <img src="Adrian_Rampy.jpg" alt=""/>
