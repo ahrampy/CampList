@@ -15,6 +15,11 @@ export default class FooterNav extends Component {
   toggleDevs() {
     if (this.state.hidden === 'footer-hidden') {
       this.setState({hidden: ''});
+      setTimeout((() => window.scrollBy({
+        top: document.body.scrollHeight,
+        left: 0,
+        behavior: 'smooth'
+      })), 200);
     } else {
       this.setState({hidden: 'footer-hidden'});
     };
