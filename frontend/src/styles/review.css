@@ -93,6 +93,7 @@ textarea {
 .username-rating {
   display: flex;
   font-size: 20px;
+  padding-bottom: 15px;
 }
 
 /* .username-rating > div {
@@ -109,6 +110,7 @@ textarea {
 }
 
 .review-content {
+  font-size: 18px;
   padding-top: 10px;
 }
 

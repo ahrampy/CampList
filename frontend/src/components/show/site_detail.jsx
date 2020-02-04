@@ -9,7 +9,7 @@ class SiteDetail extends Component {
 
     this.state = {
       newPhoto: "",
-      errors: ""
+      errors: "Paste a URL"
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -137,7 +137,7 @@ class SiteDetail extends Component {
                   </div>
                   <div className="show-feature-body">
                     <div id="show-username">
-                      {this.props.siteAuthor.username} camped here {date}
+                      created by {this.props.siteAuthor.username} on {date}
                     </div>
                     {/* <div >
                       camped here {date}
@@ -162,7 +162,7 @@ class SiteDetail extends Component {
               />
               {/* Add new photo here */}
               <form className="photo-input" onSubmit={this.handleSubmit}>
-              <p>{this.state.errors}</p>
+              <p id="photo-messages">{this.state.errors}</p>
                 <input
                   type="text"
                   placeholder="Add a photo of this site"
