@@ -32,7 +32,7 @@ Amazon Web Service*
 In order to allow users to see what site features may be available at sites they are considering, or can't go without. If you just want to go for a swim, or need a fire to tell your ghost stories, find out which spots to visit!
 
 <p align="center">
-  <img src="frontend/public/campListFilter.gif" width="80%">
+  <img src="gifs/campListFilter.gif" width="80%">
 </p>   
 
 ```
@@ -68,7 +68,7 @@ handleUncheck(attr) {
 We want to give users the option of adding their personal experience at a site (in addition to being able to add photos of their experience, and to vote on how helpful they consider other reviews.
 
 <p align="center">
-  <img src="frontend/public/campListComment.gif" width="80%" >
+  <img src="gifs/campListComment.gif" width="80%" >
 </p> 
 
 ```
@@ -97,7 +97,7 @@ handleUpvote(e) {
 Campers often want to do more outdoors than just camp! Once you're out there, it is often the highlight of the trip find a good hike, or to find a new fishing spot nearby; and we all need to know where to park.
 
 <p align="center">
-  <img src="frontend/public/campListCreate.gif" width="80%" >
+  <img src="gifs/campListCreate.gif" width="80%" >
 </p>   
 
 ```
