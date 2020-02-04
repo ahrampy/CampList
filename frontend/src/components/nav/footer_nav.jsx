@@ -58,7 +58,7 @@ export default class FooterNav extends Component {
                 <i className="fab fa-github fa-2x"></i>
                 <p>GitHub</p>
               </a>
-              <a href="">
+              <a href="https://www.linkedin.com/in/adrian-rampy-1b8924198/">
                 <i className="fab fa-linkedin fa-2x"></i>
                 <p>LinkedIn</p>
               </a>
@@ -94,7 +94,7 @@ export default class FooterNav extends Component {
                 <i className="fab fa-github fa-2x"></i>
                 <p>GitHub</p>
               </a>
-              <a href="https://www.linkedin.com/in/maxmus-li-883975135/">
+              <a href="https://www.linkedin.com/in/maxmus-li">
                 <i className="fab fa-linkedin fa-2x"></i>
                 <p>LinkedIn</p>
               </a>
