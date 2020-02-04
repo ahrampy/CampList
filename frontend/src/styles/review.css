@@ -127,3 +127,8 @@ textarea {
 .negative {
   color: rgb(199, 48, 48);
 }
+
+.rating-input {
+  margin-left: 10px;
+  text-align: center;
+}
