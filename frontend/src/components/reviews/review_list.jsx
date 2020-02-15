@@ -31,9 +31,7 @@ class ReviewList extends React.Component {
       this.props.removeUpvote(data)
     } else {
       this.props.addUpvote(data);
-      
     }
-    
   }
 
   handleDownvote(e) {

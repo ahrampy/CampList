@@ -1,0 +1,22 @@
+.camp-list {
+  overflow-y:auto;
+  height: 300px;
+  margin-top: 75px;
+  width: 100%;
+}
+
+.photo-thumbnail {
+  width: 50%;
+}
+
+.photo-thumbnail img {
+  width: 100%;
+}
+
+.camp-site {
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid black;
+  margin: 5px;
+  padding: 5px;
+}

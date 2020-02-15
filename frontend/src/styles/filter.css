@@ -2,12 +2,50 @@
   border: 3px solid #333;
   border-radius: 2px 0px 0px 2px;
   min-width: 150px;
-  padding: 3% 3%;
+  max-width: 400px;
+  padding: 1% 1%;
+}
+/* 
+
+FILTER CHANGES
+
+*/
+.filter-sidebar {
+  position: relative;
+  display: inline-block;
 }
 
-.filter-sidebar {
-  margin-top: 30px;
+.dropbtn {
+  margin-top: 5px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border: 2px solid rgb(15, 94, 61);
 }
+
+.dropbtn:hover, .dropbtn:focus {
+  color: rgb(15, 94, 61);
+}
+
+/* .dropdown-content a:hover {background-color: #ddd} */
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  height: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  min-width: 200px;
+}
+
+.show {display:block;}
+
+/* 
+
+END FILTER CHANGES
+
+*/
 
 .filter-category {
   margin-bottom: 15px;
@@ -20,18 +58,16 @@
 
 .attr-list {
   display: flex;
-  padding: 0;
-  text-transform: capitalize;
-  font-size: 18px;
-  flex-direction: column;
-  align-items: flex-start;
+  /* padding: 10px; */
+  flex-flow: row wrap;
+  /* align-items: flex-start; */
   
 }
 
 .attr-item {
-  display: flex;
-  padding: 5px 0;
-  margin-bottom: 10px;
+  /* display: flex; */
+  padding: 5px 20px;
+  margin: 5px;
 }
 
 .checkbox-name {

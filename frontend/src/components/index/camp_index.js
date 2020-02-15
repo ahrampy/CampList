@@ -2,6 +2,7 @@ import React from 'react';
 import { Redirect } from 'react-router-dom'
 import FilterAttrsContainer from '../search/filter_attrs_container';
 import MapContainer from '../maps/index_map_container';
+import CampListContainer from './camp_list_container';
 import Footer from '../nav/footer_nav';
 
 class CampIndex extends React.Component {
@@ -18,7 +19,6 @@ class CampIndex extends React.Component {
   }
 
   handleCheck(attr) {
-    
     let newItemCheck = []
     if (!this.state.itemChecked) {
       this.setState({ itemsChecked: [attr.name] })
@@ -68,8 +68,6 @@ class CampIndex extends React.Component {
           <h1>Welcome to CampList</h1>
           <br/>
           <p>Search, discover, and share your favorite camping spots</p>
-          {/* <br /> */}
-          {/* <p>For campers, by campers</p> */}
         </div>
         <div className="index-holder">
           <div className="search-holder">
@@ -81,7 +79,12 @@ class CampIndex extends React.Component {
               onCheck={this.handleCheck}
               unCheck={this.handleUncheck}
             />
+            <CampListContainer
+              sites={sites}
+              checkedAttrs={itemChecked}
+            />
           </div>
+          
           <div className="map-holder">
             <MapContainer
               sites={sites}

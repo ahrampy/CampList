@@ -14,8 +14,6 @@ class ShowMap extends React.Component {
     };
     this.onMarkerClick = this.onMarkerClick.bind(this);
     this.onClose = this.onClose.bind(this);
-    // this.checkLoction = this.checkLoction.bind(this)
-    // this.calcRoute = this.calcRoute.bind(this)
   }
 
   onMarkerClick = (props, marker, e) => {
