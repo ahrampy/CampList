@@ -1,35 +1,38 @@
 import React from "react";
+import { Link, withRouter } from 'react-router-dom';
+import SlideSet from '../show/slideset';
+
 
 class CampList extends React.Component {
   constructor(props) {
     super(props);
+    this.redirect = this.redirect.bind(this)
+  }
+
+  redirect(id) {
+    let path = id;
+    this.props.history.push(path);
   }
 
   listCamps() {
     let { sites } = this.props;
-    //site.photoURL[0].url
     return (
-      <div>
+      <div className="camp-list-2">
         { sites.map((site, i) => 
-          <div key={ i } className="camp-site">
+          <div onClick={this.redirect(site._id)} key={ i } className="camp-site">
             <div className="photo-thumbnail">
               <img src={`${site.photoUrl[0].url}`} alt=""/>
             </div>
             <div className="site-info">
               <div className="site-name">
-                {site.name}
+                <Link to={`/campsites/${site._id}`}>{site.name}</Link>
               </div>
               <div className="site-amenities">
                 { Object.keys(site.siteFeatures).map((key, i) => {
-                  console.log(key)
                   if (site.siteFeatures[key] && key === 'firePit') {
-                    return <img src="fire_icon.png" alt=""/>
-                  }
-                  // if (site.siteFeatures[key] && key === 'hiking') {
-                  //   return <img src="trail_flag.png" alt=""/>
-                  // }
-                  if (site.siteFeatures[key]) {
-                    return <img src={`${key}.png`} alt=""/>
+                    return <img key={i} src="fire_icon.png" alt=""/>
+                  } else if (site.siteFeatures[key]) {
+                    return <img key={i} src={`${key}.png`} alt=""/>
                   } 
                 })}
               </div>
@@ -41,7 +44,6 @@ class CampList extends React.Component {
   }
 
   render() {
-    console.log(this.props.sites);
     return(
       <div className="camp-list">
         {this.listCamps()} 
@@ -50,4 +52,4 @@ class CampList extends React.Component {
   }
 }
 
-export default CampList;
+export default withRouter(CampList);

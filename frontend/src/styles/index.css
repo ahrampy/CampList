@@ -19,12 +19,16 @@
   font-size: 20px;
 }
 
+.index-add-site {
+  float: left;
+}
+
 .index-add-site button{
   text-decoration: none;
   font-weight: 600;
   width: 100%;
   margin-right: 10px;
-  padding: 20px;
+  padding: 10px;
   background: white;
   color: rgb(15, 94, 61);
   border: 2px solid rgb(15, 94, 61);
@@ -40,7 +44,7 @@
 .map-holder {
   display: block;
   position: relative;
-  width: 100%;
+  width: 50%;
   height: 600px;
   overflow: hidden;
   border: 3px solid #333;

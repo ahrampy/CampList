@@ -38,7 +38,7 @@ class SlideSet extends React.Component {
 
     return (
       <div className="slideset">
-        <div>
+        <div className="left-arrow"> 
           <Arrow 
             direction="left"
             clickFunction={ this.previousSlide }
@@ -50,7 +50,7 @@ class SlideSet extends React.Component {
           <ImageSlide url={ this.props.imgUrls[this.state.currentImageIndex] } />
         </div>
 
-        <div>
+        <div className="right-arrow">
           <Arrow
             direction="right"
             clickFunction={this.nextSlide}

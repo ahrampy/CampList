@@ -29,8 +29,7 @@ class FilterAttrs extends React.Component {
               <span className="checkbox-custom"></span>
               <div className="checkbox-name">
                 {
-                  attr.name === "hiking" ? <img src="trail_flag.png"/> 
-                  : attr.name === "firePit" ? <img src="fire_icon.png"/> 
+                  attr.name === "firePit" ? <img src="fire_icon.png"/> 
                   : <img src={`${attr.name.toLowerCase()}.png`} />
                 }
               </div>
@@ -45,8 +44,7 @@ class FilterAttrs extends React.Component {
     document.getElementById("myDropdown").classList.toggle("show");
   }
 
-  render() {
-    
+  render() { 
     return(
       <div className="filter-sidebar"> 
         <button onClick= {() => this.myFunction()} className="dropbtn">Filters</button>

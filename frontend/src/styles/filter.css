@@ -1,33 +1,29 @@
 .search-holder {
   border: 3px solid #333;
   border-radius: 2px 0px 0px 2px;
-  min-width: 150px;
-  max-width: 400px;
+  width: 50%;
   padding: 1% 1%;
 }
-/* 
 
-FILTER CHANGES
-
-*/
 .filter-sidebar {
+  float: right;
   position: relative;
   display: inline-block;
+  margin-bottom: 10px;
 }
 
 .dropbtn {
-  margin-top: 5px;
-  font-size: 16px;
   border: none;
   cursor: pointer;
   border: 2px solid rgb(15, 94, 61);
+  padding: 10px;
+  font-weight: 600;
 }
 
 .dropbtn:hover, .dropbtn:focus {
-  color: rgb(15, 94, 61);
+    background: rgb(15, 94, 61);
+    color: white;
 }
-
-/* .dropdown-content a:hover {background-color: #ddd} */
 
 .dropdown-content {
   display: none;
@@ -41,12 +37,6 @@ FILTER CHANGES
 
 .show {display:block;}
 
-/* 
-
-END FILTER CHANGES
-
-*/
-
 .filter-category {
   margin-bottom: 15px;
 }
@@ -58,14 +48,10 @@ END FILTER CHANGES
 
 .attr-list {
   display: flex;
-  /* padding: 10px; */
-  flex-flow: row wrap;
-  /* align-items: flex-start; */
-  
+  flex-flow: row wrap; 
 }
 
 .attr-item {
-  /* display: flex; */
   padding: 5px 20px;
   margin: 5px;
 }
