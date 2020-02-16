@@ -10,7 +10,7 @@ class CampList extends React.Component {
   }
 
   redirect(id) {
-    let path = id;
+    let path = "campsites/" + id;
     this.props.history.push(path);
   }
 
@@ -19,13 +19,13 @@ class CampList extends React.Component {
     return (
       <div className="camp-list-2">
         { sites.map((site, i) => 
-          <div onClick={this.redirect(site._id)} key={ i } className="camp-site">
+          <div onClick={() => this.redirect(site._id)} key={ i } className="camp-site">
             <div className="photo-thumbnail">
               <img src={`${site.photoUrl[0].url}`} alt=""/>
             </div>
             <div className="site-info">
               <div className="site-name">
-                <Link to={`/campsites/${site._id}`}>{site.name}</Link>
+                {site.name}
               </div>
               <div className="site-amenities">
                 { Object.keys(site.siteFeatures).map((key, i) => {
