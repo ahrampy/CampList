@@ -24,7 +24,6 @@ class ReviewForm extends React.Component {
       return this.dispatchOpenModal()
     }
 
-    
     let review = {
       site: this.state.site,
       body: this.state.body,
@@ -51,7 +50,8 @@ class ReviewForm extends React.Component {
         <p className="review-label">{this.props.formType}</p>
         <div className="rating-container">      
           <div className="rate">
-            <span>5</span>
+
+            <span>Rating: 5</span>
             <input type="radio" id="5" name="drone" value="5"
             onChange={this.update("rating")}/> 
           </div>
@@ -87,7 +87,7 @@ class ReviewForm extends React.Component {
           />           
         </div>
         <div className="submit-btn">
-            <button type="submit" className="btn">Submit Review</button>
+            <button type="submit" className="btn">Submit</button>
           </div>
       </form>
     )

@@ -14,16 +14,23 @@ class SiteReviews extends React.Component {
       this.props.fetchUsers()
     }
   }
+
+  toggleReview() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
   
   render() {
     if (!this.props.reviews) return null
 
     return(
       <div className="review-holder">
-        <div className="review-form-container">
-          <ReviewFormContainer
-            siteId={this.props.siteId}
-          />
+        <div className="filter-sidebar">
+          <button onClick= {() => this.toggleReview()} className="dropbtn">Leave a Review</button>
+          <div id="myDropdown" className="dropdown-content">
+            <ReviewFormContainer
+              siteId={this.props.siteId}
+            />
+          </div>
         </div>
         <div className="review-list">
           <ReviewListContainer

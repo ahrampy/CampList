@@ -17,7 +17,7 @@ const mSTP = (state, ownProps) => {
       body: '',
       author: authorId
     },
-    formType: 'Submit a Review',
+    formType: 'Submit Review',
     authorId
   }
 }

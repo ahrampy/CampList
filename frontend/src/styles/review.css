@@ -18,17 +18,18 @@ textarea {
 }
 
 .review-label {
-  border-top: 1px solid black;
   font-size: 20px;
   padding-top: 10px;
   font-weight: 600;
 }
 
 .rating-container {
+  width: 75%;
   margin-top: 10px;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  flex-flow: row wrap;
   margin-bottom: 10px;
 }
 
@@ -45,7 +46,6 @@ textarea {
 .review-form {
   display: flex;
   flex-direction: column;
-  margin-left: 5%;
 }
 
 .review-list-container > p {
@@ -95,10 +95,6 @@ textarea {
   font-size: 20px;
   padding-bottom: 15px;
 }
-
-/* .username-rating > div {
-  margin-right: 15px;
-} */
 
 .upvote {
   padding: 5px 0;
