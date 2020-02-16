@@ -19,7 +19,7 @@ export default class SiteShow extends Component {
     this.props.fetchUsers()
 
   }
-
+  
   render() {
     if (!this.props.site) return null
     const { site } = this.props

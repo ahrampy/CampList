@@ -16,10 +16,10 @@ class SiteDetail extends Component {
   }
 
   handleSiteFeatures(feature) {
-    if (this.props.site.siteFeatures[feature] === true) {
-      return "Yes";
+    if (this.props.site.siteFeatures[feature]) {
+      return <img src="checkmark.svg" alt=""/>;
     } else {
-      return "No";
+      return <img src="xmark.svg" alt=""/>;
     }
   }
 
@@ -79,55 +79,57 @@ class SiteDetail extends Component {
               <div className="show-name">
                 {name}
               </div>
+              <br/>
+              founded by: {this.props.siteAuthor.username} ({date})             
             </div>
             
             <div className="show-mid-section">
               <div className="site-features">
                 <div className="hiking">
+                  <div className="show-feature-body">
+                    {this.handleSiteFeatures("hiking")}
+                  </div>
                   <div className="show-feature-label">
                     <img src="trail_flag.png" />
                     <div>
                       Hiking Trail
                     </div>
                   </div>
-                  <div className="show-feature-body">
-                    {this.handleSiteFeatures("hiking")}
-                  </div>
                 </div>
                 <div className="parking">
+                  <div className="show-feature-body">
+                    {this.handleSiteFeatures("parking")}
+                  </div>
                   <div className="show-feature-label">
                     <img src="parking.png" alt=""/>
                     Nearby Parking
                   </div>
-                  <div className="show-feature-body">
-                    {this.handleSiteFeatures("parking")}
-                  </div>
                 </div>
                 <div className="fishing">
+                  <div className="show-feature-body">
+                    {this.handleSiteFeatures("fishing")}
+                  </div>
                   <div className="show-feature-label">
                     <img src="fishing.png" />
                     Fishing Spot
                   </div>
-                  <div className="show-feature-body">
-                    {this.handleSiteFeatures("fishing")}
-                  </div>
                 </div>
                 <div className="swimming">
+                  <div className="show-feature-body">
+                    {this.handleSiteFeatures("swimming")}
+                  </div>
                   <div className="show-feature-label">
                     <img src="swimming.png" alt=""/>
                     Swimming
                   </div>
-                  <div className="show-feature-body">
-                    {this.handleSiteFeatures("swimming")}
-                  </div>
                 </div>
                 <div className="firePit">
+                  <div className="show-feature-body">
+                    {this.handleSiteFeatures("firePit")}
+                  </div>
                   <div className="show-feature-label">
                     <img src="fire_icon.png" />
                     Campfire
-                  </div>
-                  <div className="show-feature-body">
-                    {this.handleSiteFeatures("firePit")}
                   </div>
                 </div>
                 <br></br>
@@ -136,9 +138,6 @@ class SiteDetail extends Component {
                     {/* <h3>First Camper</h3> */}
                   </div>
                   <div className="show-feature-body">
-                    <div id="show-username">
-                      created by {this.props.siteAuthor.username} on {date}
-                    </div>
                     {/* <div >
                       camped here {date}
                     </div> */}
@@ -147,7 +146,6 @@ class SiteDetail extends Component {
               </div>
             
             </div>
-
             <div className="show-description">
               <h3>Description</h3>
               <div>
