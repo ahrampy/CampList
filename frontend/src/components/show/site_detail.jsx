@@ -79,10 +79,13 @@ class SiteDetail extends Component {
               <div className="show-name">
                 {name}
               </div>
-              <br/>
               founded by: {this.props.siteAuthor.username} ({date})             
             </div>
-            
+            <div className="show-description">
+              <div>
+                {description}
+              </div>
+            </div>
             <div className="show-mid-section">
               <div className="site-features">
                 <div className="hiking">
@@ -145,12 +148,6 @@ class SiteDetail extends Component {
                 </div>
               </div>
             
-            </div>
-            <div className="show-description">
-              <h3>Description</h3>
-              <div>
-                {description}
-              </div>
             </div>
           </div>
             <div className="show-picture-wrapper">

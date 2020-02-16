@@ -49,18 +49,32 @@ class ReviewForm extends React.Component {
     return(
       <form onSubmit={this.handleSubmit} className="review-form">
         <p className="review-label">{this.props.formType}</p>
-        <div className="rating-container">
-          <label className="rating-label">Rating (1-5)
-            <input 
-              className="rating-input"
-              type="number"
-              min="1"
-              max="5"
-              value={this.state.rating}
-              onChange={this.update("rating")}
-              id="rating"
-            />
-          </label>
+        <div className="rating-container">      
+          <div className="rate">
+            <span>5</span>
+            <input type="radio" id="5" name="drone" value="5"
+            onChange={this.update("rating")}/> 
+          </div>
+          <div className="rate">
+            <span>4</span>
+            <input type="radio" id="4" name="drone" value="4"
+              onChange={this.update("rating")}/>                 
+          </div>             
+          <div className="rate">
+            <span>3</span>
+            <input type="radio" id="3" name="drone" value="3"
+              onChange={this.update("rating")}/>                  
+          </div>             
+          <div className="rate">
+            <span>2</span>
+            <input type="radio" id="2" name="drone" value="2"
+              onChange={this.update("rating")}/>                 
+          </div>             
+          <div className="rate">
+            <span>1</span>
+            <input type="radio" id="1" name="drone" value="1"
+              onChange={this.update("rating")}/>
+          </div>                         
         </div>
         <div className="body-container">      
           <textarea

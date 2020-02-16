@@ -13,7 +13,6 @@ class SiteReviews extends React.Component {
     if (!this.props.users) {
       this.props.fetchUsers()
     }
-
   }
   
   render() {

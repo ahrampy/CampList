@@ -26,6 +26,10 @@ textarea {
 
 .rating-container {
   margin-top: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
 .review-form-container {
@@ -42,10 +46,6 @@ textarea {
   display: flex;
   flex-direction: column;
   margin-left: 5%;
-}
-
-.review-form div{
-  padding-bottom: 20px;
 }
 
 .review-list-container > p {
@@ -131,4 +131,16 @@ textarea {
 .rating-input {
   margin-left: 10px;
   text-align: center;
+}
+
+.rate {
+  display: flex;
+}
+
+.rate span {
+  margin-right: 5px;
+}
+
+.submit-btn {
+  margin-top: 10px;
 }
