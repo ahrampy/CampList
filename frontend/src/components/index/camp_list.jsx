@@ -1,7 +1,5 @@
 import React from "react";
-import { Link, withRouter } from 'react-router-dom';
-import SlideSet from '../show/slideset';
-
+import { withRouter } from 'react-router-dom';
 
 class CampList extends React.Component {
   constructor(props) {
