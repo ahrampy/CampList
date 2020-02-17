@@ -45,6 +45,16 @@ class CampIndex extends React.Component {
     })
   }
 
+  handleDropDown(event) { 
+    console.log(event.target);
+    if (!event.target.matches('.dropbtn') && !event.target.matches('.checkbox-custom') && !event.target.matches('.checkbox') && !event.target.matches('.logo')) {
+      let dropdowns = document.querySelector(".dropdown-content");
+      if (dropdowns.classList.contains('show')) {
+        dropdowns.classList.remove('show');
+      }
+    } 
+  }
+
   componentDidMount() {
     this.props.fetchSites()
     this.props.fetchUsers()
@@ -63,7 +73,7 @@ class CampIndex extends React.Component {
     let { itemChecked } = this.state;
     
     return(
-      <div>
+      <div onClick={(e) => this.handleDropDown(e)}>
         <div className="index-title-holder">
           <h1>Welcome to CampList</h1>
           <br/>

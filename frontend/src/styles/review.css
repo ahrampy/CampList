@@ -7,14 +7,12 @@ textarea {
 
 .review-holder {
   margin-left: 150px;
-  margin-right: 150px;
+  margin-right: 15px;
   padding-left: 15px;
   padding-right: 15px;
   padding-top: 1rem;
   display: flex;
-  
-  /* font-family: "Calibre", Helvetica, Arial, sans-serif; */
-
+  justify-content: flex-end;
 }
 
 .review-label {
