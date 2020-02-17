@@ -10,14 +10,27 @@ class IndexMap extends React.Component {
     this.state = {
       showingInfoWindow: false,
       activeMarker: {},
-      selectedPlace: {}
+      selectedPlace: {},
+      currentPosition: {
+        lat: 0,
+        lng: 0
+      },
+      zoom: 7
     };
     this.onMarkerClick = this.onMarkerClick.bind(this)
     this.onClose = this.onClose.bind(this)
+    this.updatePosition = this.updatePosition.bind(this)
     // this.handleRoute = this.handleRoute.bind(this)
   }
 
-  onMarkerClick = (props, marker, e) => {
+  componentDidUpdate(prevProps) {
+    if (prevProps.currentPosition.lat !== this.props.currentPosition.lat ||
+      prevProps.currentPosition.lng !== this.props.currentPosition.lng) {
+        this.updatePosition(props.currentPosition))
+      }
+  }
+
+  onMarkerClick(props, marker, e){
     return (
       this.setState({
         selectedPlace: props,
@@ -27,7 +40,7 @@ class IndexMap extends React.Component {
     )
   }
 
-  onClose = props => {
+  onClose(){
     if (this.state.showingInfoWindow) {
       this.setState({
         showingInfoWindow: false,
@@ -36,18 +49,23 @@ class IndexMap extends React.Component {
     }
   };
 
+  updatePosition(position){
+    this.setState({
+      currentPosition: {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      }
+    });
+  }
+
   render() {
     
     const { sites } = this.props
-
-    let currentPosition;
+    const updatePosition = this.updatePosition
 
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
-        currentPosition = {
-          lat: position.coords.latitude,
-          lng: position.coords.longitude
-        };
+        updatePosition(position);
       });
     }
 
@@ -68,13 +86,14 @@ class IndexMap extends React.Component {
       // ];
 
     return (
+      
       <Map
         google={this.props.google}
-        zoom={7}
+        zoom={this.state.zoom}
         style={{ height: "600px", width: "100%" }}
         styles={styles}
-        initialCenter={currentPosition}
-      >
+        initialCenter={this.currentPosition}
+      >        
         {/* <Polygon
           paths={poly1}
           strokeColor="#4d2600"
