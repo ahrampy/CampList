@@ -45,17 +45,18 @@
 
 .show-mid-section {
   margin-bottom: 10px;
+  width: 100%;
   padding: 0px 15px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .site-features {
   font-size: 22px;
   width: 100%;
   padding-left: 15px;
-  width: 27%;
-  box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.2)
+  width: 100%;
 }
 
 .show-picture-wrapper {

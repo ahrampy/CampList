@@ -10,21 +10,33 @@ export default class SiteShow extends Component {
 
     this.state = {
       siteId : this.props.siteId,
-
     }
   }
+
   componentDidMount() {
     window.scrollTo(0, 0)
     this.props.fetchSite(this.props.match.params.siteId)
     this.props.fetchUsers()
+  }
 
+  handleDropDown(event) { 
+    if (!event.target.matches('.dropbtn') 
+        && !event.target.matches('.review-label') 
+        && !event.target.matches('span') 
+        && !event.target.matches('input') 
+        && !event.target.matches('.body-input')) {
+        let dropdowns = document.querySelector(".dropdown-content");
+        if (dropdowns.classList.contains('show')) {
+          dropdowns.classList.remove('show');
+      }
+    } 
   }
   
   render() {
     if (!this.props.site) return null
     const { site } = this.props
     return (
-      <div className='show-main-container'>
+      <div className='show-main-container' onClick={(e) => this.handleDropDown(e)}>
         <div className='show-detail-container'>
           <SiteDetail 
           site={site}
