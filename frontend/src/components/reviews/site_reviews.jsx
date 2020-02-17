@@ -24,6 +24,14 @@ class SiteReviews extends React.Component {
 
     return(
       <div className="review-holder">
+        
+        <div className="review-list">
+          <ReviewListContainer
+            reviews={this.props.reviews}
+            users={this.props.users}
+            siteId={this.props.siteId}
+          />
+        </div>
         <div className="filter-sidebar">
           <button onClick= {() => this.toggleReview()} className="dropbtn">Leave a Review</button>
           <div id="myDropdown" className="dropdown-content">
@@ -31,13 +39,6 @@ class SiteReviews extends React.Component {
               siteId={this.props.siteId}
             />
           </div>
-        </div>
-        <div className="review-list">
-          <ReviewListContainer
-            reviews={this.props.reviews}
-            users={this.props.users}
-            siteId={this.props.siteId}
-          />
         </div>
       </div>
     );

@@ -24,7 +24,7 @@
   justify-content: center;
   align-items: center;
   margin: 5px;
-  width: 45%;
+  width: 100%;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   border-radius: 4px;
 }

@@ -135,19 +135,7 @@ class SiteDetail extends Component {
                     Campfire
                   </div>
                 </div>
-                <br></br>
-                <div className="create-date">
-                  <div className="show-feature-label">
-                    {/* <h3>First Camper</h3> */}
-                  </div>
-                  <div className="show-feature-body">
-                    {/* <div >
-                      camped here {date}
-                    </div> */}
-                  </div>
-                </div>
-              </div>
-            
+              </div>           
             </div>
           </div>
             <div className="show-picture-wrapper">
