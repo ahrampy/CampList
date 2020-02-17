@@ -8,7 +8,6 @@ const users = require("./routes/api/users");
 const sites = require("./routes/api/sites");
 const reviews = require("./routes/api/reviews")
 const path = require('path');
-// require("dotenv").config();
 
 
 mongoose
@@ -25,7 +24,7 @@ app.use(bodyParser.json());
 app.use("/api/users", users);
 app.use("/api/sites", sites);
 app.use("/api/reviews", reviews);
-// app.use("/api/sites/:siteId/reviews", reviews)
+
 
 
 if (process.env.NODE_ENV === 'production') {

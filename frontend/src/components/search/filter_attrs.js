@@ -29,8 +29,8 @@ class FilterAttrs extends React.Component {
               <span className="checkbox-custom"></span>
               <div className="checkbox-name">
                 {
-                  attr.name === "firePit" ? <img src="fire_icon.png"/> 
-                  : <img src={`${attr.name.toLowerCase()}.png`} />
+                  attr.name === "firePit" ? <img className="logo" src="fire_icon.png"/> 
+                  : <img className="logo" src={`${attr.name.toLowerCase()}.png`} />
                 }
               </div>
             </label>
