@@ -1,5 +1,4 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom'
 import FilterAttrsContainer from '../search/filter_attrs_container';
 import MapContainer from '../maps/index_map_container';
 import CampListContainer from './camp_list_container';
