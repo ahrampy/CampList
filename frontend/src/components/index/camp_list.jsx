@@ -14,12 +14,17 @@ class CampList extends React.Component {
     this.props.history.push(path);
   }
 
+  onHover(site) {
+    this.props.hover(site)
+  }
+
   listCamps() {
     let { sites } = this.props;
+    
     return (
       <div className="camp-list-2">
         { sites.map((site, i) => 
-          <div onClick={() => this.redirect(site._id)} key={ i } className="camp-site">
+          <div onClick={() => this.redirect(site._id)} onMouseEnter={() => this.onHover(site)} key={ i } className="camp-site">
             <div className="photo-thumbnail">
               <img src={`${site.photoUrl[0].url}`} alt=""/>
             </div>

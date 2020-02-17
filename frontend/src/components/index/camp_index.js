@@ -10,12 +10,13 @@ class CampIndex extends React.Component {
     super(props);
 
     this.state = {
-      itemChecked: [],
+      itemChecked: []
     };
 
     this.handleCheck = this.handleCheck.bind(this);
     this.handleUncheck = this.handleUncheck.bind(this);
     this.handleRedirect = this.handleRedirect.bind(this);
+    this.handleHover = this.handleHover.bind(this);
   }
 
   handleCheck(attr) {
@@ -46,13 +47,18 @@ class CampIndex extends React.Component {
   }
 
   handleDropDown(event) { 
-    console.log(event.target);
     if (!event.target.matches('.dropbtn') && !event.target.matches('.checkbox-custom') && !event.target.matches('.checkbox') && !event.target.matches('.logo')) {
       let dropdowns = document.querySelector(".dropdown-content");
       if (dropdowns.classList.contains('show')) {
         dropdowns.classList.remove('show');
       }
     } 
+  }
+
+  handleHover(site) {
+    this.setState({
+      location: {lat: site.lat, lng: site.lng}
+    })
   }
 
   componentDidMount() {
@@ -70,7 +76,7 @@ class CampIndex extends React.Component {
     if (!this.props.sites.length) return null;
     
     let { attrs, sites } = this.props;
-    let { itemChecked } = this.state;
+    let { itemChecked, location } = this.state;
     
     return(
       <div onClick={(e) => this.handleDropDown(e)}>
@@ -87,11 +93,12 @@ class CampIndex extends React.Component {
             <FilterAttrsContainer
               attrs={attrs}
               onCheck={this.handleCheck}
-              unCheck={this.handleUncheck}
+              unCheck={this.handleUncheck}            
             />
             <CampListContainer
               sites={sites}
               checkedAttrs={itemChecked}
+              hover={this.handleHover}
             />
           </div>
           
@@ -99,6 +106,7 @@ class CampIndex extends React.Component {
             <MapContainer
               sites={sites}
               checkedAttrs={itemChecked}
+              location={location}
             />
           </div>
         </div>
