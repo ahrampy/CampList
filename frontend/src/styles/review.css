@@ -6,13 +6,11 @@ textarea {
 }
 
 .review-holder {
-  margin-left: 150px;
-  margin-right: 15px;
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-top: 1rem;
+  margin: 0 4em;
+  margin: 0 4em;
+  padding: 1em 2em;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-around;
 }
 
 .review-label {
@@ -38,7 +36,7 @@ textarea {
 }
 
 .review-list {
-  width: 70%;
+  width: 50%;
 }
 
 .review-form {
