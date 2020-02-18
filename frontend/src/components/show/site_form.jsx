@@ -13,12 +13,8 @@ class SiteForm extends Component {
       description: "",
       name: "",
       date: "",
-      // photoFile: null,
-      // photoUrl: [{
-      //   author: "",
-      //   site: "",
-      //   url: "https://i.imgur.com/2P06uFC.png"
-      // }],
+      photoFile: null,
+      photoUrl: "",
       fields: {
         location: null,
         trailLocation: {
@@ -86,8 +82,8 @@ class SiteForm extends Component {
       description: this.state.description,
       name: this.state.name,
       date: this.state.date,
-      // photoFile: this.state.photoFile,
-      photoUrl: [{ author: "default", site: this.state.name, url: "https://i.imgur.com/2P06uFC.png"}],
+      photoFile: this.state.photoFile,
+      photoUrl: {author: this.props.authorId, url: this.state.photoUrl},
       siteFeatures: this.state.siteFeatures
     }
     const latLng = {

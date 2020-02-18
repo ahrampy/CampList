@@ -24,7 +24,7 @@ class CampList extends React.Component {
         { sites.map((site, i) => 
           <div onClick={() => this.redirect(site._id)} onMouseEnter={() => this.onHover(site)} key={ i } className="camp-site">
             <div className="photo-thumbnail">
-              <img src={`${site.photoUrl[0].url}`} alt=""/>
+              <img src={`${site.photoUrl[0] ? site.photoUrl[0].url : "https://i.imgur.com/2P06uFC.png"}`} alt="site-photo"/>
             </div>
             <div className="site-info">
               <div className="site-name">
@@ -41,7 +41,7 @@ class CampList extends React.Component {
               </div>
             </div>
           </div>
-        )}
+          )}
       </div>
     )
   }
