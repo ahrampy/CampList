@@ -43,6 +43,10 @@ class SiteDetail extends Component {
     })
   }
 
+  toggleLink() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+
   render() {
     const {
       author, name, date, description, _id, photoUrl, lat, lng
@@ -78,8 +82,10 @@ class SiteDetail extends Component {
             <div className="show-title-bar">
               <div className="show-name">
                 {name}
-              </div>
-              founded by: {this.props.siteAuthor.username} ({date})             
+              </div>            
+            </div>
+            <div className="show-founder">
+              founded by: {this.props.siteAuthor.username} ({date}) 
             </div>
             <div className="show-description">
               <div>

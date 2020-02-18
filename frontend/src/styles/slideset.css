@@ -71,12 +71,14 @@
 
 .photo-input {
   display: flex;
-  justify-content: space-between;
-  margin: 15px 19px 0 19px;
+  justify-content: center;
+  margin: 5% 5%;
+  /* margin: 15px 19px 0 19px; */
 }
 
 .photo-input input {
   width: 100%;
+  max-width: 250px;
 }
 
 .photo-input > p {
