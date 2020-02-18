@@ -1,5 +1,5 @@
-import React from 'react';
-import { withRouter } from 'react-router-dom';
+import React from "react";
+import { withRouter } from "react-router-dom";
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -44,8 +44,7 @@ class LoginForm extends React.Component {
   handleDemo(e) {
     e.preventDefault();
     this.setState({ email: "camper@demo.com", password: "password" });
-    this.props
-      .login({ email: "camper@demo.com", password: "password" });
+    this.props.login({ email: "camper@demo.com", password: "password" });
   }
 
   renderErrors() {

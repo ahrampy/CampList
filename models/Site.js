@@ -1,17 +1,17 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const SiteSchema = new Schema({
   author: {
     type: Schema.Types.ObjectId,
-    ref: 'users'
+    ref: "users"
   },
   name: {
     type: String,
     required: true
   },
   date: {
-    type: String,
+    type: String
     // default: Date.now
   },
   photoUrl: {
@@ -35,47 +35,46 @@ const SiteSchema = new Schema({
   },
   plng: {
     type: String,
-    required: false,
+    required: false
   },
   tlat: {
     type: String,
-    required: false,
+    required: false
   },
   tlng: {
     type: String,
-    required: false,
+    required: false
   },
   distanceToNearCity: {
     type: Number,
-    required: false,
+    required: false
   },
   review: {
     type: Schema.Types.ObjectId,
-    ref: 'reviews'
+    ref: "reviews"
   },
   siteFeatures: {
     parking: {
       type: Boolean,
-      default: false,
+      default: false
     },
     fishing: {
       type: Boolean,
-      default: false,
+      default: false
     },
     hiking: {
       type: Boolean,
-      default: false,
+      default: false
     },
     firePit: {
       type: Boolean,
-      default: false,
+      default: false
     },
     swimming: {
       type: Boolean,
       default: false
     }
   }
-  
 });
 
-module.exports = Site = mongoose.model('site', SiteSchema);
+module.exports = Site = mongoose.model("site", SiteSchema);

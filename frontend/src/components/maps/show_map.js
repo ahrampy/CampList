@@ -78,7 +78,6 @@ class ShowMap extends React.Component {
   //         });
   //     }
 
-  
   render() {
     const { _id, name, lat, lng, tlat, tlng, plat, plng } = this.props.site;
 
@@ -127,8 +126,7 @@ class ShowMap extends React.Component {
               <h4>{this.state.selectedTag.type}</h4>
               {/* <button onClick={this.calcRoute()}>Directions</button> */}
               <h4>
-
-              {/* <form
+                {/* <form
                 action="http://maps.google.com/maps"
                 method="get"
               >
@@ -157,7 +155,7 @@ class ShowMap extends React.Component {
                   value="Get Directions"
                 />
               </form> */}
-            </h4>
+              </h4>
             </div>
           </InfoWindow>
         </Map>

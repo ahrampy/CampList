@@ -1,10 +1,6 @@
-import {
-  RECEIVE_SITES,
-  RECEIVE_SITE
-} from '../actions/site_actions';
+import { RECEIVE_SITES, RECEIVE_SITE } from "../actions/site_actions";
 
 const SitesReducer = (state = {}, action) => {
-  
   Object.freeze(state);
   let newState = Object.assign({}, state);
   switch (action.type) {
@@ -16,6 +12,6 @@ const SitesReducer = (state = {}, action) => {
     default:
       return state;
   }
-}
+};
 
 export default SitesReducer;

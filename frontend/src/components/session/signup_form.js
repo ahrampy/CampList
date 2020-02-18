@@ -1,14 +1,14 @@
-import React from 'react';
-import { withRouter } from 'react-router-dom';
+import React from "react";
+import { withRouter } from "react-router-dom";
 
 class SignupForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: '',
-      email: '',
-      password: '',
-      password2: '',
+      username: "",
+      email: "",
+      password: "",
+      password2: "",
       errors: {}
     };
 
@@ -21,13 +21,14 @@ class SignupForm extends React.Component {
       this.props.closeModal();
     }
 
-    this.setState({errors: nextProps.errors})
+    this.setState({ errors: nextProps.errors });
   }
 
   update(field) {
-    return e => this.setState({
-      [field]: e.currentTarget.value
-    });
+    return e =>
+      this.setState({
+        [field]: e.currentTarget.value
+      });
   }
 
   handleSubmit(e) {
@@ -39,16 +40,14 @@ class SignupForm extends React.Component {
       password2: this.state.password2
     };
 
-    this.props.signup(user)
+    this.props.signup(user);
   }
 
   renderErrors() {
-    return(
+    return (
       <ul>
         {Object.keys(this.state.errors).map((error, i) => (
-          <li key={`error-${i}`}>
-            {this.state.errors[error]}
-          </li>
+          <li key={`error-${i}`}>{this.state.errors[error]}</li>
         ))}
       </ul>
     );

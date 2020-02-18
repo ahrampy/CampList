@@ -1,14 +1,14 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const ReviewSchema = new Schema({
   author: {
     type: Schema.Types.ObjectId,
-    ref: 'users'
+    ref: "users"
   },
   site: {
     type: Schema.Types.ObjectId,
-    ref: 'sites'
+    ref: "sites"
   },
   body: {
     type: String,
@@ -16,7 +16,7 @@ const ReviewSchema = new Schema({
   },
   rating: {
     type: String,
-    default: '5'
+    default: "5"
   },
   upvotes: {
     type: Array
@@ -24,6 +24,6 @@ const ReviewSchema = new Schema({
   downvotes: {
     type: Array
   }
-})
+});
 
-module.exports = Site = mongoose.model('review', ReviewSchema);
+module.exports = Site = mongoose.model("review", ReviewSchema);

@@ -9,5 +9,4 @@
 //   }
 // }
 
-
 // export default connect(mSTP)(SearchBar);

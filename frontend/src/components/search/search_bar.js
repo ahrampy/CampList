@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -6,7 +6,7 @@ class SearchBar extends React.Component {
 
     this.state = {
       potentials: [],
-      text: ''
+      text: ""
     };
 
     this.handleOnChange = this.handleOnChange.bind(this);
@@ -17,20 +17,20 @@ class SearchBar extends React.Component {
   handleOnChange(e) {
     const value = e.target.value;
     let potentials = [];
-    if (value) { 
-      let reg = new RegExp(`^${value}`, 'i');
-      potentials = this.items.sort().filter(v => reg.test(v))
-      return this.setState({ potentials, text: value })
+    if (value) {
+      let reg = new RegExp(`^${value}`, "i");
+      potentials = this.items.sort().filter(v => reg.test(v));
+      return this.setState({ potentials, text: value });
     }
   }
 
   // sets the state of the text field to the value
   // trigger possible search event?
   handleOnClick(value) {
-    this.setState({ 
+    this.setState({
       text: value,
       potentials: []
-    })
+    });
   }
 
   // renders the list of potentials as well
@@ -39,15 +39,17 @@ class SearchBar extends React.Component {
     const { potentials } = this.state;
     if (potentials.length === 0) {
       return null;
-    } 
+    }
     return (
-      <ul className="suggested-list">         
-        {potentials.map(potential => 
-          <li className="suggested-list-item" 
-            onClick={() => this.handleOnClick(potential)}>
-              {potential}
+      <ul className="suggested-list">
+        {potentials.map(potential => (
+          <li
+            className="suggested-list-item"
+            onClick={() => this.handleOnClick(potential)}
+          >
+            {potential}
           </li>
-        )} 
+        ))}
       </ul>
     );
   }
@@ -61,7 +63,7 @@ class SearchBar extends React.Component {
           onChange={this.handleOnChange}
         />
         {this.renderPotentials()}
-        <button className="search-submit" type="submit"/>
+        <button className="search-submit" type="submit" />
       </div>
     );
   }
