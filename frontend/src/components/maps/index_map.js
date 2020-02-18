@@ -36,7 +36,6 @@ class IndexMap extends React.Component {
       this.setState({ zoom: 7 });
       setTimeout(() => this.setState({ zoom: 10 }), 1000);
     } else if (prevProps.sites !== this.props.sites) {
-      console.log("hit");
       this.setState({ zoom: 7 });
     }
   }
