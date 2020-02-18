@@ -45,9 +45,10 @@ class ReviewForm extends React.Component {
   }
 
   render() {
+    let label = this.props.formType === "Update Review" ? this.props.formType : ""
     return(
       <form onSubmit={this.handleSubmit} className="review-form">
-        <p className="review-label">{this.props.formType}</p>
+        <p className="review-label">{label}</p>
         <div className="rating-container">      
           <div className="rate">
 
