@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
-import FooterNav from '../nav/footer_nav';
-import { throws } from 'assert';
+import FooterNav from "../nav/footer_nav";
+import { throws } from "assert";
 
 const mapKey = process.env.REACT_APP_MAP_API;
 const styles = require("../maps/GoogleMapStyles.json");
@@ -37,9 +37,9 @@ class EditSiteFormDetail extends Component {
         fishing: this.props.site.siteFeatures.fishing,
         firePit: this.props.site.siteFeatures.firePit,
         hiking: this.props.site.siteFeatures.hiking,
-        swimming: this.props.site.siteFeatures.swimming,
+        swimming: this.props.site.siteFeatures.swimming
       }
-    }
+    };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
@@ -47,13 +47,14 @@ class EditSiteFormDetail extends Component {
   }
 
   handleInput(type) {
-    return e => this.setState({
-      [type]: e.target.value
-    });
-  };
+    return e =>
+      this.setState({
+        [type]: e.target.value
+      });
+  }
 
   handleOpenModal() {
-    this.props.openModal('login');
+    this.props.openModal("login");
   }
 
   // handleFile(e) {
@@ -69,12 +70,11 @@ class EditSiteFormDetail extends Component {
 
   handleCheck(type) {
     return e => {
-      let newSiteFeatures = Object.assign({}, this.state.siteFeatures)
+      let newSiteFeatures = Object.assign({}, this.state.siteFeatures);
 
-
-      newSiteFeatures[type] = !this.state.siteFeatures[type]
-      this.setState({ siteFeatures: newSiteFeatures })
-    }
+      newSiteFeatures[type] = !this.state.siteFeatures[type];
+      this.setState({ siteFeatures: newSiteFeatures });
+    };
   }
 
   // handleOpenModal() {
@@ -92,40 +92,50 @@ class EditSiteFormDetail extends Component {
       name: this.state.name,
       date: this.state.date,
       photoFile: this.state.photoFile,
-      photoUrl: {author: this.props.site.author, site: this.props.site._id, url: 'https://i.imgur.com/YBPxRX5.jpg'},
+      photoUrl: {
+        author: this.props.site.author,
+        site: this.props.site._id,
+        url: "https://i.imgur.com/YBPxRX5.jpg"
+      },
       siteFeatures: this.state.siteFeatures
-    }
+    };
+
     let latLng;
     if (typeof this.state.fields.location.lat === "string") {
       latLng = {
         lat: this.state.fields.location.lat,
         lng: this.state.fields.location.lng
-      }
+      };
     } else {
       latLng = {
         lat: this.state.fields.location.lat().toString(),
         lng: this.state.fields.location.lng().toString()
       };
     }
+
     let tlatLng;
-    if (typeof this.state.fields.trailLocation.lat === "string") {
+    if (!this.state.fields.trailLocation.lat) {
+      tlatLng = {};
+    } else if (typeof this.state.fields.trailLocation.lat === "string") {
       tlatLng = {
         tlat: this.state.fields.trailLocation.lat,
         tlng: this.state.fields.trailLocation.lng
-      }
+      };
     } else {
       tlatLng = {
         tlat: this.state.fields.trailLocation.lat().toString(),
         tlng: this.state.fields.trailLocation.lng().toString()
       };
     }
-    
+
     let platLng;
-    if (typeof this.state.fields.parkingLocation.lat === "string") {
+    if (!this.state.fields.parkingLocation.lat) {
+      platLng = {};
+    } else if (typeof this.state.fields.parkingLocation.lat === "string") {
       platLng = {
         plat: this.state.fields.parkingLocation.lat,
         plng: this.state.fields.parkingLocation.lng
-      }
+      };
     } else {
       platLng = {
         plat: this.state.fields.parkingLocation.lat().toString(),
@@ -134,9 +144,10 @@ class EditSiteFormDetail extends Component {
     }
 
     const site = Object.assign({}, input, latLng, tlatLng, platLng);
-    this.props.editSite(site)
+    this.props
+      .editSite(site)
       // .then(() => this.props.history.push('/campsites'))
-      .then(() => this.props.history.goBack())
+      .then(() => this.props.history.goBack());
   }
 
   // async componentDidMount() {
@@ -201,16 +212,16 @@ class EditSiteFormDetail extends Component {
       }
     }));
     map.panTo(parkingLocation);
-    this.setState({ mapClicked: true })
+    this.setState({ mapClicked: true });
   };
 
   render() {
-    if (!this.props.site) return null
+    if (!this.props.site) return null;
 
     let currentCampPosition = {
       lat: this.props.site.lat,
       lng: this.props.site.lng
-    }
+    };
 
     let hikingMap = this.state.siteFeatures.hiking ? (
       <div className="site-form-map-container">
@@ -224,9 +235,7 @@ class EditSiteFormDetail extends Component {
             position: "relative"
           }}
           styles={styles}
-          initialCenter={
-            currentCampPosition
-          }
+          initialCenter={currentCampPosition}
           onClick={(t, map, c) => this.addTrailMarker(c.latLng, map)}
         >
           <Marker position={this.state.fields.location} icon={"/marker.png"} />
@@ -250,9 +259,7 @@ class EditSiteFormDetail extends Component {
             position: "relative"
           }}
           styles={styles}
-          initialCenter={ 
-            currentCampPosition 
-          }
+          initialCenter={currentCampPosition}
           onClick={(t, map, c) => this.addParkingMarker(c.latLng, map)}
         >
           <Marker position={this.state.fields.location} icon={"/marker.png"} />
@@ -267,7 +274,7 @@ class EditSiteFormDetail extends Component {
         </Map>
       </div>
     ) : null;
-    
+
     return (
       <div>
         <div className="site-form-container">
@@ -377,8 +384,7 @@ class EditSiteFormDetail extends Component {
                 </div>
                 {hikingMap}
               </div>
-              <div>
-              </div>
+              <div></div>
               <div className="site-form-section-wrapper">
                 <h2>What features does the campsite have?</h2>
                 <div className="site-form-feature">
@@ -414,7 +420,7 @@ class EditSiteFormDetail extends Component {
         </div>
         <FooterNav />
       </div>
-    )
+    );
   }
 }
 
