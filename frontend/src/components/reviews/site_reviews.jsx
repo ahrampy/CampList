@@ -34,7 +34,7 @@ class SiteReviews extends React.Component {
           <button onClick={() => this.toggleReview()} className="dropbtn">
             Leave a Review
           </button>
-          <div id="myDropdown" className="dropdown-content">
+          <div id="myDropdown" className="dropdown-content review-dropdown">
             <ReviewFormContainer siteId={this.props.siteId} />
           </div>
         </div>
