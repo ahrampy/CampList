@@ -11,7 +11,7 @@
 }
 
 .nav-buttons {
-    margin: 10px;
+    margin: 10px 3em;
     padding: 15px;
     height: 20px;
 }
@@ -45,7 +45,7 @@
 }
 
 .nav-home-container {
-    margin: 24px 10px 10px 20px;
+    margin: 24px 10px 10px 3em;
     padding: 15px;
     height: 20px;
 }
