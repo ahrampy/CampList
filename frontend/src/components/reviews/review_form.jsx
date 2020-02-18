@@ -1,27 +1,26 @@
-import React from 'react';
-import { withRouter } from 'react-router-dom';
+import React from "react";
+import { withRouter } from "react-router-dom";
 class ReviewForm extends React.Component {
-
   constructor(props) {
-    super(props)
+    super(props);
 
-    this.state = this.props.review
+    this.state = this.props.review;
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   update(field) {
-    return e => this.setState({ [field]: e.target.value })
+    return e => this.setState({ [field]: e.target.value });
   }
 
   dispatchOpenModal() {
-    this.props.openModal('login')
+    this.props.openModal("login");
   }
 
   handleSubmit(e) {
-    e.preventDefault()
-    
-    if (this.props.formType !== 'Update Review' && !this.props.authorId) {
-      return this.dispatchOpenModal()
+    e.preventDefault();
+
+    if (this.props.formType !== "Update Review" && !this.props.authorId) {
+      return this.dispatchOpenModal();
     }
 
     let review = {
@@ -29,55 +28,80 @@ class ReviewForm extends React.Component {
       body: this.state.body,
       rating: this.state.rating,
       author: this.props.authorId
-    }
+    };
 
-    if (this.props.formType === 'Update Review') {
-      review = { ...review, ...{id: this.props.match.params.reviewId}}
+    if (this.props.formType === "Update Review") {
+      review = { ...review, ...{ id: this.props.match.params.reviewId } };
     }
-    this.props.submitReview(review)
-    if (this.props.formType === 'Update Review') {
-      this.props.history.goBack()
+    this.props.submitReview(review);
+    if (this.props.formType === "Update Review") {
+      this.props.history.goBack();
     }
     this.setState({
-      body: '',
-      rating: '5'
-    })
+      body: "",
+      rating: "5"
+    });
   }
 
   render() {
-    let label = this.props.formType === "Update Review" ? this.props.formType : ""
-    return(
+    let label =
+      this.props.formType === "Update Review" ? this.props.formType : "";
+    return (
       <form onSubmit={this.handleSubmit} className="review-form">
         <p className="review-label">{label}</p>
-        <div className="rating-container">      
+        <div className="rating-container">
           <div className="rate">
-
             <span>Rating: 5</span>
-            <input type="radio" id="5" name="drone" value="5"
-            onChange={this.update("rating")}/> 
+            <input
+              type="radio"
+              id="5"
+              name="drone"
+              value="5"
+              onChange={this.update("rating")}
+            />
           </div>
           <div className="rate">
             <span>4</span>
-            <input type="radio" id="4" name="drone" value="4"
-              onChange={this.update("rating")}/>                 
-          </div>             
+            <input
+              type="radio"
+              id="4"
+              name="drone"
+              value="4"
+              onChange={this.update("rating")}
+            />
+          </div>
           <div className="rate">
             <span>3</span>
-            <input type="radio" id="3" name="drone" value="3"
-              onChange={this.update("rating")}/>                  
-          </div>             
+            <input
+              type="radio"
+              id="3"
+              name="drone"
+              value="3"
+              onChange={this.update("rating")}
+            />
+          </div>
           <div className="rate">
             <span>2</span>
-            <input type="radio" id="2" name="drone" value="2"
-              onChange={this.update("rating")}/>                 
-          </div>             
+            <input
+              type="radio"
+              id="2"
+              name="drone"
+              value="2"
+              onChange={this.update("rating")}
+            />
+          </div>
           <div className="rate">
             <span>1</span>
-            <input type="radio" id="1" name="drone" value="1"
-              onChange={this.update("rating")}/>
-          </div>                         
+            <input
+              type="radio"
+              id="1"
+              name="drone"
+              value="1"
+              onChange={this.update("rating")}
+            />
+          </div>
         </div>
-        <div className="body-container">      
+        <div className="body-container">
           <textarea
             className="body-input"
             placeholder="Tell us about your stay"
@@ -85,13 +109,15 @@ class ReviewForm extends React.Component {
             cols="31"
             value={this.state.body}
             onChange={this.update("body")}
-          />           
+          />
         </div>
         <div className="submit-btn">
-            <button type="submit" className="btn">Submit</button>
-          </div>
+          <button type="submit" className="btn">
+            Submit
+          </button>
+        </div>
       </form>
-    )
+    );
   }
 }
 export default withRouter(ReviewForm);

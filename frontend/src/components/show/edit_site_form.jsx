@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
-import EditSiteFormDetail from './edit_site_form_detail';
+import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
+import EditSiteFormDetail from "./edit_site_form_detail";
 
 class EditSiteForm extends Component {
   componentDidMount() {
@@ -8,8 +8,8 @@ class EditSiteForm extends Component {
   }
 
   render() {
-    if (!this.props.site) return null
-    
+    if (!this.props.site) return null;
+
     return (
       <div>
         <EditSiteFormDetail
@@ -18,8 +18,8 @@ class EditSiteForm extends Component {
           openModal={this.props.openModal}
         />
       </div>
-    )
+    );
   }
 }
 
-export default withRouter(EditSiteForm)
+export default withRouter(EditSiteForm);

@@ -1,10 +1,10 @@
 import React from "react";
-import { withRouter } from 'react-router-dom';
+import { withRouter } from "react-router-dom";
 
 class CampList extends React.Component {
   constructor(props) {
     super(props);
-    this.redirect = this.redirect.bind(this)
+    this.redirect = this.redirect.bind(this);
   }
 
   redirect(id) {
@@ -13,45 +13,51 @@ class CampList extends React.Component {
   }
 
   onHover(site) {
-    this.props.hover(site)
+    this.props.hover(site);
   }
 
   listCamps() {
     let { sites } = this.props;
-    
+
     return (
       <div className="camp-list-2">
-        { sites.map((site, i) => 
-          <div onClick={() => this.redirect(site._id)} onMouseEnter={() => this.onHover(site)} key={ i } className="camp-site">
+        {sites.map((site, i) => (
+          <div
+            onClick={() => this.redirect(site._id)}
+            onMouseEnter={() => this.onHover(site)}
+            key={i}
+            className="camp-site"
+          >
             <div className="photo-thumbnail">
-              <img src={`${site.photoUrl[0] ? site.photoUrl[0].url : "https://i.imgur.com/2P06uFC.png"}`} alt="site-photo"/>
+              <img
+                src={`${
+                  site.photoUrl[0]
+                    ? site.photoUrl[0].url
+                    : "https://i.imgur.com/2P06uFC.png"
+                }`}
+                alt="site-photo"
+              />
             </div>
             <div className="site-info">
-              <div className="site-name">
-                {site.name}
-              </div>
+              <div className="site-name">{site.name}</div>
               <div className="site-amenities">
-                { Object.keys(site.siteFeatures).map((key, i) => {
-                  if (site.siteFeatures[key] && key === 'firePit') {
-                    return <img key={i} src="fire_icon.png" alt=""/>
+                {Object.keys(site.siteFeatures).map((key, i) => {
+                  if (site.siteFeatures[key] && key === "firePit") {
+                    return <img key={i} src="fire_icon.png" alt="" />;
                   } else if (site.siteFeatures[key]) {
-                    return <img key={i} src={`${key}.png`} alt=""/>
-                  } 
+                    return <img key={i} src={`${key}.png`} alt="" />;
+                  }
                 })}
               </div>
             </div>
           </div>
-          )}
+        ))}
       </div>
-    )
+    );
   }
 
   render() {
-    return(
-      <div className="camp-list">
-        {this.listCamps()} 
-      </div>
-    )
+    return <div className="camp-list">{this.listCamps()}</div>;
   }
 }
 

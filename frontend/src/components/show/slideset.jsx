@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 
 class SlideSet extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
 
-    this.state = { 
+    this.state = {
       currentImageIndex: 0
     };
 
@@ -35,19 +35,18 @@ class SlideSet extends React.Component {
   }
 
   render() {
-
     return (
       <div className="slideset">
-        <div className="left-arrow"> 
-          <Arrow 
+        <div className="left-arrow">
+          <Arrow
             direction="left"
-            clickFunction={ this.previousSlide }
+            clickFunction={this.previousSlide}
             glyph="&#9664;"
           />
         </div>
 
         <div className="slideset-img-container">
-          <ImageSlide url={ this.props.imgUrls[this.state.currentImageIndex] } />
+          <ImageSlide url={this.props.imgUrls[this.state.currentImageIndex]} />
         </div>
 
         <div className="right-arrow">
@@ -63,24 +62,17 @@ class SlideSet extends React.Component {
 }
 
 const ImageSlide = ({ url }) => {
-
   return (
-    <div className="image-slide" >
-      <img className="home-photo2" src={`${url}`} alt=""/>
+    <div className="image-slide">
+      <img className="home-photo2" src={`${url}`} alt="" />
     </div>
-  )
-}
+  );
+};
 
 const Arrow = ({ direction, clickFunction, glyph }) => (
-  <div
-    className={`slide-arrow ${direction}`}
-    onClick={clickFunction}
-  >
+  <div className={`slide-arrow ${direction}`} onClick={clickFunction}>
     {glyph}
   </div>
-)
+);
 
-
-
-
-export default SlideSet
+export default SlideSet;
