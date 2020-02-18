@@ -28,16 +28,13 @@ class IndexMap extends React.Component {
     this.updatePosition = this.updatePosition.bind(this);
   }
 
-  componentDidUpdate(prevProps) {    
+  componentDidUpdate(prevProps) {
     if (
       prevProps.currentPosition &&
       prevProps.currentPosition.lat !== this.props.currentPosition.lat
     ) {
-      // if (this.state.zoom === 7) {
-      //   this.setState({ zoom: 10 });
-      // } else {
-        this.setState({ zoom: 7 });
-        setTimeout(() => this.setState({ zoom: 10 }), 1000);
+      this.setState({ zoom: 7 });
+      setTimeout(() => this.setState({ zoom: 10 }), 1000);
     } else if (prevProps.sites !== this.props.sites) {
       console.log("hit");
       this.setState({ zoom: 7 });
