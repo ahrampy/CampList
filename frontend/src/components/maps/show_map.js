@@ -86,7 +86,7 @@ class ShowMap extends React.Component {
       <div>
         <Map
           google={this.props.google}
-          zoom={14}
+          zoom={12}
           style={{ height: "400px", width: "100%" }}
           styles={styles}
           initialCenter={{
