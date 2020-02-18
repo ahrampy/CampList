@@ -1,30 +1,28 @@
-import React from 'react';
-import ReviewListContainer from './review_list_container';
-import ReviewFormContainer from './review_form_container';
+import React from "react";
+import ReviewListContainer from "./review_list_container";
+import ReviewFormContainer from "./review_form_container";
 
 class SiteReviews extends React.Component {
-
   constructor(props) {
-    super(props)
+    super(props);
   }
 
   componentDidMount() {
     this.props.fetchSiteReviews(this.props.siteId);
     if (!this.props.users) {
-      this.props.fetchUsers()
+      this.props.fetchUsers();
     }
   }
 
   toggleReview() {
     document.getElementById("myDropdown").classList.toggle("show");
   }
-  
-  render() {
-    if (!this.props.reviews) return null
 
-    return(
+  render() {
+    if (!this.props.reviews) return null;
+
+    return (
       <div className="review-holder">
-        
         <div className="review-list">
           <ReviewListContainer
             reviews={this.props.reviews}
@@ -33,11 +31,11 @@ class SiteReviews extends React.Component {
           />
         </div>
         <div className="filter-sidebar">
-          <button onClick= {() => this.toggleReview()} className="dropbtn">Leave a Review</button>
+          <button onClick={() => this.toggleReview()} className="dropbtn">
+            Leave a Review
+          </button>
           <div id="myDropdown" className="dropdown-content">
-            <ReviewFormContainer
-              siteId={this.props.siteId}
-            />
+            <ReviewFormContainer siteId={this.props.siteId} />
           </div>
         </div>
       </div>
